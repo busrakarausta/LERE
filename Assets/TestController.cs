@@ -16,6 +16,6 @@ public class TestController : MonoBehaviour
         else
         {
             Debug.Log("wrong");
-            obj.GetComponent<Color.>
         }
+    }
 }
