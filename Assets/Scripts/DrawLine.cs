@@ -15,7 +15,6 @@ public class DrawLine : MonoBehaviour
     }
     void OnPostRender()
     {
-        Debug.Log("şfl");
         if (!mat)
         {
             Debug.LogError("Please Assign a material on the inspector");
