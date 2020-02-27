@@ -191,7 +191,7 @@ public class WritingHandler : MonoBehaviour
         {
             return;//skip the next
         }
-
+        
         Debug.Log(letters.Length);
 
         //get the tracing parts of the current letter

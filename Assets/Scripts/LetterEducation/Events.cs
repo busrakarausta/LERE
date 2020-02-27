@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 /// Implement your game events in this script
 public class Events : MonoBehaviour
@@ -44,6 +45,7 @@ public class Events : MonoBehaviour
         }
         WritingHandler.currentLetterIndex = int.Parse(ob.name.Split('-')[1]);
         Application.LoadLevel("AlphabetWriting");
+        // SceneManager.LoadScene("AlphabetWriting");
     }
 
     //Erase the current letter
@@ -54,12 +56,13 @@ public class Events : MonoBehaviour
             return;
         }
         writingHandler.RefreshProcess();
-
     }
 
     //Load alphabet menu
     public void LoadAlphabetMenu(Object ob)
     {
         Application.LoadLevel("AlphabetMenu");
+        // SceneManager.LoadScene("AlphabetMenu");
+
     }
 }

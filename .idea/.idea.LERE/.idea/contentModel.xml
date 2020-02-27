@@ -22,6 +22,16 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="DrawLine.cs" t="Include" />
+          <e p="Games" t="Include">
+            <e p="A-AppleGame" t="Include">
+              <e p="AppleManager.cs" t="Include" />
+              <e p="BasketController.cs" t="Include" />
+              <e p="InputController.cs" t="Include" />
+            </e>
+            <e p="B-BalloonGame" t="Include">
+              <e p="BalloonInputController.cs" t="Include" />
+            </e>
+          </e>
           <e p="LetterEducation" t="Include">
             <e p="Button.cs" t="Include" />
             <e p="Events.cs" t="Include" />

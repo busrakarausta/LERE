@@ -17,16 +17,6 @@ public class PlatformChecker : MonoBehaviour
         return Application.platform == RuntimePlatform.IPhonePlayer;
     }
 
-    public static bool IsWindows()
-    {
-        return Application.platform == RuntimePlatform.WindowsPlayer;
-    }
-
-    public static bool isFlash()
-    {
-        return Application.platform == RuntimePlatform.FlashPlayer;
-    }
-
     public static bool IsWindowsEditor()
     {
         return Application.platform == RuntimePlatform.WindowsEditor;

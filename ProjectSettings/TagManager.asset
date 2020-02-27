@@ -10,6 +10,8 @@ TagManager:
   - LineRenderer
   - CirclePoint
   - UIButton
+  - Basket
+  - apple
   layers:
   - Default
   - TransparentFX
