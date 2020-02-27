@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -191,7 +191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &67480215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,10 +205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letters: []
-  lineRendererPrefab: {fileID: 8561110733683715733, guid: b862a696bd8d4bc478de3f67ec27cbee,
-    type: 3}
-  circlePointPrefab: {fileID: 5763958517490151016, guid: 50053246f1b3f3042a07be507bf2ee70,
-    type: 3}
+  lineRendererPrefab: {fileID: 100000, guid: faa1281afd0a445358fc770206e547f8, type: 3}
+  circlePointPrefab: {fileID: 100000, guid: 29aff44658154ea42a0a19bd8ebacab9, type: 3}
   drawingMaterial: {fileID: 2100000, guid: d47efde151884cd41a8eddbd2a52e39d, type: 2}
   hand: {fileID: 0}
   showCursor: 1
@@ -311,7 +309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &233427227
 Light:
   m_ObjectHideFlags: 0
@@ -362,7 +360,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &334577008
 GameObject:
@@ -5380,6 +5378,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 0a0fc5a46d00eec4bb12bf74de68f252, type: 3}
+      propertyPath: succeded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 0a0fc5a46d00eec4bb12bf74de68f252, type: 3}
+      propertyPath: succeded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400006, guid: 0a0fc5a46d00eec4bb12bf74de68f252, type: 3}
+      propertyPath: succeded
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0fc5a46d00eec4bb12bf74de68f252, type: 3}
 --- !u!1 &958469604
@@ -5681,7 +5691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a17ef685565c1443945dde11e629b64, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6a17ef685565c1443945dde11e629b64, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5695,6 +5705,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 6a17ef685565c1443945dde11e629b64, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3c726af9eb58c8e49be5237715850f4b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a17ef685565c1443945dde11e629b64, type: 3}
 --- !u!1 &1359878824
@@ -5993,7 +6008,7 @@ RectTransform:
   m_Children:
   - {fileID: 1384376932}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6074,13 +6089,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   letters:
   - {fileID: 492439170}
-  lineRendererPrefab: {fileID: 8561110733683715733, guid: b862a696bd8d4bc478de3f67ec27cbee,
-    type: 3}
-  circlePointPrefab: {fileID: 5763958517490151016, guid: 50053246f1b3f3042a07be507bf2ee70,
-    type: 3}
-  drawingMaterial: {fileID: 2100000, guid: d47efde151884cd41a8eddbd2a52e39d, type: 2}
+  lineRendererPrefab: {fileID: 100000, guid: faa1281afd0a445358fc770206e547f8, type: 3}
+  circlePointPrefab: {fileID: 100000, guid: 29aff44658154ea42a0a19bd8ebacab9, type: 3}
+  drawingMaterial: {fileID: 2100000, guid: 86f3b4d2d99894f8497c575cfde3983d, type: 2}
   hand: {fileID: 61659204}
-  showCursor: 0
+  showCursor: 1
   cheeringSound: {fileID: 8300000, guid: ee03243c7a310cf4681df0c3a6932467, type: 3}
   positiveSound: {fileID: 8300000, guid: cf8306a9d20c78642821732487f859c6, type: 3}
   wrongSound: {fileID: 8300000, guid: 24c5ed1fdfcebb04fbe25c78fed2d189, type: 3}

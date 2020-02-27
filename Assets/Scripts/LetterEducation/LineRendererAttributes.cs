@@ -10,49 +10,44 @@ public class LineRendererAttributes : MonoBehaviour
     public Material material;//the material of the line
     public Color[] colors;//the colors set used to select a random color for the line
 
-    void Start()
+    void Start ()
     {
         //Create a new material if the current material is null
-        if (material == null)
-        {
-            material = new Material(Shader.Find("Sprites/Default"));
+        if (material == null) {
+            material = new Material (Shader.Find ("Sprites/Default"));
             material.color = Color.red;
         }
 
-        GetComponent<LineRenderer>().material = material;//set the line material
+        GetComponent<LineRenderer> ().material = material;//set the line material
 
         //initiate the list of points
-        points = new List<Vector3>();
+        points = new List<Vector3> ();
     }
 
     //Set a random color
-    public void SetRandomColor()
+    public void SetRandomColor ()
     {
-        if (colors == null)
-        {
+        if (colors == null) {
             return;
         }
 
-        if (material == null)
-        {
+        if (material == null) {
             return;
         }
 
-        material.color = colors[Random.Range(0, colors.Length)];
+        material.color = colors [Random.Range (0, colors.Length)];
     }
 
     //Property for the number of points
-    public int NumberOfPoints
-    {
-        get { return this.numberOfPoints; }
-        set { this.numberOfPoints = value; }
+    public int NumberOfPoints {
+        get{ return this.numberOfPoints;}
+        set{ this.numberOfPoints = value;}
     }
 
     //Property for the points list
-    public List<Vector3> Points
-    {
-        get { return this.points; }
-        set { this.points = value; }
+    public List<Vector3> Points {
+        get{ return this.points;}
+        set{ this.points = value;}
     }
 
 }

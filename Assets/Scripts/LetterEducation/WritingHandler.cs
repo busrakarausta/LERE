@@ -194,7 +194,8 @@ public class WritingHandler : MonoBehaviour
 
         Debug.Log(letters.Length);
 
-        TracingPart[] tracingParts = letters[currentLetterIndex].GetComponents<TracingPart>();//get the tracing parts of the current letter
+        //get the tracing parts of the current letter
+        TracingPart[] tracingParts = letters[currentLetterIndex].GetComponents<TracingPart>();
         bool equivfound = false;//whether a matching or equivalent tracing part found
         if (!clickBeganOrMovedOutOfLetterArea)
         {
@@ -248,7 +249,8 @@ public class WritingHandler : MonoBehaviour
         previousPosition = Vector2.zero;//reset previous position
         currentTracingPoints.Clear();//clear record of indexed
         previousTracingPointIndex = 0;//reset previous selected Index(index as point id)
-        CheckLetterDone();//check if the entier letter is written successfully or done
+        CheckLetterDone();
+        //check if the entier letter is written successfully or done
         if (letterDone)
         {//if the current letter done or wirrten successfully
             if (cheeringSound != null)
