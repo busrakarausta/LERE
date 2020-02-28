@@ -12,6 +12,8 @@ TagManager:
   - UIButton
   - Basket
   - apple
+  - Child
+  - Tomato
   layers:
   - Default
   - TransparentFX
@@ -21,8 +23,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Basket
+  - Tomato
   - 
   - 
   - 
@@ -48,4 +50,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tomato
+    uniqueID: 2400330065
+    locked: 0
+  - name: Basket
+    uniqueID: 2955366659
     locked: 0

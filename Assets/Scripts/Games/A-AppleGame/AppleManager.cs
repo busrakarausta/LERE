@@ -19,7 +19,6 @@ public class AppleManager : MonoBehaviour
         {
             isApplePosChanged = false;
             return currentApplePos;
-
         }
         else
             return basketPos.position;

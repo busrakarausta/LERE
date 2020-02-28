@@ -31,6 +31,9 @@
             <e p="B-BalloonGame" t="Include">
               <e p="BalloonInputController.cs" t="Include" />
             </e>
+            <e p="T-TomatoGame" t="Include">
+              <e p="TomatoManager.cs" t="Include" />
+            </e>
           </e>
           <e p="LetterEducation" t="Include">
             <e p="Button.cs" t="Include" />
