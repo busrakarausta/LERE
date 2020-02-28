@@ -14,6 +14,7 @@ TagManager:
   - apple
   - Child
   - Tomato
+  - Orange
   layers:
   - Default
   - TransparentFX

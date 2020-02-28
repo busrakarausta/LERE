@@ -31,6 +31,11 @@
             <e p="B-BalloonGame" t="Include">
               <e p="BalloonInputController.cs" t="Include" />
             </e>
+            <e p="O-OrangeGame" t="Include">
+              <e p="OrangeBasketController.cs" t="Include" />
+              <e p="OrangeInputController.cs" t="Include" />
+              <e p="OrangeManager.cs" t="Include" />
+            </e>
             <e p="T-TomatoGame" t="Include">
               <e p="TomatoManager.cs" t="Include" />
             </e>
