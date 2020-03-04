@@ -36,21 +36,12 @@
               <e p="OrangeInputController.cs" t="Include" />
               <e p="OrangeManager.cs" t="Include" />
             </e>
+            <e p="S-SnowmanGame" t="Include">
+              <e p="SnowmanCreator.cs" t="Include" />
+            </e>
             <e p="T-TomatoGame" t="Include">
               <e p="TomatoManager.cs" t="Include" />
             </e>
-          </e>
-          <e p="LetterEducation" t="Include">
-            <e p="Button.cs" t="Include" />
-            <e p="Events.cs" t="Include" />
-            <e p="HierrarchyManager.cs" t="Include" />
-            <e p="InputsHandler.cs" t="Include" />
-            <e p="LineRendererAttributes.cs" t="Include" />
-            <e p="PlatformChecker.cs" t="Include" />
-            <e p="SmoothCurve.cs" t="Include" />
-            <e p="TracingPart.cs" t="Include" />
-            <e p="TracingPoint.cs" t="Include" />
-            <e p="WritingHandler.cs" t="Include" />
           </e>
         </e>
         <e p="TestController.cs" t="Include" />
