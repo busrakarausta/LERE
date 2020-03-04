@@ -39,6 +39,9 @@
               <e p="OrangeInputController.cs" t="Include" />
               <e p="OrangeManager.cs" t="Include" />
             </e>
+            <e p="P-PianoGame" t="Include">
+              <e p="PianoController.cs" t="Include" />
+            </e>
             <e p="S-SnowmanGame" t="Include">
               <e p="SnowmanCreator.cs" t="Include" />
             </e>
