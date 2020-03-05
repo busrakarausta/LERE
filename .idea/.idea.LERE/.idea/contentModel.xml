@@ -42,6 +42,9 @@
             <e p="P-PianoGame" t="Include">
               <e p="PianoController.cs" t="Include" />
             </e>
+            <e p="R-RabbitGame" t="Include">
+              <e p="RabbitController.cs" t="Include" />
+            </e>
             <e p="S-SnowmanGame" t="Include">
               <e p="SnowmanCreator.cs" t="Include" />
             </e>
