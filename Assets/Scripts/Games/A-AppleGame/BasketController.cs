@@ -17,7 +17,7 @@ public class BasketController : MonoBehaviour
         {
             transform.position = newPos;
             newPosForChild = transform.GetChild(childIndex);
-            newPosForChild.position = new Vector3((newPosForChild.position.x - 30 + childIndex*20), newPosForChild.position.y, newPosForChild.position.z);
+            newPosForChild.position = new Vector3((newPosForChild.position.x - 30 + childIndex*20), newPosForChild.position.y, newPosForChild.position.z-50f);
             childIndex++;
         }
     }
