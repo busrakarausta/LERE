@@ -46,6 +46,9 @@
             <e p="L-LampGame" t="Include">
               <e p="LampController.cs" t="Include" />
             </e>
+            <e p="M-MonkeyGame" t="Include">
+              <e p="MonkeyControl.cs" t="Include" />
+            </e>
             <e p="O-OrangeGame" t="Include">
               <e p="OrangeBasketController.cs" t="Include" />
               <e p="OrangeInputController.cs" t="Include" />
