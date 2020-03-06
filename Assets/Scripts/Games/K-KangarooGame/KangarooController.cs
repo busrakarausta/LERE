@@ -18,7 +18,6 @@ public class KangarooController : MonoBehaviour,IPointerDownHandler
     
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("clicked");
         anim.SetTrigger("KangarooJump");
         StartCoroutine(GetChild());
     }

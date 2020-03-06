@@ -60,6 +60,9 @@
             <e p="P-PianoGame" t="Include">
               <e p="PianoController.cs" t="Include" />
             </e>
+            <e p="Q-QueenGame" t="Include">
+              <e p="CrownController.cs" t="Include" />
+            </e>
             <e p="R-RabbitGame" t="Include">
               <e p="RabbitController.cs" t="Include" />
             </e>
