@@ -37,6 +37,9 @@
             <e p="D-DuckGame" t="Include">
               <e p="DuckController.cs" t="Include" />
             </e>
+            <e p="F-FlowerGame" t="Include">
+              <e p="PoteManager.cs" t="Include" />
+            </e>
             <e p="G-GuitarGame" t="Include">
               <e p="GuitarManager.cs" t="Include" />
             </e>
