@@ -37,6 +37,9 @@
             <e p="G-GuitarGame" t="Include">
               <e p="GuitarManager.cs" t="Include" />
             </e>
+            <e p="I-IceCreamGame" t="Include">
+              <e p="IceCreamManager.cs" t="Include" />
+            </e>
             <e p="L-LampGame" t="Include">
               <e p="LampController.cs" t="Include" />
             </e>
