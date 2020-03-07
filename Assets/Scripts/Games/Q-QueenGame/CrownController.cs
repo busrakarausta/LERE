@@ -18,7 +18,7 @@ public class CrownController : MonoBehaviour,IDragHandler
         gameObject.transform.position = Input.mousePosition;
         if (transform.position.x >= queen.position.x && flag)
         {
-            transform.position= new Vector3(queen.transform.position.x-8f, queen.transform.position.y+140f, queen.transform.position.z);
+            transform.position= new Vector3(queen.transform.position.x-8f, queen.transform.position.y+200f, queen.transform.position.z);
             source.Play();
         }
     }
