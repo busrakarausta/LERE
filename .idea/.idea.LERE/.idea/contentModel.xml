@@ -34,11 +34,26 @@
             <e p="C-CatGame" t="Include">
               <e p="CatController.cs" t="Include" />
             </e>
+            <e p="D-DuckGame" t="Include">
+              <e p="DuckController.cs" t="Include" />
+            </e>
+            <e p="F-FlowerGame" t="Include">
+              <e p="PoteManager.cs" t="Include" />
+            </e>
             <e p="G-GuitarGame" t="Include">
               <e p="GuitarManager.cs" t="Include" />
             </e>
+            <e p="I-IceCreamGame" t="Include">
+              <e p="IceCreamManager.cs" t="Include" />
+            </e>
+            <e p="K-KangarooGame" t="Include">
+              <e p="KangarooController.cs" t="Include" />
+            </e>
             <e p="L-LampGame" t="Include">
               <e p="LampController.cs" t="Include" />
+            </e>
+            <e p="M-MonkeyGame" t="Include">
+              <e p="MonkeyControl.cs" t="Include" />
             </e>
             <e p="O-OrangeGame" t="Include">
               <e p="OrangeBasketController.cs" t="Include" />
@@ -47,6 +62,9 @@
             </e>
             <e p="P-PianoGame" t="Include">
               <e p="PianoController.cs" t="Include" />
+            </e>
+            <e p="Q-QueenGame" t="Include">
+              <e p="CrownController.cs" t="Include" />
             </e>
             <e p="R-RabbitGame" t="Include">
               <e p="RabbitController.cs" t="Include" />
