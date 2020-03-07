@@ -3,28 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PoteManager : MonoBehaviour,IDragHandler
-{
-    public Transform basket;
-    private bool flag = false;
-    
-    public void OnDrag(PointerEventData eventData)
+public class PoteManager : MonoBehaviour,IPointerDownHandler{
+
+    private Vector3 targetPosition;
+    private Vector3 currentPosition;
+    public Transform petal;
+
+    public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("dragging..");
-        gameObject.transform.position = Input.mousePosition;
-        if (transform.position.x >= basket.position.x && flag)
-        {
-            Debug.Log( gameObject.name +" accepted..");
-            transform.position = basket.transform.position;
-        }
+       //StartCoroutine(MovePetal());
     }
     
-    void OnTriggerEnter2D(Collider2D other) 
+    /*
+    public IEnumerator MovePetal()
     {
-        if (other.gameObject.name == "Basket")
+       
+        currentPosition= gameObject.transform.position;
+        if(gameObject.name== "Petal1" || gameObject.name== "Petal2" || gameObject.name== "Petal4")
         {
-            Debug.Log( gameObject.name +" perceive..");
-            flag = true;
+        targetPosition= new Vector3(gameObject.transform.position.x, gameObject.transform.position.y-10f, gameObject.transform.position.z);
+        gameObject.transform.position= Vector3.Lerp(transform.position, transform.position+targetPosition , 50f / 10f * Time.deltaTime);
         }
+        else
+        {
+            targetPosition= new Vector3(gameObject.transform.position.x, gameObject.transform.position.y+10f, gameObject.transform.position.z);
+            gameObject.transform.position= Vector3.Lerp(transform.position, transform.position+targetPosition , 50f / 10f * Time.deltaTime);
+        }
+        yield return new WaitForSeconds (1);
+        
     }
+    */
 }
