@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class TestController : MonoBehaviour
 {
+
+    [SerializeField]
+    private Sprite[] allSprites;
+    [SerializeField]
+    private Image[] selectionImages;
+
     public char testObject;
 
     private char currentChar;
     private Image currentImage;
     private char[] shownTestLetters;
-    
-
-    [SerializeField]
-    private Sprite[] allSprites;
-    [SerializeField]
-    private Image[] selectionImages; 
 
     private void Awake()
     {
@@ -26,13 +26,10 @@ public class TestController : MonoBehaviour
         AssingImagesToLetterComponents();
     }
 
-    public void SetCurrentChar(string objChar)
-    {
-        currentChar = objChar[0];
-    }
-
     public void TestClickedObject(Image currentObj)
     {
+        currentChar = currentObj.gameObject.GetComponent<Letter>().get();
+
         if (currentChar != testObject)
         {
             currentImage = currentObj;
@@ -49,13 +46,6 @@ public class TestController : MonoBehaviour
         int firstRandomIndex = (originalLetterIndex+Random.Range(0, 25))%25;
         int secondRandomIndex = (originalLetterIndex + firstRandomIndex+1)%25;
 
-        Debug.Log(firstRandomIndex);
-        Debug.Log(secondRandomIndex);
-        // int secondRandomIndex = ( (Mathf.Abs(originalLetterIndex - firstRandomIndex))+ Random.Range(0, 25)) % 24;
-
-
-
-
 
         shownTestLetters[0] = (char)('A' + originalLetterIndex);
         shownTestLetters[1] = (char)('A' + firstRandomIndex);
@@ -69,8 +59,13 @@ public class TestController : MonoBehaviour
         int randomThirdIndex = 3 - (randomFirstIndex + randomSecondIndex);
 
         selectionImages[randomFirstIndex].sprite = allSprites[(int)(shownTestLetters[0]-'A')];
+        selectionImages[randomFirstIndex].gameObject.GetComponent<Letter>().set(shownTestLetters[0]);
+
         selectionImages[randomSecondIndex].sprite = allSprites[(int)(shownTestLetters[1]-'A')];
+        selectionImages[randomSecondIndex].gameObject.GetComponent<Letter>().set(shownTestLetters[1]);
+
         selectionImages[randomThirdIndex].sprite = allSprites[(int)(shownTestLetters[2]-'A')];
+        selectionImages[randomThirdIndex].gameObject.GetComponent<Letter>().set(shownTestLetters[2]);
     }
 
 
