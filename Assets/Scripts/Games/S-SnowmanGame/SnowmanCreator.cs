@@ -6,42 +6,35 @@ using UnityEngine.EventSystems;
 
 public class SnowmanCreator : MonoBehaviour,IDragHandler
 {
-    public Transform bottom;
+    public RectTransform bottom;
     public Transform middle;
     public Transform head;
+    public int up=150;
+
+    private int siblingIndex;
+    private float maxX,minX;
     private int flag = 2;
+
+    void Awake()
+    {
+        siblingIndex = transform.GetSiblingIndex();
+        minX = bottom.rect.xMin;
+        maxX = bottom.rect.xMax;
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
-        gameObject.transform.position = Input.mousePosition;
-        if (transform.position.x >= bottom.position.x && transform.position.y >= bottom.position.y && flag == 0)
+        if(siblingIndex == 1)
         {
-            /*
-            // transparan
-            transform.position= new Vector3(bottom.transform.position.x+318f, bottom.transform.position.y+205f, bottom.transform.position.z);
-            */
-            transform.position= new Vector3(bottom.transform.position.x, bottom.transform.position.y+110f, bottom.transform.position.z);
 
         }
-        else if (transform.position.x >= middle.position.x &&  transform.position.y >= middle.position.y && flag == 1)
+
+        else if(siblingIndex==2)
         {
-            /*
-             //transparan
-            transform.position= new Vector3(middle.transform.position.x, middle.transform.position.y+95f, middle.transform.position.z);
-            */
-            transform.position= new Vector3(middle.transform.position.x, middle.transform.position.y+100f, middle.transform.position.z);
 
         }
+
     }
-    
-    void OnTriggerEnter2D(Collider2D other) 
-    {
-        if (gameObject.name == "Middle" && other.gameObject.name == "Bottom")
-        {
-            flag = 0;
-        }
-        else if (gameObject.name == "Head" && other.gameObject.name == "Middle")
-        {
-            flag = 1;
-        }
-    }
+
+
 }
