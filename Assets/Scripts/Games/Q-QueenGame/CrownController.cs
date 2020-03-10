@@ -9,10 +9,13 @@ public class CrownController : MonoBehaviour,IDragHandler
     private bool flag = false;
     private AudioSource source;
 
+   
+
     void Awake()
     {
         source = GetComponent<AudioSource>();
     }
+
     public void OnDrag(PointerEventData eventData)
     {
         gameObject.transform.position = Input.mousePosition;
