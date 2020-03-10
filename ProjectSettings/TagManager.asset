@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Letter
+  - TracingPoint
+  - Background
+  - LineRenderer
+  - CirclePoint
+  - UIButton
+  - Basket
+  - apple
+  - Child
+  - Tomato
+  - Orange
+  - monkey_b1
+  - monkey_b2
   layers:
   - Default
   - TransparentFX
@@ -13,8 +26,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Basket
+  - Tomato
   - 
   - 
   - 
@@ -40,4 +53,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tomato
+    uniqueID: 2400330065
+    locked: 0
+  - name: Basket
+    uniqueID: 2955366659
     locked: 0
