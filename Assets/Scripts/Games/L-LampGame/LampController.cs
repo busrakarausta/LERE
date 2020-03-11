@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class LampController : MonoBehaviour, IPointerDownHandler
 {
-
     public void OnPointerDown(PointerEventData eventData)
     {
          OpenLamb();
