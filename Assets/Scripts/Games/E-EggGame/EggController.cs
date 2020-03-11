@@ -1,50 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Windows;
 
 public class EggController : MonoBehaviour, IPointerDownHandler
 {
-    private float step;
-    private float speed=5;
     public GameObject panEmpty;
     public GameObject crushedEgg;
     public GameObject panEgg;
-    private bool arrived = false;
+    private Rigidbody2D crushedEggRB;
+
+
 
 
 
     void Awake()
     {
-       // source = cruchedEgg.GetComponent<AudioSource>();
+       crushedEggRB = crushedEgg.GetComponent<Rigidbody2D>();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-      CruchEgg();
+        StartCoroutine( CruchEgg());
     }
 
-    public void CruchEgg()
-        {
-        gameObject.SetActive(false);
+    public IEnumerator CruchEgg()
+    {
         crushedEgg.SetActive(true);
-
-        step = speed * Time.deltaTime;
-
-        while (!arrived)
+        if(crushedEgg.transform.position.y >= panEmpty.transform.position.y )
         {
-            Debug.Log("testtt");
-            
-            transform.Translate(Vector3.down * speed * Time.deltaTime, Space.World);
-            arrived = true;
-
+            crushedEggRB.velocity = new Vector2(0f, -90f);
         }
+        yield return new WaitForSeconds(2f);
 
         crushedEgg.SetActive(false);
         panEmpty.SetActive(false);
         panEgg.SetActive(true);
+        gameObject.SetActive(false);
 
-
-
+        
     }
+
+   
+    
 }

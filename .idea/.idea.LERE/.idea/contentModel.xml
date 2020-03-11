@@ -7,9 +7,30 @@
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="DynamicLetter.cs" t="Include" />
+        <e p="Alphabet" t="Include">
+          <e p="Alphabet Board" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Button.cs" t="Include" />
+              <e p="Events.cs" t="Include" />
+              <e p="General.cs" t="Include" />
+              <e p="HierrachyManager.cs" t="Include" />
+              <e p="InputsHandler.cs" t="Include" />
+              <e p="LineRendererAttributes.cs" t="Include" />
+              <e p="PlatformChecker.cs" t="Include" />
+              <e p="Responsive.cs" t="Include" />
+              <e p="SmoothCurve.cs" t="Include" />
+              <e p="TracingPart.cs" t="Include" />
+              <e p="TracingPoint.cs" t="Include" />
+              <e p="WritingHandler.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Audio_Listener.cs" t="Include" />
+        <e p="Controller.cs" t="Include" />
+        <e p="deneme.cs" t="Include" />
+        <e p="GameManager.cs" t="Include" />
         <e p="Indicator.cs" t="Include" />
-        <e p="LevelManager.cs" t="Include" />
+        <e p="Letter.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -21,7 +42,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="DrawLine.cs" t="Include" />
           <e p="Games" t="Include">
             <e p="A-AppleGame" t="Include">
               <e p="AppleManager.cs" t="Include" />
@@ -36,6 +56,9 @@
             </e>
             <e p="D-DuckGame" t="Include">
               <e p="DuckController.cs" t="Include" />
+            </e>
+            <e p="E-EggGame" t="Include">
+              <e p="EggController.cs" t="Include" />
             </e>
             <e p="F-FlowerGame" t="Include">
               <e p="PoteManager.cs" t="Include" />
@@ -54,6 +77,9 @@
             </e>
             <e p="M-MonkeyGame" t="Include">
               <e p="MonkeyControl.cs" t="Include" />
+            </e>
+            <e p="N-NutGame" t="Include">
+              <e p="NutController.cs" t="Include" />
             </e>
             <e p="O-OrangeGame" t="Include">
               <e p="OrangeBasketController.cs" t="Include" />
@@ -76,8 +102,16 @@
               <e p="TomatoManager.cs" t="Include" />
             </e>
           </e>
+          <e p="Managers" t="Include">
+            <e p="LevelManager.cs" t="Include" />
+            <e p="ScenesManager.cs" t="Include" />
+          </e>
+          <e p="Test" t="Include">
+            <e p="DynamicLetter.cs" t="Include" />
+            <e p="TestController.cs" t="Include" />
+          </e>
         </e>
-        <e p="TestController.cs" t="Include" />
+        <e p="UIManager.cs" t="Include" />
       </e>
       <e p="LERE.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
