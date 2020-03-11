@@ -11,11 +11,7 @@ public class EggController : MonoBehaviour, IPointerDownHandler
     public GameObject crushedEgg;
     public GameObject panEgg;
     private Rigidbody2D crushedEggRB;
-
-
-
-
-
+    
     void Awake()
     {
        crushedEggRB = crushedEgg.GetComponent<Rigidbody2D>();
@@ -29,20 +25,14 @@ public class EggController : MonoBehaviour, IPointerDownHandler
     public IEnumerator CruchEgg()
     {
         crushedEgg.SetActive(true);
-        if(crushedEgg.transform.position.y >= panEmpty.transform.position.y )
-        {
-            crushedEggRB.velocity = new Vector2(0f, -90f);
-        }
+        crushedEggRB.velocity = new Vector2(0f, -200f);
+
         yield return new WaitForSeconds(2f);
 
         crushedEgg.SetActive(false);
         panEmpty.SetActive(false);
         panEgg.SetActive(true);
         gameObject.SetActive(false);
-
         
     }
-
-   
-    
 }
