@@ -14,17 +14,14 @@ public class StrawController : MonoBehaviour, IDragHandler
     
     IEnumerator OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("OKEY");
         if (other.gameObject.name == "Zebra1")
         {
-            Debug.Log("aacepted.");
             yield return new WaitForSeconds(0.2f);
             zebra1.SetActive(false);
             zebraAfter1.SetActive(true);
         }
        else if (other.gameObject.name == "Zebra2")
         {
-            Debug.Log("aacepted.");
             yield return new WaitForSeconds(0.2f);
             zebra2.SetActive(false);
             zebraAfter2.SetActive(true);
