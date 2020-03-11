@@ -32,19 +32,19 @@ public class IceCreamManager : MonoBehaviour,IDragHandler
     {
         if (gameObject.name == "Icecream1")
         {
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+70f, cone.transform.position.z);
+            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+140f, cone.transform.position.z);
         }
         else if (gameObject.name == "Icecream2")
         {
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+110f, cone.transform.position.z);
+            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+210f, cone.transform.position.z);
         }
         else if (gameObject.name == "Icecream3")
         {
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+150f, cone.transform.position.z);
+            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+280f, cone.transform.position.z);
         }
         else if (gameObject.name == "Icecream4")
         {
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+190f, cone.transform.position.z);
+            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+350f, cone.transform.position.z);
         }
     }
 }

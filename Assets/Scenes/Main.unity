@@ -1721,6 +1721,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IceCream
       objectReference: {fileID: 0}
+    - target: {fileID: 8190114653300532875, guid: a726cceb74486134b9caacbe6e57136e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 86334143389754981, guid: a726cceb74486134b9caacbe6e57136e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2316,6 +2321,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nut
       objectReference: {fileID: 0}
+    - target: {fileID: 3232819630078119111, guid: 4e0fe95529c1cae4ea2816711b5704db,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6649232536226466857, guid: 4e0fe95529c1cae4ea2816711b5704db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2568,6 +2578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Kangaroo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719632491179003915, guid: 25652b3f79b24eb4ca446c219d170d09,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4829358102433304805, guid: 25652b3f79b24eb4ca446c219d170d09,
         type: 3}
@@ -2822,6 +2837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Queen
       objectReference: {fileID: 0}
+    - target: {fileID: 462309444587490907, guid: ef488ef72a1cc1140bc27db3f03e56f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8570889323828399797, guid: ef488ef72a1cc1140bc27db3f03e56f1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2926,6 +2946,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7099406246961690085, guid: ef488ef72a1cc1140bc27db3f03e56f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef488ef72a1cc1140bc27db3f03e56f1, type: 3}
@@ -3060,6 +3085,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monkey
       objectReference: {fileID: 0}
+    - target: {fileID: 261974618139056731, guid: e42f6ed2a1ba94b4dafa1ae6cbe9ac88,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8302703768710945461, guid: e42f6ed2a1ba94b4dafa1ae6cbe9ac88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3182,7 +3212,7 @@ PrefabInstance:
     - target: {fileID: 1620712472092985851, guid: 514e3475e9193814dacdf079acdc9d41,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8255580577189045854, guid: 514e3475e9193814dacdf079acdc9d41,
         type: 3}
