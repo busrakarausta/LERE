@@ -33,6 +33,5 @@ public class EggController : MonoBehaviour, IPointerDownHandler
         panEmpty.SetActive(false);
         panEgg.SetActive(true);
         gameObject.SetActive(false);
-        
     }
 }
