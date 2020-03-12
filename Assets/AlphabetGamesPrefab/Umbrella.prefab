@@ -105,7 +105,7 @@ RectTransform:
   m_LocalScale: {x: 5, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 4332227433698308469}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 3516993234906011891}
   - component: {fileID: 3516993234906011893}
   m_Layer: 5
-  m_Name: Girl
+  m_Name: Boy2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +194,7 @@ RectTransform:
   m_LocalScale: {x: 5, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 4332227433698308469}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 3516993235405375177}
   - component: {fileID: 3516993235405375176}
   m_Layer: 5
-  m_Name: g_umbrellaClosed
+  m_Name: b2_umbrellaClosed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,7 @@ RectTransform:
   m_LocalScale: {x: 3, y: 10, z: 1.3379023}
   m_Children: []
   m_Father: {fileID: 4332227433698308469}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 3516993235578663259}
   - component: {fileID: 3516993235578663261}
   m_Layer: 5
-  m_Name: g_umbrellaOpened
+  m_Name: b2_umbrellaOpened
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,7 +698,7 @@ RectTransform:
   m_LocalScale: {x: 3, y: 10, z: 1.3379}
   m_Children: []
   m_Father: {fileID: 4332227433698308469}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -769,12 +769,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3516993236473242038}
-  - {fileID: 3516993235831308807}
   - {fileID: 3516993234455838368}
-  - {fileID: 3516993235405375175}
-  - {fileID: 3516993235578663258}
+  - {fileID: 3516993235831308807}
+  - {fileID: 3516993236473242038}
   - {fileID: 3516993234906011890}
+  - {fileID: 3516993235578663258}
+  - {fileID: 3516993235405375175}
   m_Father: {fileID: 2646177614052223738}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
