@@ -2222,6 +2222,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Xylophone
       objectReference: {fileID: 0}
+    - target: {fileID: 7272288257766981934, guid: e0d8669cb420e364cbb964b0e079556b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1474860929894760896, guid: e0d8669cb420e364cbb964b0e079556b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3824,6 +3829,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Umbrella
       objectReference: {fileID: 0}
+    - target: {fileID: 6062554375331818004, guid: 0f26120153f5dc649ba54697ea40395a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2646177614052223738, guid: 0f26120153f5dc649ba54697ea40395a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5227,7 +5237,7 @@ PrefabInstance:
     - target: {fileID: 1620712472092985851, guid: 514e3475e9193814dacdf079acdc9d41,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8255580577189045854, guid: 514e3475e9193814dacdf079acdc9d41,
         type: 3}
