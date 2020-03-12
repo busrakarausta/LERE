@@ -147,7 +147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.742859, y: -83}
+  m_AnchoredPosition: {x: -1.2, y: -83}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &876183
@@ -524,7 +524,7 @@ RectTransform:
   m_GameObject: {fileID: 483067356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 105.36585}
-  m_LocalScale: {x: 6.9999866, y: 6.9999866, z: 2.9999866}
+  m_LocalScale: {x: 8, y: 7.5, z: 2.9999866}
   m_Children:
   - {fileID: 737066409}
   m_Father: {fileID: 1854987896}
@@ -532,8 +532,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1027, y: -5}
-  m_SizeDelta: {x: 118.9, y: 179.8}
+  m_AnchoredPosition: {x: 819, y: -12.3}
+  m_SizeDelta: {x: 100.5, y: 177.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &483067358
 Rigidbody2D:
@@ -616,7 +616,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 780b4d8e3a617374a9928197b538ff62, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 94e54c9107e674c43bcf51b0b941ebbc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -885,7 +885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.742859, y: -83}
+  m_AnchoredPosition: {x: -2.5, y: -83}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &737066410
@@ -1395,7 +1395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.742859, y: -82.99995}
+  m_AnchoredPosition: {x: -2.5, y: -82.99995}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1080020342
@@ -1560,7 +1560,7 @@ PrefabInstance:
     - target: {fileID: 7272288257766981934, guid: e0d8669cb420e364cbb964b0e079556b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1474860929894760896, guid: e0d8669cb420e364cbb964b0e079556b,
         type: 3}
@@ -2000,7 +2000,7 @@ RectTransform:
   m_GameObject: {fileID: 1812350066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 105.36585}
-  m_LocalScale: {x: 7, y: 7, z: 3}
+  m_LocalScale: {x: 8, y: 7.5, z: 3}
   m_Children:
   - {fileID: 1080020341}
   m_Father: {fileID: 1854987896}
@@ -2008,8 +2008,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -922, y: -4.9999914}
-  m_SizeDelta: {x: 118.9, y: 179.8}
+  m_AnchoredPosition: {x: -943, y: -12.3}
+  m_SizeDelta: {x: 100.5, y: 177.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1812350068
 Rigidbody2D:
@@ -2078,7 +2078,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bf62c542bc6962f4ab8589a768afc83f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 94e54c9107e674c43bcf51b0b941ebbc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2145,7 +2145,7 @@ RectTransform:
   m_GameObject: {fileID: 1920173746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 105.36585}
-  m_LocalScale: {x: 6.9999866, y: 6.9999866, z: 2.9999866}
+  m_LocalScale: {x: 8, y: 7.5, z: 2.9999866}
   m_Children:
   - {fileID: 876182}
   m_Father: {fileID: 1854987896}
@@ -2153,8 +2153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 44.69995, y: 127}
-  m_SizeDelta: {x: 118.9, y: 179.8}
+  m_AnchoredPosition: {x: -48, y: 118.4}
+  m_SizeDelta: {x: 100.5, y: 177.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1920173748
 Rigidbody2D:
@@ -2237,7 +2237,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 89b48a8f3e2f8684bb6bc4614ff42095, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 94e54c9107e674c43bcf51b0b941ebbc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3756,7 +3756,7 @@ PrefabInstance:
     - target: {fileID: 6062554375331818004, guid: 0f26120153f5dc649ba54697ea40395a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646177614052223738, guid: 0f26120153f5dc649ba54697ea40395a,
         type: 3}
