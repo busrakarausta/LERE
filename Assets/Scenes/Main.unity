@@ -1271,27 +1271,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3067211774929763080, guid: 624e1fa0a43430f4dbe9d7143e4cb4de,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9f27cf6bb37aa214fb4fb9d67f399ce7,
-        type: 3}
-    - target: {fileID: 3067211774929763080, guid: 624e1fa0a43430f4dbe9d7143e4cb4de,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.7122642
-      objectReference: {fileID: 0}
-    - target: {fileID: 3067211774929763080, guid: 624e1fa0a43430f4dbe9d7143e4cb4de,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.9466289
-      objectReference: {fileID: 0}
-    - target: {fileID: 3067211774929763080, guid: 624e1fa0a43430f4dbe9d7143e4cb4de,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 624e1fa0a43430f4dbe9d7143e4cb4de, type: 3}
 --- !u!1001 &2959198816301473600
@@ -1553,6 +1532,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Umbrella
+      objectReference: {fileID: 0}
+    - target: {fileID: 6062554375331818004, guid: 0f26120153f5dc649ba54697ea40395a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2646177614052223738, guid: 0f26120153f5dc649ba54697ea40395a,
         type: 3}
@@ -2044,6 +2028,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Baloons
+      objectReference: {fileID: 0}
+    - target: {fileID: 8602681652625757440, guid: 1b0a809842a8c604d8cdad1fffdceafb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 574566234370053614, guid: 1b0a809842a8c604d8cdad1fffdceafb,
         type: 3}
@@ -3381,6 +3370,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Egg
       objectReference: {fileID: 0}
+    - target: {fileID: 1620712472092985851, guid: 514e3475e9193814dacdf079acdc9d41,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7414742446911588629, guid: 514e3475e9193814dacdf079acdc9d41,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3737,6 +3731,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Yogurt
+      objectReference: {fileID: 0}
+    - target: {fileID: 2011087866539109042, guid: 02604ebacf1274646864b5a9b980bca6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7742611701775837788, guid: 02604ebacf1274646864b5a9b980bca6,
         type: 3}
