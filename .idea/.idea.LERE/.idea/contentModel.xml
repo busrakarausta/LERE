@@ -72,6 +72,9 @@
             <e p="I-IceCreamGame" t="Include">
               <e p="IceCreamManager.cs" t="Include" />
             </e>
+            <e p="J-JellyfishGame" t="Include">
+              <e p="JellyfishController.cs" t="Include" />
+            </e>
             <e p="K-KangarooGame" t="Include">
               <e p="KangarooController.cs" t="Include" />
             </e>
