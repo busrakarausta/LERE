@@ -1901,7 +1901,7 @@ PrefabInstance:
     - target: {fileID: 4528997882134812303, guid: 3baf0af39f545074797508bf4e248f5a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -49.999756
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3baf0af39f545074797508bf4e248f5a, type: 3}
@@ -2044,7 +2044,7 @@ PrefabInstance:
     - target: {fileID: 8602681652625757440, guid: 1b0a809842a8c604d8cdad1fffdceafb,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 574566234370053614, guid: 1b0a809842a8c604d8cdad1fffdceafb,
         type: 3}
@@ -2583,6 +2583,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5201960968767389426, guid: 4e0fe95529c1cae4ea2816711b5704db,
+        type: 3}
+      propertyPath: mallet
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201960968984699227, guid: 4e0fe95529c1cae4ea2816711b5704db,
+        type: 3}
+      propertyPath: mallet
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e0fe95529c1cae4ea2816711b5704db, type: 3}
 --- !u!1001 &6082846074406145863
@@ -2988,7 +2998,7 @@ PrefabInstance:
     - target: {fileID: 7865049143152271920, guid: 9213c7565cbe15d47af6d4624b9cac61,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -49.999756
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9213c7565cbe15d47af6d4624b9cac61, type: 3}
@@ -3514,7 +3524,7 @@ PrefabInstance:
     - target: {fileID: 1620712472092985851, guid: 514e3475e9193814dacdf079acdc9d41,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7414742446911588629, guid: 514e3475e9193814dacdf079acdc9d41,
         type: 3}
