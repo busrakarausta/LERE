@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9339623, g: 0.8233339, b: 0.77095944, a: 1}
+  m_Color: {r: 0.6951396, g: 0.8490566, b: 0.65281236, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 8579254501204528682}
   - component: {fileID: 8579254501204528663}
   - component: {fileID: 8579254501204528681}
+  - component: {fileID: 780899363}
   m_Layer: 5
   m_Name: Petal6
   m_TagString: Untagged
@@ -183,7 +184,7 @@ RectTransform:
   m_GameObject: {fileID: 8579254501204528661}
   m_LocalRotation: {x: -0, y: -0, z: -0.99812734, w: 0.061170768}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.000014, y: 5.000014, z: 1.0000129}
+  m_LocalScale: {x: 3.2, y: 5, z: 1.0000129}
   m_Children: []
   m_Father: {fileID: 8925665866913691888}
   m_RootOrder: 6
@@ -213,7 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8a307b53506a94ca7d623866d0ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  petal: {fileID: 8579254501204528662}
 --- !u!114 &8579254501204528663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +269,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &780899363
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579254501204528661}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8579254501217488327
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +303,7 @@ GameObject:
   - component: {fileID: 8579254501217488348}
   - component: {fileID: 8579254501217488345}
   - component: {fileID: 8579254501217488347}
+  - component: {fileID: 1346287411}
   m_Layer: 5
   m_Name: Petal1
   m_TagString: Untagged
@@ -298,14 +320,14 @@ RectTransform:
   m_GameObject: {fileID: 8579254501217488327}
   m_LocalRotation: {x: -0, y: -0, z: 0.09473468, w: 0.9955026}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 3.2, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 8925665866913691888}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.872001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 564}
+  m_AnchoredPosition: {x: 21, y: 539}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8579254501217488346
@@ -328,7 +350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8a307b53506a94ca7d623866d0ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  petal: {fileID: 8579254501217488344}
 --- !u!114 &8579254501217488345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +405,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1346287411
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579254501217488327}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8579254501250631194
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +513,7 @@ GameObject:
   - component: {fileID: 8579254501344514022}
   - component: {fileID: 8579254501344514019}
   - component: {fileID: 8579254501344514021}
+  - component: {fileID: 610076731}
   m_Layer: 5
   m_Name: Petal4
   m_TagString: Untagged
@@ -487,14 +530,14 @@ RectTransform:
   m_GameObject: {fileID: 8579254501344514017}
   m_LocalRotation: {x: -0, y: -0, z: -0.8268584, w: 0.5624101}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 3.2, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 8925665866913691888}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -111.55501}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 346, y: 112}
+  m_AnchoredPosition: {x: 339, y: 115}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8579254501344514020
@@ -517,7 +560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8a307b53506a94ca7d623866d0ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  petal: {fileID: 8579254501344514018}
 --- !u!114 &8579254501344514019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,6 +615,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &610076731
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579254501344514017}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8579254502510464412
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +649,7 @@ GameObject:
   - component: {fileID: 8579254502510464401}
   - component: {fileID: 8579254502510464414}
   - component: {fileID: 8579254502510464400}
+  - component: {fileID: 683947827}
   m_Layer: 5
   m_Name: Petal5
   m_TagString: Untagged
@@ -602,7 +666,7 @@ RectTransform:
   m_GameObject: {fileID: 8579254502510464412}
   m_LocalRotation: {x: -0, y: -0, z: -0.87414384, w: -0.48566717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.000016, y: 5.000016, z: 1.0000129}
+  m_LocalScale: {x: 3.2, y: 5, z: 1.0000129}
   m_Children: []
   m_Father: {fileID: 8925665866913691888}
   m_RootOrder: 5
@@ -632,7 +696,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8a307b53506a94ca7d623866d0ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  petal: {fileID: 8579254502510464413}
 --- !u!114 &8579254502510464414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +751,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &683947827
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579254502510464412}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8579254502514093135
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,6 +859,7 @@ GameObject:
   - component: {fileID: 8579254502554047761}
   - component: {fileID: 8579254502554047774}
   - component: {fileID: 8579254502554047760}
+  - component: {fileID: 2025351944}
   m_Layer: 5
   m_Name: Petal2
   m_TagString: Untagged
@@ -789,16 +874,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8579254502554047772}
-  m_LocalRotation: {x: -0, y: -0, z: -0.41255787, w: 0.9109314}
+  m_LocalRotation: {x: -0.012202152, y: 0.0055263154, z: -0.41252086, w: 0.9108497}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 3.2, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 8925665866913691888}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -48.731003}
+  m_LocalEulerAnglesHint: {x: -1.0120001, y: 1.154, z: -48.741}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 310, y: 431}
+  m_AnchoredPosition: {x: 301, y: 423}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8579254502554047775
@@ -821,7 +906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8a307b53506a94ca7d623866d0ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  petal: {fileID: 8579254502554047773}
 --- !u!114 &8579254502554047774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,6 +961,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &2025351944
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579254502554047772}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8579254502780448653
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +995,7 @@ GameObject:
   - component: {fileID: 8579254502780448642}
   - component: {fileID: 8579254502780448655}
   - component: {fileID: 8579254502780448641}
+  - component: {fileID: 1077150979}
   m_Layer: 5
   m_Name: Petal3
   m_TagString: Untagged
@@ -906,7 +1012,7 @@ RectTransform:
   m_GameObject: {fileID: 8579254502780448653}
   m_LocalRotation: {x: -0, y: -0, z: 0.5294208, w: 0.84835935}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 3.2, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 8925665866913691888}
   m_RootOrder: 3
@@ -936,7 +1042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8a307b53506a94ca7d623866d0ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  petal: {fileID: 8579254502780448654}
 --- !u!114 &8579254502780448655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,3 +1097,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1077150979
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579254502780448653}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
