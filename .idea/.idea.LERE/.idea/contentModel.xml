@@ -116,6 +116,9 @@
             <e p="X-XylophoneGame" t="Include">
               <e p="XylophoneManager.cs" t="Include" />
             </e>
+            <e p="Y-YogurtGame" t="Include">
+              <e p="YogurtManager.cs" t="Include" />
+            </e>
             <e p="Z-ZebraGame" t="Include">
               <e p="StrawController.cs" t="Include" />
             </e>
