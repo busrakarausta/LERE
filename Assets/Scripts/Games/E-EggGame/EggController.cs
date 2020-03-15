@@ -11,14 +11,19 @@ public class EggController : MonoBehaviour, IPointerDownHandler
     public GameObject crushedEgg;
     public GameObject panEgg;
     private Rigidbody2D crushedEggRB;
-    
+    private AudioSource source;
+
+
     void Awake()
     {
        crushedEggRB = crushedEgg.GetComponent<Rigidbody2D>();
+       source = GetComponent<AudioSource>();
+
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        source.Play();
         StartCoroutine( CruchEgg());
     }
 
