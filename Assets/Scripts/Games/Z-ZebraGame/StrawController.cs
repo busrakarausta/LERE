@@ -5,8 +5,14 @@ using UnityEngine.EventSystems;
 
 public class StrawController : MonoBehaviour, IDragHandler
 {
+    private AudioSource source;
     public GameObject zebra1, zebra2, zebraAfter1, zebraAfter2;
-    
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         gameObject.transform.position = Input.mousePosition;
@@ -14,6 +20,8 @@ public class StrawController : MonoBehaviour, IDragHandler
     
     IEnumerator OnTriggerEnter2D(Collider2D other)
     {
+        source.Play();
+
         if (other.gameObject.name == "Zebra1")
         {
             yield return new WaitForSeconds(0.2f);
