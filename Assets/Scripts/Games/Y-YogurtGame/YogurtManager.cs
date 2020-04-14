@@ -6,12 +6,13 @@ using UnityEngine.EventSystems;
 public class YogurtManager : MonoBehaviour, IDragHandler
 {
     public GameObject yogurt;
-    public GameObject yogurtWithOnion;
+    public GameObject yogurtChild;
     private AudioSource source;
+
 
     void Awake()
     {
-        source = yogurtWithOnion.GetComponent<AudioSource>();
+        source = yogurtChild.GetComponent<AudioSource>();
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -22,14 +23,13 @@ public class YogurtManager : MonoBehaviour, IDragHandler
     IEnumerator OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("test");
-        if (other.gameObject.name == "Yogurt")
+        if (other.gameObject.name == "Child")
         {
-            yield return new WaitForSeconds(0.7f);
-            yogurt.SetActive(false);
-            yogurtWithOnion.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            yogurtChild.SetActive(true);
             source.Play();
         }
-        gameObject.SetActive(false);
+        yogurt.SetActive(false);
     }
 
 }
