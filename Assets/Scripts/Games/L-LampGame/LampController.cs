@@ -6,13 +6,22 @@ using UnityEngine.UI;
 
 public class LampController : MonoBehaviour, IPointerDownHandler
 {
-    public void OnPointerDown(PointerEventData eventData)
+    private AudioSource source;
+
+    void Awake()
     {
-         OpenLamb();
+        source = GetComponent<AudioSource>();
     }
 
-    public void OpenLamb()
+    public void OnPointerDown(PointerEventData eventData)
     {
+        StartCoroutine(OpenLamb());
+    }
+
+    IEnumerator OpenLamb()
+    {
+        source.Play();
+        yield return new WaitForSeconds(0.45f);
         gameObject.SetActive(false);
     }
 }
