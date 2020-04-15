@@ -10,11 +10,12 @@ public class HamburgerCreator : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        AddToBurger();
+        StartCoroutine(AddToBurger());
     }
 
-    private void AddToBurger()
+    private IEnumerator AddToBurger()
     {
+        yield return new WaitForSeconds(0.3f);
         if (gameObject.name == "Meat")
         {
             gameObject.transform.position = new Vector3(bottom.position.x, bottom.position.y + move, bottom.position.z);
