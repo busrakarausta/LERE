@@ -855,6 +855,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hand
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 8f60843e976054708a3832e9cd983b43, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8f60843e976054708a3832e9cd983b43, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.2342052
