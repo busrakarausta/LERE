@@ -1348,6 +1348,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple
       objectReference: {fileID: 0}
+    - target: {fileID: 8140005635987988822, guid: 16b5a53c9682972488284f19b1d0fd11,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 30542714725802424, guid: 16b5a53c9682972488284f19b1d0fd11,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3254,6 +3259,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 390873520643794830, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602171711573099739, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7687240704847249854, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69c12c5cc98790d49bb12877091c9e39, type: 3}
 --- !u!1001 &4957117175088420950
@@ -3438,6 +3458,21 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1463184633}
+    - target: {fileID: 4957117175336179408, guid: bdde6094cfe6aea4cb6a93ddaf6480ff,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7d1a514ab6bf2b44fba670dbb4db8abe, type: 3}
+    - target: {fileID: 4957117175840893400, guid: bdde6094cfe6aea4cb6a93ddaf6480ff,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e2affaf85811efa4dbf4c61910674e0c, type: 3}
+    - target: {fileID: 4957117176480838588, guid: bdde6094cfe6aea4cb6a93ddaf6480ff,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b17c01f9f280f84e9d27f338126aa82, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdde6094cfe6aea4cb6a93ddaf6480ff, type: 3}
 --- !u!1001 &5201960968950815700
@@ -3848,6 +3883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Yogurt
+      objectReference: {fileID: 0}
+    - target: {fileID: 4436586574044680806, guid: 87fb546b3d7d2dd418360e1b344e5071,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5551375298168853128, guid: 87fb546b3d7d2dd418360e1b344e5071,
         type: 3}
@@ -5070,6 +5110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Flower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433263024010339217, guid: 6095330840a6c92499e2b1614625a2c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7167585116407882623, guid: 6095330840a6c92499e2b1614625a2c3,
         type: 3}

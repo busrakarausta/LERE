@@ -5,6 +5,13 @@ using UnityEngine.EventSystems;
 
 public class JellyfishController : MonoBehaviour,IDragHandler
 {
+    private AudioSource source;
+
+    void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         gameObject.transform.position = Input.mousePosition;
@@ -14,7 +21,8 @@ public class JellyfishController : MonoBehaviour,IDragHandler
     {
         if (other.gameObject.name == "Cave")
         {
-            yield return new WaitForSeconds(0.5f);
+            source.Play();
+            yield return new WaitForSeconds(0.35f);
            gameObject.SetActive(false);
         }
     }
