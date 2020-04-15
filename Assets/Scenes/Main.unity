@@ -3259,6 +3259,46 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4555042944537143813, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -16.963081
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555042944537143813, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 32.45909
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555042944537143813, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.07833481
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555042944537143813, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 23.653385
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555042944834517133, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.32307434
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555042944834517133, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 19.66595
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555042944834517133, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -17.063133
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555042944834517133, guid: 69c12c5cc98790d49bb12877091c9e39,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 28.884949
+      objectReference: {fileID: 0}
     - target: {fileID: 390873520643794830, guid: 69c12c5cc98790d49bb12877091c9e39,
         type: 3}
       propertyPath: m_PlayOnAwake
