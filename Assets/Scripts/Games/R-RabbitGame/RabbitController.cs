@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,6 +11,8 @@ public class RabbitController : MonoBehaviour,IPointerDownHandler
     private Animator anim_left;
     private AudioSource source;
     private int clickCount = 0;
+
+    public event Action OnLevelEnd;
 
     void Awake()
     {
@@ -32,7 +34,7 @@ public class RabbitController : MonoBehaviour,IPointerDownHandler
         }
         else
         {
-            Debug.Log("pass game");
+            OnLevelEnd?.Invoke();
         }
     }
 

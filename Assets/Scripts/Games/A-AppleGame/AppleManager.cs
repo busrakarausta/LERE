@@ -1,13 +1,18 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AppleManager : MonoBehaviour
 {
-    private Vector3 currentApplePos;
-    public Transform basketPos;
     [HideInInspector]
     public bool isApplePosChanged=false;
+
+    private Vector3 currentApplePos;
+    public Transform basketPos;
+    private int totalAppleCount=4;
+    private int currentAppleCount=0;
+    public event Action OnLevelEnd;
+
 
     private void Start()
     {
@@ -27,5 +32,20 @@ public class AppleManager : MonoBehaviour
     {
         currentApplePos = pos;
         isApplePosChanged = true;
+    }
+
+    public void SetCurrentAppleCount()
+    {
+        currentAppleCount++;
+        if(currentAppleCount == totalAppleCount)
+        {
+            Debug.Log(currentAppleCount);
+            EndOfTheLevel();
+        }
+    }
+
+    private void EndOfTheLevel()
+    {
+        OnLevelEnd?.Invoke();
     }
 }

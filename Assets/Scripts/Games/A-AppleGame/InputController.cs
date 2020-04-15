@@ -22,6 +22,7 @@ public class InputController : MonoBehaviour , IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        appleManager.SetCurrentAppleCount();
         if(transform.position.y > basket.position.y)
               flag = true;
     }
