@@ -916,8 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99f56940bcfdbb541bf6430eedeb580c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basketPos: {fileID: 1448822469901503498}
   isApplePosChanged: 0
+  basketPos: {fileID: 1448822469901503498}
 --- !u!1 &7928065163166783692
 GameObject:
   m_ObjectHideFlags: 0
