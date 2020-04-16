@@ -11,7 +11,11 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
     public Transform rock;
     private Rigidbody2D balloonRigidbody2D;
     private Rigidbody2D rockRigidbody2D;
-    private float destroyTime = 13f;
+    private float destroyTime = 8f;
+    private float waitTime = 4f;
+    public BalloonEnder balloonEnder;
+    public int clickCount = 1;
+
 
     public void Awake()
     {
@@ -22,17 +26,22 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     { 
         Fly();
+        StartCoroutine(WaitForLevelEnd());
+        if (clickCount == 3)
+        {
+            balloonEnder.IncreaseClickCount();
+        }
         StartCoroutine(WaitForDestroy());
     }
 
-   private void Fly()
+    private void Fly()
     {
         if (transform.position.y <= balloon.position.y)
         {
-            Debug.Log(balloon.name + " flying..");
-            balloonRigidbody2D.velocity = new Vector2(0f, 75f); // Balloon flying.
-            rockRigidbody2D.velocity = new Vector2(0f, -90f); // Rock falling.
+            balloonRigidbody2D.velocity = new Vector2(0f, 100f); 
+            rockRigidbody2D.velocity = new Vector2(0f, -100f);
         }
+        clickCount++;
     }
    
    private IEnumerator WaitForDestroy()
@@ -40,4 +49,10 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
        yield return new WaitForSeconds(destroyTime);
        Destroy(balloon.gameObject);
    }
+
+    private IEnumerator WaitForLevelEnd()
+    {
+        yield return new WaitForSeconds(waitTime);
+
+    }
 }

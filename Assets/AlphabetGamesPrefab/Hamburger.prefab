@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &195819038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 195819040}
+  - component: {fileID: 195819039}
+  m_Layer: 5
+  m_Name: HamburgerGameEnder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &195819040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195819038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2434109322594757616}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &195819039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195819038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a20c941db2da546b3d5b849111615d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2953749976615900041
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +187,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 556aa0f3d0400a3428e12f41d81b0b43, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4cc5e0288b53a424d844ede313c6563b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -208,6 +256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottom: {fileID: 3868719329310114059}
   move: 50
+  hamburgerEnder: {fileID: 195819039}
 --- !u!114 &3868719329400280701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +277,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d98132072ba98e642918300867f850c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 38681c01070631147a4964bb571e057b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -297,6 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottom: {fileID: 3868719329310114059}
   move: 50
+  hamburgerEnder: {fileID: 195819039}
 --- !u!114 &3868719330868782717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +367,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: db664fd4f1b9fd241952ee1560eabf53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 67b94a9d568013d4eba150271c9f8387, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -386,6 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottom: {fileID: 3868719329310114059}
   move: 50
+  hamburgerEnder: {fileID: 195819039}
 --- !u!114 &3868719331029532490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,7 +457,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fe8697336bd656146a481ed8b65106c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 695984c15356b824a894620b4cc9710e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -483,6 +534,7 @@ RectTransform:
   m_Children:
   - {fileID: 8520506221658623928}
   - {fileID: 4134732067023646847}
+  - {fileID: 195819040}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

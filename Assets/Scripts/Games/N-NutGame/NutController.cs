@@ -8,6 +8,7 @@ public class NutController : MonoBehaviour, IPointerDownHandler
 {
     public GameObject cruchedNut;
     private AudioSource source;
+    public NutEnder nutEnder;
 
      void Awake()
     {
@@ -24,6 +25,7 @@ public class NutController : MonoBehaviour, IPointerDownHandler
         gameObject.SetActive(false);
         cruchedNut.SetActive(true);
         source.Play();
+        nutEnder.IncreaseClickCount();
     }
 
  

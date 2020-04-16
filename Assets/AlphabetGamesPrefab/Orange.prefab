@@ -142,7 +142,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9531260b8cc750d40849f56bcf76a890, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e38e02f4df184f4a822749781660a21, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -262,8 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9dce5b736db02419b77a759aa370e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basketPos: {fileID: 2275918649951965478}
   isOrangePosChanged: 0
+  basketPos: {fileID: 2275918649951965478}
 --- !u!1 &2275918649951965479
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9531260b8cc750d40849f56bcf76a890, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e38e02f4df184f4a822749781660a21, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -635,7 +635,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9531260b8cc750d40849f56bcf76a890, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e38e02f4df184f4a822749781660a21, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -775,7 +775,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 9531260b8cc750d40849f56bcf76a890, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3e38e02f4df184f4a822749781660a21, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -903,7 +903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &856367584357253546
 RectTransform:
   m_ObjectHideFlags: 0

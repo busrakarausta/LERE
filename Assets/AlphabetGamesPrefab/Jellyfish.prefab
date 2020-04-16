@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1025290797
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1025290798}
+  - component: {fileID: 1025290799}
+  m_Layer: 5
+  m_Name: JellyfishGameEnder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1025290798
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025290797}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3740015463961067885}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1025290799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025290797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9046a438c9696214cabd7819ab6688ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2484688621399974555
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +191,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: beaac7060fc8dac47a0a37a268fbfdaa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3f47d569ebdd85459956ffc31b58077, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -211,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4e20bb9d235fb4091870e9012e3fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jellyfishEnder: {fileID: 1025290799}
 --- !u!82 &7687240704847249854
 AudioSource:
   m_ObjectHideFlags: 0
@@ -222,7 +271,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3455ae8cd76dd984f8c7c28b313e6696, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -417,7 +466,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07833481, y: -15.204721}
+  m_Offset: {x: -0.07833481, y: -16.963081}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -428,7 +477,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 27.674477, y: 39.994892}
+  m_Size: {x: 23.653385, y: 32.45909}
   m_EdgeRadius: 0
 --- !u!1 &4555042944834517120
 GameObject:
@@ -540,7 +589,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.57439804, y: -12.290483}
+  m_Offset: {x: -0.32307434, y: -17.063133}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -551,7 +600,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 24.18969, y: 38.43025}
+  m_Size: {x: 19.66595, y: 28.884949}
   m_EdgeRadius: 0
 --- !u!1 &4555042945113463172
 GameObject:
@@ -622,7 +671,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: beaac7060fc8dac47a0a37a268fbfdaa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3f47d569ebdd85459956ffc31b58077, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -690,6 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4e20bb9d235fb4091870e9012e3fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jellyfishEnder: {fileID: 1025290799}
 --- !u!82 &390873520643794830
 AudioSource:
   m_ObjectHideFlags: 0
@@ -701,7 +751,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3455ae8cd76dd984f8c7c28b313e6696, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -855,7 +905,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: beaac7060fc8dac47a0a37a268fbfdaa, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3f47d569ebdd85459956ffc31b58077, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -923,6 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f4e20bb9d235fb4091870e9012e3fe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jellyfishEnder: {fileID: 1025290799}
 --- !u!82 &6602171711573099739
 AudioSource:
   m_ObjectHideFlags: 0
@@ -934,7 +985,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3455ae8cd76dd984f8c7c28b313e6696, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1051,6 +1102,7 @@ RectTransform:
   - {fileID: 4555042945113463173}
   - {fileID: 4555042944008070969}
   - {fileID: 4555042945590979524}
+  - {fileID: 1025290798}
   m_Father: {fileID: 3116773926566910690}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

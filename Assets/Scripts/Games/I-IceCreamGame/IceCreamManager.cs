@@ -8,6 +8,7 @@ public class IceCreamManager : MonoBehaviour,IDragHandler
 {
     public Transform cone;
     private bool flag = false;
+    public IceCreamEnder IceCreamEnder; 
     private float x_pos=-5f;
     
     public void OnDrag(PointerEventData eventData)
@@ -31,14 +32,17 @@ public class IceCreamManager : MonoBehaviour,IDragHandler
     {
         if (gameObject.name == "Icecream1")
         {
+            IceCreamEnder.IncreaseClickCount();
             transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+190f, cone.transform.position.z);
         }
         else if (gameObject.name == "Icecream2")
         {
+            IceCreamEnder.IncreaseClickCount();
             transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+280f, cone.transform.position.z);
         }
         else if (gameObject.name == "Icecream3")
         {
+            IceCreamEnder.IncreaseClickCount();
             transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+370f, cone.transform.position.z);
         }
     }

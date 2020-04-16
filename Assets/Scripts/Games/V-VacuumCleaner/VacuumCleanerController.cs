@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class VacuumCleanerController : MonoBehaviour,IDragHandler
 {
     private AudioSource source;
+    public VacuumCleanerEnder vacuumCleanerEnder;
 
     void Awake()
     {
@@ -19,7 +20,6 @@ public class VacuumCleanerController : MonoBehaviour,IDragHandler
 
     IEnumerator OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("test");
         if (other.gameObject.name == "Dirt")
         {
             source.Play();
@@ -27,5 +27,6 @@ public class VacuumCleanerController : MonoBehaviour,IDragHandler
             yield return new WaitForSeconds(0.2f);
             other.gameObject.SetActive(false);
         }
+        vacuumCleanerEnder.IncreaseDirtCount();
     }
 }

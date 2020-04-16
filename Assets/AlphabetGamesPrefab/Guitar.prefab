@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 6082846073447997154}
   - component: {fileID: 6082846073447997152}
   - component: {fileID: 6082846073447997153}
+  - component: {fileID: 1377772694}
   m_Layer: 5
   m_Name: Guitar
   m_TagString: Untagged
@@ -216,7 +217,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: c908ebe26a4b45445a20df2424111e46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e0d60837e7beb948ba107733bf0ef9b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -225,6 +226,18 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &1377772694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6082846073447997155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950021a0b9a485b438dd58c0fb5ae261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6082846073813184575
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   nota: {fileID: 6082846074472619845}
+  guitarEnder: {fileID: 1377772694}
   notaObject: {fileID: 6082846074472619846}
 --- !u!114 &6082846073813184573
 MonoBehaviour:
@@ -310,7 +324,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 94e6431be0cbdb947b289532efd5f1fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d352e09855216b94388222a29b42954d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -329,7 +343,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eb329952bb7a86c46a98b6d2ce8edc22, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2ca5efb36cd69364d89cbba5c40e2519, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -547,7 +561,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b03cfd70076f847499b7f411dacf1577, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81d6b664d7605354c8f48894fe6e2240, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -641,6 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   nota: {fileID: 6082846074472619845}
+  guitarEnder: {fileID: 1377772694}
   notaObject: {fileID: 6082846074472619846}
 --- !u!114 &6082846074481295505
 MonoBehaviour:
@@ -662,7 +677,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 94e6431be0cbdb947b289532efd5f1fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d352e09855216b94388222a29b42954d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -681,7 +696,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 35a14aff3b8424e4d81579c8d6eeaca7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e712c238b5fc6eb42beec366d0c2f897, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -897,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   nota: {fileID: 6082846074472619845}
+  guitarEnder: {fileID: 1377772694}
   notaObject: {fileID: 6082846074472619846}
 --- !u!114 &6082846074568339623
 MonoBehaviour:
@@ -918,7 +934,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 94e6431be0cbdb947b289532efd5f1fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d352e09855216b94388222a29b42954d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -937,7 +953,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4c4de25e4fea9254795fbb36129e1edb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 24497746df13d6b42bd07fb8d77669b3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

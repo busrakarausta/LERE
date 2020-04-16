@@ -10,6 +10,7 @@ public class MonkeyControl : MonoBehaviour , IPointerDownHandler
     private Animator anim_right;
     private Animator anim_left;
     private int clickCount = 0;
+    public MonkeyEnder monkeyEnder;
    
     void Awake()
     {
@@ -21,10 +22,12 @@ public class MonkeyControl : MonoBehaviour , IPointerDownHandler
     {
         if (gameObject.name== "Monkey2" && clickCount<=1)
         {
+            monkeyEnder.IncreaseClickCount();
             JumpRightMonkey();
         }
         else if (gameObject.name== "Monkey1" && clickCount<=1)
         {
+            monkeyEnder.IncreaseClickCount();
             JumpLeftMonkey();
         }
     }

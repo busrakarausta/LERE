@@ -12,7 +12,8 @@ public class EggController : MonoBehaviour, IPointerDownHandler
     public GameObject panEgg;
     private Rigidbody2D crushedEggRB;
     private AudioSource source;
-
+    public EggEnder eggEnder;
+    public int clickCount = 1;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class EggController : MonoBehaviour, IPointerDownHandler
     {
         source.Play();
         StartCoroutine( CruchEgg());
+        
     }
 
     public IEnumerator CruchEgg()
@@ -33,10 +35,16 @@ public class EggController : MonoBehaviour, IPointerDownHandler
         crushedEggRB.velocity = new Vector2(0f, -200f);
 
         yield return new WaitForSeconds(2f);
-
+        Debug.Log(clickCount);
+        gameObject.SetActive(false);
         crushedEgg.SetActive(false);
         panEmpty.SetActive(false);
         panEgg.SetActive(true);
-        gameObject.SetActive(false);
+        clickCount++;
+
+        if (clickCount == 2)
+        {
+            eggEnder.IncreaseClickCount();
+        }
     }
 }

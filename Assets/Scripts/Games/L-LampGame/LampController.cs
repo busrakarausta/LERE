@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LampController : MonoBehaviour, IPointerDownHandler
 {
     private AudioSource source;
+    public LampEnder lampEnder;
 
     void Awake()
     {
@@ -15,6 +16,7 @@ public class LampController : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        lampEnder.IncreaseLampCount();
         StartCoroutine(OpenLamb());
     }
 

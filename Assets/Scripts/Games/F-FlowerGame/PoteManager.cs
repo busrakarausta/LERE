@@ -6,7 +6,8 @@ using UnityEngine.EventSystems;
 public class PoteManager : MonoBehaviour,IPointerDownHandler{
     
     private Rigidbody2D petal;
-    
+    public FlowerEnder flowerEnder;
+
     void Awake()
     {
         petal = gameObject.GetComponent<Rigidbody2D>();
@@ -14,7 +15,8 @@ public class PoteManager : MonoBehaviour,IPointerDownHandler{
     
     public void OnPointerDown(PointerEventData eventData)
     {
-       StartCoroutine(MovePetal());
+        StartCoroutine(MovePetal());
+        flowerEnder.IncreaseClickCount();
     }
 
     public IEnumerator MovePetal()
