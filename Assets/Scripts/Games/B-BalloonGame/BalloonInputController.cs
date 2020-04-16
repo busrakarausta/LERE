@@ -11,7 +11,7 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
     public Transform rock;
     private Rigidbody2D balloonRigidbody2D;
     private Rigidbody2D rockRigidbody2D;
-    private float destroyTime = 9f;
+    private float destroyTime = 13f;
 
     public void Awake()
     {
@@ -30,7 +30,7 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
         if (transform.position.y <= balloon.position.y)
         {
             Debug.Log(balloon.name + " flying..");
-            balloonRigidbody2D.velocity = new Vector2(0f, 40f); // Balloon flying.
+            balloonRigidbody2D.velocity = new Vector2(0f, 75f); // Balloon flying.
             rockRigidbody2D.velocity = new Vector2(0f, -90f); // Rock falling.
         }
     }
