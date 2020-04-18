@@ -4,34 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SnowmanCreator : MonoBehaviour,IDragHandler
+public class SnowmanCreator : MonoBehaviour, IDragHandler
 {
+    private static int fixedSiblingCount=0;
+
     public RectTransform bottom;
-    public Transform middle;
-    public Transform head;
-    public int up=150;
+    public RectTransform middle;
+
 
     private int siblingIndex;
-    private float maxX,minX;
-    private int flag = 2;
+    private RectTransform thisRect;
+    public event Action OnLevelEnd;
 
     void Awake()
     {
+        fixedSiblingCount = 0;
         siblingIndex = transform.GetSiblingIndex();
-        minX = bottom.rect.xMin;
-        maxX = bottom.rect.xMax;
+        thisRect = GetComponent<RectTransform>();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if(siblingIndex == 1)
+        siblingIndex = transform.GetSiblingIndex();
+
+        if(siblingIndex == 0 ) //head
         {
+            thisRect.localPosition = new Vector2(bottom.localPosition.x, bottom.localPosition.y + bottom.sizeDelta.y/2 + middle.sizeDelta.y+ thisRect.sizeDelta.y/2-100);
+            fixedSiblingCount++;
 
         }
-
-        else if(siblingIndex==2)
+        else 
         {
+            thisRect.localPosition = new Vector2(bottom.localPosition.x, bottom.localPosition.y + bottom.sizeDelta.y / 2 + thisRect.sizeDelta.y / 2-100);
+            fixedSiblingCount++;
+        }
 
+        if (fixedSiblingCount == 2)
+        {
+            OnLevelEnd?.Invoke();
         }
 
     }
