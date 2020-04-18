@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1755208611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1755208613}
+  - component: {fileID: 1755208612}
+  m_Layer: 5
+  m_Name: BalloonGameEnder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1755208613
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755208611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2260650413708136033}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1755208612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755208611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814564cfb572ba14b8f00f107aa56a8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1063736329822006679
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -48, y: 118.4}
-  m_SizeDelta: {x: 100.5, y: 177.9}
+  m_AnchoredPosition: {x: 8.8, y: 52.99998}
+  m_SizeDelta: {x: 104.9, y: 144.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1409211899252632729
 CanvasRenderer:
@@ -166,6 +214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balloon: {fileID: 1409211899252632722}
   rock: {fileID: 4123349058237894325}
+  balloonEnder: {fileID: 1755208612}
+  clickCount: 1
 --- !u!61 &1409211899252632724
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -251,8 +301,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -943, y: -12.3}
-  m_SizeDelta: {x: 100.5, y: 177.9}
+  m_AnchoredPosition: {x: -925.4, y: -53}
+  m_SizeDelta: {x: 104.9, y: 144.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1409211899354099286
 CanvasRenderer:
@@ -305,6 +355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balloon: {fileID: 1409211899354099282}
   rock: {fileID: 1409211900089640788}
+  balloonEnder: {fileID: 1755208612}
+  clickCount: 1
 --- !u!61 &1409211899354099284
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -387,7 +439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.5, y: -82.99995}
+  m_AnchoredPosition: {x: -2.5, y: -76}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1409211900089640790
@@ -486,8 +538,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 819, y: -12.3}
-  m_SizeDelta: {x: 100.5, y: 177.9}
+  m_AnchoredPosition: {x: 913.8, y: -53.000015}
+  m_SizeDelta: {x: 104.9, y: 144.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1409211900701208515
 CanvasRenderer:
@@ -540,6 +592,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balloon: {fileID: 1409211900701208572}
   rock: {fileID: 4123349057594060170}
+  balloonEnder: {fileID: 1755208612}
+  clickCount: 1
 --- !u!61 &1409211900701208574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -622,7 +676,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.5, y: -83}
+  m_AnchoredPosition: {x: -2.5, y: -76.00006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4123349057594060175
@@ -718,7 +772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.2, y: -83}
+  m_AnchoredPosition: {x: -1.2, y: -76.00006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4123349058237894330
@@ -809,6 +863,7 @@ RectTransform:
   - {fileID: 1409211899354099282}
   - {fileID: 1409211900701208572}
   - {fileID: 1409211899252632722}
+  - {fileID: 1755208613}
   m_Father: {fileID: 574566234370053614}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

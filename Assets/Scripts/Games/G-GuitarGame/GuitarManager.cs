@@ -7,7 +7,7 @@ public class GuitarManager : MonoBehaviour, IPointerDownHandler
 {
     public GameObject canvas;
     public Transform nota;
-
+    public GuitarEnder guitarEnder;
     public GameObject notaObject;
     private GameObject insObj;
     private AudioSource source;
@@ -23,15 +23,8 @@ public class GuitarManager : MonoBehaviour, IPointerDownHandler
     
     public void OnPointerDown(PointerEventData eventData)
     {
-        clickCount++;
-        if (clickCount <= 4)
-        {
-            createSoundAndAnim(gameObject);
-        }
-        else
-        {
-            Debug.Log("PASS GAME");
-        }
+        guitarEnder.IncreaseNoteCount();
+        createSoundAndAnim(gameObject);
     }
     
     public IEnumerator CreateNota()

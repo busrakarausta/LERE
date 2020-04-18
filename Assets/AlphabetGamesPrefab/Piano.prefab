@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 7059308668464212246}
   - component: {fileID: 7059308668464212264}
   - component: {fileID: 7059308668464212247}
+  - component: {fileID: 2036605497}
   m_Layer: 5
   m_Name: Piano
   m_TagString: Untagged
@@ -142,7 +143,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7f81f1167603ba34d95b6dadf8325434, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b1d313a21d9b8914c854bc57edf8d8c6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -151,6 +152,18 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &2036605497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059308668464212245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1686843e1ad256a4d9d891f30ce424f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7059308668542522503
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +234,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 25fb06c36e364254d9e01db8d479614d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c95344d6f3afc8d47b89d82d26dbbec2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -244,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   nota: {fileID: 7059308669180027096}
+  pianoEnder: {fileID: 2036605497}
   notaObject: {fileID: 7059308669180027079}
 --- !u!61 &7059308668542522524
 BoxCollider2D:
@@ -302,7 +316,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 35a14aff3b8424e4d81579c8d6eeaca7, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d96edea368d74ee409031ef677a484f1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -477,7 +491,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 25fb06c36e364254d9e01db8d479614d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c95344d6f3afc8d47b89d82d26dbbec2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -500,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   nota: {fileID: 7059308669180027096}
+  pianoEnder: {fileID: 2036605497}
   notaObject: {fileID: 7059308669180027079}
 --- !u!61 &7059308669088909520
 BoxCollider2D:
@@ -558,7 +573,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4dd349d69c64a264bba3ef59f96b747a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 583ffcef18ce4444b99ad968ba6616ea, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -729,7 +744,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b03cfd70076f847499b7f411dacf1577, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81d6b664d7605354c8f48894fe6e2240, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -829,7 +844,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 25fb06c36e364254d9e01db8d479614d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c95344d6f3afc8d47b89d82d26dbbec2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -852,6 +867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   nota: {fileID: 7059308669180027096}
+  pianoEnder: {fileID: 2036605497}
   notaObject: {fileID: 7059308669180027079}
 --- !u!61 &7059308669336276019
 BoxCollider2D:
@@ -910,7 +926,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eb329952bb7a86c46a98b6d2ce8edc22, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ac61222c30e46e741b47929ca343f9ea, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,8 +9,7 @@ public class CrownController : MonoBehaviour,IDragHandler
     public Transform queen;
     private bool flag = false;
     private AudioSource source;
-
-   
+    public event Action OnLevelEnd;
 
     void Awake()
     {
@@ -23,6 +23,7 @@ public class CrownController : MonoBehaviour,IDragHandler
         {
             transform.position= new Vector3(queen.transform.position.x-8f, queen.transform.position.y+290f, queen.transform.position.z);
             source.Play();
+            OnLevelEnd?.Invoke();
         }
     }
     

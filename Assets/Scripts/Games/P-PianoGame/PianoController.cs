@@ -13,12 +13,12 @@ public class PianoController : MonoBehaviour, IPointerDownHandler
 {
     public GameObject canvas;
     public Transform nota;
-
+    public PianoEnder pianoEnder;
     public GameObject notaObject;
     private GameObject insObj;
     private AudioSource source;
     private Animator anim;
-    private int clickCount = 0;
+
     
     void Awake()
     {
@@ -28,17 +28,8 @@ public class PianoController : MonoBehaviour, IPointerDownHandler
    
     public void OnPointerDown(PointerEventData eventData)
     {
-        clickCount++;
-        // her notaya 2 kere bastıktan sonra oyunu geç.
-        // bugımız var  : bir tanesine 2 kere basınca da oyun bitiyor, bak...
-        if (clickCount <= 2)
-        {
-            createSoundAndAnim(gameObject);
-        }
-        else
-        {
-            Debug.Log("PASS GAME");
-        }
+        pianoEnder.IncreaseNoteCount();
+        createSoundAndAnim(gameObject);
     }
 
     public IEnumerator CreateNota()

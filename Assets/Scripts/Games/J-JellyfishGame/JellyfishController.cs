@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class JellyfishController : MonoBehaviour, IDragHandler
 {
     private AudioSource source;
+    public JellyfishEnder jellyfishEnder;
 
     void Awake()
     {
@@ -31,6 +32,7 @@ public class JellyfishController : MonoBehaviour, IDragHandler
             }
             gameObject.SetActive(false);
             source.Play();
+            jellyfishEnder.IncreaseJellyfishCount();
         }
     }
 }

@@ -10,6 +10,7 @@ public class XylophoneManager : MonoBehaviour,IPointerDownHandler
     public Transform nota;
     public GameObject canvas;
     private GameObject insObj;
+    public XylophoneEnder xylophonEnder;
 
     void Awake()
     {
@@ -17,14 +18,14 @@ public class XylophoneManager : MonoBehaviour,IPointerDownHandler
     }
 
     public void OnPointerDown(PointerEventData eventData)
-    {
+    {  
+        xylophonEnder.IncreaseNoteCount();
         source.Play();
         StartCoroutine(CreateNota());
-
     }
     public IEnumerator CreateNota()
     {
-        insObj=Instantiate(notaObject, gameObject.transform.position, Quaternion.identity);
+        insObj = Instantiate(notaObject, gameObject.transform.position, Quaternion.identity);
         insObj.SetActive(true);
         insObj.transform.SetParent(nota,true);
         insObj.transform.parent = canvas.transform;
@@ -32,5 +33,5 @@ public class XylophoneManager : MonoBehaviour,IPointerDownHandler
         yield return new WaitForSeconds(1f);
         Destroy(insObj);
     }
-    
+
 }

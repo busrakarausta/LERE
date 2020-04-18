@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 499347303}
   - component: {fileID: 499347305}
   - component: {fileID: 499347306}
+  - component: {fileID: 184306374}
   m_Layer: 5
   m_Name: ChildBasket
   m_TagString: Untagged
@@ -123,6 +124,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &184306374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499347301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9a791b997c399488b7bfccf7489272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tomatoCount: 0
+  totalTomatoCount: 3
 --- !u!1 &3033367820595158994
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,8 +323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 348, y: 36}
-  m_SizeDelta: {x: 88.444, y: 100}
+  m_AnchoredPosition: {x: 334, y: 36}
+  m_SizeDelta: {x: 106, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3033367821043394654
 CanvasRenderer:
@@ -339,7 +354,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 71d816603a50c6d469845b5ab8b5196a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c4e04c9782f2184d9ca4ae1aa69601b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -409,6 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 499347302}
+  basketController: {fileID: 184306374}
 --- !u!114 &3033367821407004657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +445,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4fb86d805659d1a4d8d0a38cfcb07b46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 666312f6121d64240b680ba555307438, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -546,6 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 499347302}
+  basketController: {fileID: 184306374}
 --- !u!114 &3033367821797024560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,7 +583,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4fb86d805659d1a4d8d0a38cfcb07b46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 666312f6121d64240b680ba555307438, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -683,6 +700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basket: {fileID: 499347302}
+  basketController: {fileID: 184306374}
 --- !u!114 &3033367821873211755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,7 +721,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 4fb86d805659d1a4d8d0a38cfcb07b46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 666312f6121d64240b680ba555307438, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -923,7 +941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4498935248941374586
 RectTransform:
   m_ObjectHideFlags: 0

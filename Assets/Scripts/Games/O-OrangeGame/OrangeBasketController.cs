@@ -13,7 +13,7 @@ public class OrangeBasketController : MonoBehaviour
     
     private void Update()
     {
-        Vector3 newPos= orangeManager.GetCurrentApplePos();
+        Vector3 newPos= orangeManager.GetCurrentOrangePos();
         if(newPos!=transform.position)
         {
             transform.position = newPos;

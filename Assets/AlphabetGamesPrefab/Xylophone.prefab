@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1796031781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796031782}
+  - component: {fileID: 1796031783}
+  m_Layer: 5
+  m_Name: XylophoneGameEnder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1796031782
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796031781}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5195676902893658319}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1796031783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796031781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f3a760137b0c0429a024a7a3fc40e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2316939749623020462
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +118,7 @@ RectTransform:
   - {fileID: 4957117175831468703}
   - {fileID: 4957117176993864657}
   - {fileID: 4957117174912642538}
+  - {fileID: 1796031782}
   m_Father: {fileID: 5817795286861085504}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,7 +192,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 66a152b838c1ebb4fb97baa8504ed65d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0a7d06b586843643aff0b08df46fe58, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -216,6 +265,7 @@ MonoBehaviour:
   notaObject: {fileID: 0}
   nota: {fileID: 0}
   canvas: {fileID: 0}
+  xylophonEnder: {fileID: 1796031783}
 --- !u!114 &4957117175336179412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,7 +286,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fbd29bbb95198d2459f6dcf1febdf1ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 116fcb5c6e5747d43944d57ab3e920f6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -302,7 +352,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e2affaf85811efa4dbf4c61910674e0c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 94d62a5f6122eb94884f13033086e4e4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -452,6 +502,7 @@ MonoBehaviour:
   notaObject: {fileID: 0}
   nota: {fileID: 0}
   canvas: {fileID: 0}
+  xylophonEnder: {fileID: 1796031783}
 --- !u!114 &4957117175831468700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +523,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3cfaa6dcd6223e747a6b8920f335513d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8d16d9dd7045194ca7344c98c9747dd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -538,7 +589,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c4110f3d927ca474b892dcb595620a4a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6e78d83cd12cc6f45a1a7b2b92f544fb, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -688,6 +739,7 @@ MonoBehaviour:
   notaObject: {fileID: 0}
   nota: {fileID: 0}
   canvas: {fileID: 0}
+  xylophonEnder: {fileID: 1796031783}
 --- !u!114 &4957117175840893404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,7 +760,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 12b1c295e30222341a5de05f304ba982, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7ef94156af7abc845884023fb57d9dc3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -774,7 +826,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7d1a514ab6bf2b44fba670dbb4db8abe, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 441ab3c97688ac740b76446bed94f9db, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -924,6 +976,7 @@ MonoBehaviour:
   notaObject: {fileID: 0}
   nota: {fileID: 0}
   canvas: {fileID: 0}
+  xylophonEnder: {fileID: 1796031783}
 --- !u!114 &4957117176480838576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -944,7 +997,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 394311dceecb1ef449ab3b8cbd58acaf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a327f3ac85ab5fc488744ae9125dd442, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1010,7 +1063,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6b17c01f9f280f84e9d27f338126aa82, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6941be1064960bb439fdc2237c3af6d9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1161,7 +1214,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 66a152b838c1ebb4fb97baa8504ed65d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d0a7d06b586843643aff0b08df46fe58, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

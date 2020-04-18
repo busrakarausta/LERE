@@ -8,8 +8,10 @@ public class UmbrellaController : MonoBehaviour, IPointerDownHandler
     public GameObject openedUmbrella;
     public GameObject closedUmbrella;
     private AudioSource source;
-    private int clickCount = 0;
-    
+    public UmbrellaEnder umbrellaEnder;
+    public int clickCount = 1;
+
+
     void Awake()
     {
         source = openedUmbrella.GetComponent<AudioSource>();
@@ -17,22 +19,18 @@ public class UmbrellaController : MonoBehaviour, IPointerDownHandler
     
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(clickCount);
-        if (clickCount <= 2)
+        OpenUmbrella();
+        if (clickCount == 2)
         {
-            OpenUmbrella();
-        }
-        else
-        {
-            Debug.Log("pass game.");
+            source.Play();
+            umbrellaEnder.IncreaseClickCount();
         }
     }
 
     private void OpenUmbrella()
     {
-        clickCount++;
         closedUmbrella.SetActive(false);
         openedUmbrella.SetActive(true);
-        source.Play();
+        clickCount++;
     }
 }

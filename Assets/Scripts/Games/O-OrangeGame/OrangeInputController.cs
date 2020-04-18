@@ -19,10 +19,10 @@ public class OrangeInputController : MonoBehaviour , IPointerDownHandler
             FallObject();
         }          
     }
-
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(transform.position.y > basket.position.y)
+        orangeManager.SetCurrentOrangeCount();
+        if (transform.position.y > basket.position.y)
               flag = true;
     }
 
@@ -32,7 +32,7 @@ public class OrangeInputController : MonoBehaviour , IPointerDownHandler
         {
             flag = false;
             orangePos = basket.transform.position;
-            orangeManager.SetCurrentApplePos(transform.position);
+            orangeManager.SetCurrentOrangePos(transform.position);
             transform.SetParent(basket);
             transform.localPosition = Vector3.zero;
             return;

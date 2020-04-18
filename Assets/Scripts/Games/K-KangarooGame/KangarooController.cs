@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,8 @@ public class KangarooController : MonoBehaviour,IPointerDownHandler
     public GameObject Mom_cangaroo;
     public GameObject MomWithChild;
     private AudioSource source;
+    public event Action OnLevelEnd;
+
 
     void Awake()
     {
@@ -22,6 +25,7 @@ public class KangarooController : MonoBehaviour,IPointerDownHandler
     {
         anim.SetTrigger("KangarooJump");
         StartCoroutine(GetChild());
+        OnLevelEnd?.Invoke();
     }
 
     public IEnumerator GetChild()
