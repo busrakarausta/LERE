@@ -4,16 +4,52 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager _instance;
 
-    private char currentLetter = 'A';
+    private bool _isLetter=false;
+    private bool _isNumber=false;
+    private bool _isColor=false;
+
+    private char _currentLetter = 'A';
+    private int _currentNumber = 1;
+    private Color _currentColor = Color.red;
 
     private void Awake()
     {
-        instance = this;
+        _instance = this;
     }
-    public char GetCurrentLetter()
+
+    public void ChangeGameStatus(int stateIndex)
     {
-        return currentLetter;
+        switch (stateIndex)
+        {
+            case 0:
+                {
+                    SetGameState(true, false, false);
+                    break;
+                }
+            case 1:
+                {
+                    SetGameState(false, true, false);
+                    break;
+                }
+            case 2:
+                {
+                    SetGameState(false, false, true);
+                    break;
+                }
+
+            default:
+                break;
+        }
     }
+
+    private void SetGameState(bool letter,bool number,bool color)
+    {
+        _isLetter = letter;
+        _isNumber = number;
+        _isColor = color;
+    }
+
+
 }

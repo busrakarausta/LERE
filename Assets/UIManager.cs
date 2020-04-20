@@ -15,29 +15,55 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject mainCanvas;
     [SerializeField]
-    private GameObject mainScreenPanel;
-
-    private int _activeSceneIndex=0;
-
-    public event Action OnClickParentButton;
-    public event Action OnClickChildButton;
+    private GameObject categoriesMenu;
+    [SerializeField]
+    private GameObject lettersMenu;
+    [SerializeField]
+    private GameObject numbersMenu;
+    [SerializeField]
+    private GameObject colorsMenu;
 
     //Click Events
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+
+    }
+
+    private void ControlCategoriesMenu(bool isSetActive)
+    {
+        categoriesMenu.SetActive(isSetActive);
+    }
+    public void OnClickAlphabetButton()
+    {
+        ControlCategoriesMenu(false);
+        lettersMenu.SetActive(true);
+        GameManager._instance.ChangeGameStatus(0);
+    }
+
+    public void OnClickNumbersButton()
+    {
+        ControlCategoriesMenu(false);
+        numbersMenu.SetActive(true);
+        GameManager._instance.ChangeGameStatus(1);
+    }
+
+    public void OnClickColorsButton()
+    {
+        ControlCategoriesMenu(false);
+        colorsMenu.SetActive(true);
+        GameManager._instance.ChangeGameStatus(2);
     }
 
     public void OnClickParentControl()
     {
-        //Goto parent panel
-        OnClickParentButton?.Invoke();
+        ApplicationManager.instance.LoadParentControlScene();
     }
 
     public void OnClickChildGames()
     {
-        //Go to child Games
-        OnClickChildButton?.Invoke();
+        ApplicationManager.instance.LoadGamesScene();
     }
+
+
 
 }
