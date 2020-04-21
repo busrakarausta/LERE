@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 1804492281}
   - component: {fileID: 1804492280}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: ApplicationManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +521,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   mainCanvas: {fileID: 1463184633}
-  mainScreenPanel: {fileID: 2029477089}
 --- !u!4 &1894832924
 Transform:
   m_ObjectHideFlags: 0
@@ -536,12 +535,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2029477089 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6896396581790855807, guid: 13b6f3ddcf128b042b3682612279c828,
-    type: 3}
-  m_PrefabInstance: {fileID: 6896396583792537246}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2029477090 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6896396581790855804, guid: 13b6f3ddcf128b042b3682612279c828,
