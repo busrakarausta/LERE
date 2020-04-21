@@ -23,20 +23,32 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject colorsMenu;
 
+    private GameObject _currentActivePanel;
     //Click Events
     private void Awake()
     {
 
     }
 
+    //////////
+    public void OnClickStartGameElement(int index)
+    {
+        _currentActivePanel.SetActive(false);
+        GameManager._instance.StartGame(index);
+    }
+
+    ///////////
     private void ControlCategoriesMenu(bool isSetActive)
     {
         categoriesMenu.SetActive(isSetActive);
     }
+
+    ////////////
     public void OnClickAlphabetButton()
     {
         ControlCategoriesMenu(false);
         lettersMenu.SetActive(true);
+        _currentActivePanel = lettersMenu;
         GameManager._instance.ChangeGameStatus(0);
     }
 
@@ -44,6 +56,7 @@ public class UIManager : MonoBehaviour
     {
         ControlCategoriesMenu(false);
         numbersMenu.SetActive(true);
+        _currentActivePanel = numbersMenu;
         GameManager._instance.ChangeGameStatus(1);
     }
 
@@ -51,9 +64,11 @@ public class UIManager : MonoBehaviour
     {
         ControlCategoriesMenu(false);
         colorsMenu.SetActive(true);
+        _currentActivePanel = colorsMenu;
         GameManager._instance.ChangeGameStatus(2);
     }
 
+    /////////////
     public void OnClickParentControl()
     {
         ApplicationManager.instance.LoadParentControlScene();

@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ParentControlScene.unity
     guid: 108fc09046cb7b84d8f0a2db5eccd8eb
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Letters.unity
     guid: 51bcc6f51a11fd943ad62872e0a0a8fd
   m_configObjects: {}
