@@ -5,26 +5,24 @@ using UnityEngine.EventSystems;
 
 public class GuitarManager : MonoBehaviour, IPointerDownHandler
 {
-    public GameObject canvas;
+    //public GameObject canvas;
     public Transform nota;
+    public GameObject guitar;
     public GuitarEnder guitarEnder;
     public GameObject notaObject;
     private GameObject insObj;
     private AudioSource source;
-    private Animator anim;
     private int clickCount = 0;
-
     
     void Awake()
     {
         source = GetComponent<AudioSource>();
-        anim = gameObject.GetComponent<Animator>();
     }
     
     public void OnPointerDown(PointerEventData eventData)
     {
         guitarEnder.IncreaseNoteCount();
-        createSoundAndAnim(gameObject);
+        createSound(gameObject);
     }
     
     public IEnumerator CreateNota()
@@ -32,16 +30,14 @@ public class GuitarManager : MonoBehaviour, IPointerDownHandler
         insObj=Instantiate(notaObject, nota.position, Quaternion.identity);
         insObj.SetActive(true);
         insObj.transform.SetParent(nota,true);
-        insObj.transform.parent = canvas.transform;
-        insObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 50f);
-        
+        insObj.transform.parent = guitar.transform;
+        insObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 200f); 
         yield return new WaitForSeconds(1f);
         Destroy(insObj);
     }
 
-    public void createSoundAndAnim(GameObject gObject)
+    public void createSound(GameObject gObject)
     {     
-        anim.SetTrigger("Play");
         source.Play();
         StartCoroutine(CreateNota());
     }
