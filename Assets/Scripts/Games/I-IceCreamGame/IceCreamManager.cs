@@ -33,17 +33,17 @@ public class IceCreamManager : MonoBehaviour,IDragHandler
         if (gameObject.name == "Icecream1")
         {
             IceCreamEnder.IncreaseClickCount();
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+190f, cone.transform.position.z);
+            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+235f, cone.transform.position.z);
         }
         else if (gameObject.name == "Icecream2")
         {
             IceCreamEnder.IncreaseClickCount();
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+280f, cone.transform.position.z);
+            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+330f, cone.transform.position.z);
         }
         else if (gameObject.name == "Icecream3")
         {
             IceCreamEnder.IncreaseClickCount();
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+370f, cone.transform.position.z);
+            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+420f, cone.transform.position.z);
         }
     }
 }

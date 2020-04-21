@@ -55,6 +55,8 @@ public class LevelController : MonoBehaviour
     private JellyfishEnder jellyfishGame;
     [SerializeField]
     private YogurtManager yogurtGame;
+    [SerializeField]
+    private CarEnder carEnder;
 
     void Awake()
     {
@@ -83,6 +85,7 @@ public class LevelController : MonoBehaviour
         hamburgerGame.OnLevelEnd += OnLevelEnd;
         jellyfishGame.OnLevelEnd += OnLevelEnd;
         yogurtGame.OnLevelEnd += OnLevelEnd;
+        carEnder.OnLevelEnd += OnLevelEnd;
 
 
 

@@ -11,25 +11,22 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class PianoController : MonoBehaviour, IPointerDownHandler
 {
-    public GameObject canvas;
+    public GameObject piano;
     public Transform nota;
     public PianoEnder pianoEnder;
     public GameObject notaObject;
     private GameObject insObj;
     private AudioSource source;
-    private Animator anim;
-
     
     void Awake()
     {
         source = GetComponent<AudioSource>();
-        anim = gameObject.GetComponent<Animator>();
     }
    
     public void OnPointerDown(PointerEventData eventData)
     {
         pianoEnder.IncreaseNoteCount();
-        createSoundAndAnim(gameObject);
+        createSound(gameObject);
     }
 
     public IEnumerator CreateNota()
@@ -37,17 +34,17 @@ public class PianoController : MonoBehaviour, IPointerDownHandler
         insObj=Instantiate(notaObject, nota.position, Quaternion.identity);
         insObj.SetActive(true);
         insObj.transform.SetParent(nota,true);
-        insObj.transform.parent = canvas.transform;
-        insObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 50f);
+        insObj.transform.parent = piano.transform;
+        insObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 200f);
         
         yield return new WaitForSeconds(1f);
         Destroy(insObj);
     }
 
-    public void createSoundAndAnim(GameObject gObject)
+    public void createSound(GameObject gObject)
     {     
-        anim.SetTrigger("Play");
         source.Play();
+        Debug.Log("okey");
         StartCoroutine(CreateNota());
     }
 }
