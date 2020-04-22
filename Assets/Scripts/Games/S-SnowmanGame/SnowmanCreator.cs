@@ -14,7 +14,6 @@ public class SnowmanCreator : MonoBehaviour, IDragHandler
 
     private int siblingIndex;
     private RectTransform thisRect;
-    public event Action OnLevelEnd;
 
     void Awake()
     {
@@ -41,7 +40,7 @@ public class SnowmanCreator : MonoBehaviour, IDragHandler
 
         if (fixedSiblingCount == 2)
         {
-            OnLevelEnd?.Invoke();
+            LevelController.instance.OnLevelEnd();
         }
 
     }

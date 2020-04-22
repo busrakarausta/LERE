@@ -11,7 +11,6 @@ public class AppleManager : MonoBehaviour
     public Transform basketPos;
     private int totalAppleCount=4;
     private int currentAppleCount=0;
-    public event Action OnLevelEnd;
 
 
     private void Start()
@@ -46,6 +45,6 @@ public class AppleManager : MonoBehaviour
 
     private void EndOfTheLevel()
     {
-        OnLevelEnd?.Invoke();
+        LevelController.instance.OnLevelEnd();
     }
 }

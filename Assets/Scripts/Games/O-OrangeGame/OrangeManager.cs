@@ -12,7 +12,6 @@ public class OrangeManager : MonoBehaviour
     public Transform basketPos;
     private int totalOrangeCount = 4;
     private int currentOrangeCount = 0;
-    public event Action OnLevelEnd;
 
     private void Start()
     {
@@ -51,6 +50,6 @@ public class OrangeManager : MonoBehaviour
 
     private void EndOfTheLevel()
     {
-        OnLevelEnd?.Invoke();
+        LevelController.instance.OnLevelEnd();
     }
 }

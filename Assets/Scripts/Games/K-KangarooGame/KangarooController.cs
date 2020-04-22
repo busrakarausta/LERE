@@ -11,8 +11,6 @@ public class KangarooController : MonoBehaviour,IPointerDownHandler
     public GameObject Mom_cangaroo;
     public GameObject MomWithChild;
     private AudioSource source;
-    public event Action OnLevelEnd;
-
 
     void Awake()
     {
@@ -25,7 +23,7 @@ public class KangarooController : MonoBehaviour,IPointerDownHandler
     {
         anim.SetTrigger("KangarooJump");
         StartCoroutine(GetChild());
-        OnLevelEnd?.Invoke();
+        LevelController.instance.OnLevelEnd();
     }
 
     public IEnumerator GetChild()

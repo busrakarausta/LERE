@@ -6,14 +6,13 @@ public class GuitarEnder : MonoBehaviour
 {
     private int clickCount = 0;
     private int totalNote = 3;
-    public event Action OnLevelEnd;
 
     public void IncreaseNoteCount()
     {
         clickCount++;
         if (clickCount == totalNote)
         {
-            OnLevelEnd?.Invoke();
+            LevelController.instance.OnLevelEnd();
         }
     }
 }

@@ -12,8 +12,6 @@ public class RabbitController : MonoBehaviour,IPointerDownHandler
     private AudioSource source;
     private int clickCount = 0;
 
-    public event Action OnLevelEnd;
-
     void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -34,7 +32,7 @@ public class RabbitController : MonoBehaviour,IPointerDownHandler
         }
         else
         {
-            OnLevelEnd?.Invoke();
+            LevelController.instance.OnLevelEnd();
         }
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -34,13 +35,70 @@ public class GameManager : MonoBehaviour
     private bool isGameTurn=false;
     private bool isTestTurn=false;
 
+    public event Action OnStepDone;
+    public event Action OnWholeLevelDone;
     private void Awake()
     {
         _instance = this;
+
+        _educationController.OnLetterEducationEnd += OnLetterEducationDone;
+        _gameController.OnGameEnd += OnLetterGameDone;
+        _testController.OnTestEnd += OnLetterTestDone;
     }
 
+    public void EndCurrentState()
+    {
+        if (isEducationTurn)
+            _educationController.InActiveEducation();
 
-    public void InstantiateLetterGame(int index)
+        else if (isGameTurn)
+            _gameController.InActiveGame();
+
+
+        else if (isTestTurn)
+            _testController.InActiveTest();
+    }
+
+    private void OnLetterGameDone()
+    {
+        OnStepDone?.Invoke();
+
+        isEducationTurn = false;
+        isGameTurn = false;
+        isTestTurn = true;
+    }
+
+    private void OnLetterEducationDone()
+    {
+        OnStepDone?.Invoke();
+
+        isEducationTurn = false;
+        isGameTurn = true;
+        isTestTurn = false;
+    }
+
+    private void OnLetterTestDone()
+    {
+        OnStepDone?.Invoke();
+
+        isEducationTurn = true;
+        isGameTurn = false;
+        isTestTurn = false;
+    }
+
+    public void InstantiateLetterGame()
+    {
+        _educationController.InActiveEducation();
+        _gameController.StartLetterGame(_currentLetter);
+    }
+
+    public void InstantiateLetterTest()
+    {
+        _gameController.InActiveGame();
+        _testController.StartLetterTest(_currentLetter);
+    }
+
+    public void InstantiateLetterEducation(int index)
     {
         _currentLetter = _listedLetters[index];
 
@@ -48,17 +106,15 @@ public class GameManager : MonoBehaviour
         isGameTurn = false;
         isTestTurn = false;
 
-        //_educationController
-
+        _educationController.StartLetterEducation(_currentLetter);
     }
 
 
-
-    public void InstantiateColorGame(int index)
+    public void InstantiateColorEducation(int index)
     {
         _currentColor = _listedColors[index];
     }
-    public void InstantiateNumberGame(int index)
+    public void InstantiateNumberEducation(int index)
     {
         _currentNumber = _listedNumbers[index];
     }
@@ -66,14 +122,32 @@ public class GameManager : MonoBehaviour
     public void StartGame(int index)
     {
         if (_isLetter)
-            InstantiateLetterGame(index);
+            InstantiateLetterEducation(index);
 
         else if (_isNumber)
-            InstantiateNumberGame(index);
+            InstantiateNumberEducation(index);
 
         else if (_isColor)
-            InstantiateColorGame(index);
+            InstantiateColorEducation(index);
     }
+
+    public void StartNextStep()
+    {
+        if (isGameTurn)
+            InstantiateLetterGame();
+
+       else if (isTestTurn)
+            InstantiateLetterTest();
+
+        else
+        {
+            _testController.InActiveTest();
+            OnWholeLevelDone?.Invoke();
+        }
+       
+    }
+
+
 
     public void ChangeGameStatus(int stateIndex)
     {

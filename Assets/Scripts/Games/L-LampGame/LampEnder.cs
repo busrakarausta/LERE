@@ -6,14 +6,13 @@ public class LampEnder : MonoBehaviour
 {
     public int lampCount = 0;
     public int totalLampCount = 4;
-    public event Action OnLevelEnd;
 
     public void IncreaseLampCount()
     {
         lampCount++;
         if (lampCount == totalLampCount)
         {
-            OnLevelEnd?.Invoke();
+            LevelController.instance.OnLevelEnd();
         }
     }
 }

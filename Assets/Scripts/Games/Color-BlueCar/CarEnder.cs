@@ -6,7 +6,6 @@ public class CarEnder : MonoBehaviour
 {
     private int clickCount = 0;
     private int totalClick = 2;
-    public event Action OnLevelEnd;
 
     public void IncreaseClickCount()
     {
@@ -14,7 +13,7 @@ public class CarEnder : MonoBehaviour
         if (clickCount == totalClick)
         {
             Debug.Log("END");
-            OnLevelEnd?.Invoke();
+            LevelController.instance.OnLevelEnd();
         }
     }
 }

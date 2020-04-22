@@ -6,14 +6,13 @@ public class FlowerEnder : MonoBehaviour
 {
     private int clickCount = 0;
     private int totalClick = 6;
-    public event Action OnLevelEnd;
 
     public void IncreaseClickCount()
     {
         clickCount++;
         if (clickCount == totalClick)
         {
-            OnLevelEnd?.Invoke();
+            LevelController.instance.OnLevelEnd();
         }
     }
 }

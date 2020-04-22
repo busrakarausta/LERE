@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System;
 public class TestController : MonoBehaviour
 {
-
     [SerializeField]
     private Sprite[] allSprites;
     [SerializeField]
     private Image[] selectionImages;
+    [SerializeField]
+    private DynamicText currentElement;
+
+    [SerializeField]
+    private GameObject testLetterObject;
 
     public char testObject;
 
@@ -17,13 +21,30 @@ public class TestController : MonoBehaviour
     private Image currentImage;
     private char[] shownTestLetters;
 
+    public event Action OnTestEnd;
     private void Awake()
     {
         shownTestLetters = new char[3];
+    }
+
+    private void SetText(char letter)
+    {
+        string text = letter.ToString();
+
+        currentElement.SetLetter(text);
+    }
+
+    public void StartLetterTest(char letter)
+    {
+        testLetterObject.SetActive(true);
+
+        testObject = letter;
 
         GenerateLetter();
 
         AssingImagesToLetterComponents();
+
+        SetText(letter);
     }
 
     public void TestClickedObject(Image currentObj)
@@ -37,15 +58,19 @@ public class TestController : MonoBehaviour
 
         }
         else
-            Debug.Log("congruts");
+            OnTestEnd?.Invoke();
+    }
+
+    public void InActiveTest()
+    {
+        testLetterObject.SetActive(false);
     }
 
     void GenerateLetter()
     {
         int originalLetterIndex = (int)(testObject - 'A');
-        int firstRandomIndex = (originalLetterIndex+Random.Range(0, 25))%25;
+        int firstRandomIndex = (originalLetterIndex+UnityEngine.Random.Range(0, 25))%25;
         int secondRandomIndex = (originalLetterIndex + firstRandomIndex+1)%25;
-
 
         shownTestLetters[0] = (char)('A' + originalLetterIndex);
         shownTestLetters[1] = (char)('A' + firstRandomIndex);
@@ -54,7 +79,7 @@ public class TestController : MonoBehaviour
 
     void AssingImagesToLetterComponents()
     {
-        int randomFirstIndex = Random.Range(0, 2);
+        int randomFirstIndex = UnityEngine.Random.Range(0, 2);
         int randomSecondIndex = (3 - randomFirstIndex) % 2;
         int randomThirdIndex = 3 - (randomFirstIndex + randomSecondIndex);
 
@@ -67,7 +92,6 @@ public class TestController : MonoBehaviour
         selectionImages[randomThirdIndex].sprite = allSprites[(int)(shownTestLetters[2]-'A')];
         selectionImages[randomThirdIndex].gameObject.GetComponent<Letter>().set(shownTestLetters[2]);
     }
-
 
     IEnumerator FadeLetter()
     {

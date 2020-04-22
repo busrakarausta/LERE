@@ -9,7 +9,6 @@ public class YogurtManager : MonoBehaviour, IDragHandler
     public GameObject yogurt;
     public GameObject yogurtChild;
     private AudioSource source;
-    public event Action OnLevelEnd;
 
 
     void Awake()
@@ -29,7 +28,7 @@ public class YogurtManager : MonoBehaviour, IDragHandler
             yield return new WaitForSeconds(0.1f);
             yogurtChild.SetActive(true);
             source.Play();
-            OnLevelEnd?.Invoke();
+            LevelController.instance.OnLevelEnd();
         }
         yogurt.SetActive(false);
     }

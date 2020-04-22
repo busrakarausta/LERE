@@ -9,8 +9,6 @@ public class WatermelonManager : MonoBehaviour
     public GameObject knife;
     public GameObject watermelon;
     public GameObject watermelonCut;
-    public event Action OnLevelEnd;
-
 
 
     void Update()
@@ -29,7 +27,7 @@ public class WatermelonManager : MonoBehaviour
             
             knife.gameObject.SetActive(false);
         }
-        OnLevelEnd?.Invoke();
+        LevelController.instance.OnLevelEnd();
 
     }
 }

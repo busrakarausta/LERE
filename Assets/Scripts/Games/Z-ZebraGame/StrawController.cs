@@ -9,7 +9,6 @@ public class StrawController : MonoBehaviour, IDragHandler
     private AudioSource source;
     public GameObject zebra1, zebra2, zebraAfter1, zebraAfter2;
     private int count=0;
-    public event Action OnLevelEnd;
 
 
     void Awake()
@@ -45,7 +44,7 @@ public class StrawController : MonoBehaviour, IDragHandler
 
         if (count == 2)
         {
-            OnLevelEnd?.Invoke();
+            LevelController.instance.OnLevelEnd();
         }
     }
     

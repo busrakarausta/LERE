@@ -14,8 +14,7 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
     private float destroyTime = 8f;
     private float waitTime = 4f;
     public BalloonEnder balloonEnder;
-    public int clickCount = 1;
-
+    public int clickCount = 0;
 
     public void Awake()
     {
@@ -26,6 +25,7 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     { 
         Fly();
+
         StartCoroutine(WaitForLevelEnd());
         if (clickCount == 3)
         {
