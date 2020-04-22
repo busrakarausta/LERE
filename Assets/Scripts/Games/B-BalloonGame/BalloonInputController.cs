@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 
 public class BalloonInputController : MonoBehaviour, IPointerDownHandler
 {
-    public Transform balloon;      
+    public Transform balloon;
     public Transform rock;
     private Rigidbody2D balloonRigidbody2D;
     private Rigidbody2D rockRigidbody2D;
@@ -16,6 +16,7 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
     public BalloonEnder balloonEnder;
     public int clickCount = 0;
 
+
     public void Awake()
     {
         balloonRigidbody2D = balloon.GetComponent<Rigidbody2D>();
@@ -23,14 +24,10 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
     }
 
     public void OnPointerDown(PointerEventData eventData)
-    { 
+    {
         Fly();
-
         StartCoroutine(WaitForLevelEnd());
-        if (clickCount == 3)
-        {
-            balloonEnder.IncreaseClickCount();
-        }
+        balloonEnder.IncreaseClickCount();
         StartCoroutine(WaitForDestroy());
     }
 
@@ -38,17 +35,18 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
     {
         if (transform.position.y <= balloon.position.y)
         {
-            balloonRigidbody2D.velocity = new Vector2(0f, 100f); 
+            balloonRigidbody2D.velocity = new Vector2(0f, 100f);
             rockRigidbody2D.velocity = new Vector2(0f, -100f);
         }
         clickCount++;
+
     }
-   
-   private IEnumerator WaitForDestroy()
-   {
-       yield return new WaitForSeconds(destroyTime);
-       Destroy(balloon.gameObject);
-   }
+
+    private IEnumerator WaitForDestroy()
+    {
+        yield return new WaitForSeconds(destroyTime);
+        Destroy(balloon.gameObject);
+    }
 
     private IEnumerator WaitForLevelEnd()
     {
