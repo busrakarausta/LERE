@@ -174,7 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a84538b077d2fa442900dcfa1a0eb0ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letter: A
 --- !u!114 &3728320107289085826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,7 +246,7 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -77, y: -135}
   m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9185343758982208422
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -424,7 +423,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -270, y: -135}
   m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9185343759454059661
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -641,7 +640,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 104, y: -135}
   m_SizeDelta: {x: 200, y: 200}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9185343760126653385
 CanvasRenderer:
   m_ObjectHideFlags: 0

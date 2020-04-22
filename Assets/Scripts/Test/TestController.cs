@@ -20,6 +20,9 @@ public class TestController : MonoBehaviour
     private char currentChar;
     private Image currentImage;
     private char[] shownTestLetters;
+    private GameObject _correctObject;
+    private float originalWidth, originalHeight;
+    private float originalPosX;
 
     public event Action OnTestEnd;
     private void Awake()
@@ -58,12 +61,41 @@ public class TestController : MonoBehaviour
 
         }
         else
+        {
+            _correctObject = currentObj.gameObject;
+            EndOfTheTest();
             OnTestEnd?.Invoke();
+        }
+           
     }
 
     public void InActiveTest()
     {
+        StopCoroutine(AnimateCorrectLetter());
+
+        RefreshTest();
+
         testLetterObject.SetActive(false);
+    }
+
+    private void RefreshTest()
+    {
+        for (int i = 0; i < shownTestLetters.Length; i++)
+        {
+            Color originalColor = selectionImages[i].color;
+            originalColor.a = 1;
+            selectionImages[i].color = originalColor;
+            selectionImages[i].gameObject.SetActive(true);
+        }
+
+        RectTransform currentTransform = _correctObject.GetComponent<RectTransform>();
+
+        currentTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalWidth);
+        currentTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalHeight);
+
+        currentTransform.localPosition = new Vector2(originalPosX, 0);
+
+        Debug.Log("Test Refresh");
     }
 
     void GenerateLetter()
@@ -109,7 +141,52 @@ public class TestController : MonoBehaviour
                 yield return new WaitForSeconds(0.02f);
             }
         }
+    }
 
+    private void EndOfTheTest()
+    {
+        for (int i = 0; i < shownTestLetters.Length; i++)
+        {
+            selectionImages[i].gameObject.SetActive(false);
+        }
+
+        _correctObject.SetActive(true);
+
+        StartCoroutine(AnimateCorrectLetter());
+
+    }
+
+    IEnumerator AnimateCorrectLetter()
+    {
+        RectTransform currentTransform = _correctObject.GetComponent<RectTransform>();
+
+        originalWidth = currentTransform.sizeDelta.x;
+        originalHeight = currentTransform.sizeDelta.y;
+
+        originalPosX = currentTransform.localPosition.x;
+
+        float maxWidth = originalWidth * 3;
+        float maxHeight = originalHeight * 3;
+
+        float width = originalWidth;
+        float height = originalHeight;
+
+        while (width <= maxWidth && height <= maxHeight)
+        {
+            width = currentTransform.sizeDelta.x;
+            height = currentTransform.sizeDelta.y;
+
+            float posX = currentTransform.localPosition.x;
+
+            currentTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width * 1.1f);
+            currentTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height * 1.1f);
+
+            currentTransform.localPosition = new Vector2(posX * 0.5f,0);
+
+            yield return new WaitForSeconds(0.01f);
+        }
+
+        yield return new WaitForSeconds(0);
 
     }
 }
