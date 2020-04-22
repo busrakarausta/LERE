@@ -39,6 +39,8 @@ public class TestController : MonoBehaviour
 
     public void StartLetterTest(char letter)
     {
+        //educationda yaptiginizi yapabilirsiniz
+
         testLetterObject.SetActive(true);
 
         testObject = letter;
@@ -62,8 +64,9 @@ public class TestController : MonoBehaviour
         }
         else
         {
-            _correctObject = currentObj.gameObject;
+            _correctObject = currentObj.gameObject;  
             EndOfTheTest();
+            // Burasi testin bitisi -- buraya yazabilirsiniz
             OnTestEnd?.Invoke();
         }
            
@@ -150,7 +153,6 @@ public class TestController : MonoBehaviour
         _correctObject.SetActive(true);
 
         StartCoroutine(AnimateCorrectLetter());
-
     }
 
     IEnumerator AnimateCorrectLetter()

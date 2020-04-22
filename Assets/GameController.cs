@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     private LevelController levelController;
 
     private char currentLetter = 'A';
+    private GameObject currentGame;
 
     public event Action OnGameEnd;
 
@@ -24,7 +25,7 @@ public class GameController : MonoBehaviour
     }
     public void InActiveGame()
     {
-        letters[currentLetter - 'A'].SetActive(false);
+        Destroy(currentGame);
         lettersGame.SetActive(false);
     }
 
@@ -36,6 +37,8 @@ public class GameController : MonoBehaviour
     {
         lettersGame.SetActive(true);
         currentLetter = letter;
-        letters[letter - 'A'].SetActive(true);
+
+        currentGame=GameObject.Instantiate(letters[letter - 'A'], lettersGame.transform);
+
     }
 }

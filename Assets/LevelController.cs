@@ -7,6 +7,7 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController instance;
     public event Action OnGameEnd;
+
     void Awake()
     {
         instance = this;

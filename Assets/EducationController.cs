@@ -25,6 +25,7 @@ public class EducationController : MonoBehaviour
     }
     public void StartLetterEducation(char letter)
     {
+        // letter educationa bir script atip oraya sesleri ekleyin. O scripte public index alan bir fonksiyon ekleyin. Onu burada cagirirken siradaki letterin indexini yoillayin
         letterEducation.SetActive(true);
         _writingHandler.SetCurrentLetterIndex(letter - 'A');
         _writingHandler.LoadLetter();
@@ -32,6 +33,7 @@ public class EducationController : MonoBehaviour
 
     private void OnLetterEnd()
     {
+        // Burada bitis sesi calisicak
         OnLetterEducationEnd?.Invoke();
     }
 
