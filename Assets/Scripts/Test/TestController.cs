@@ -128,19 +128,16 @@ public class TestController : MonoBehaviour
     IEnumerator FadeLetter()
     {
         float endAlpha = 0.3f;
+        Color currentColor = currentImage.color;
 
-        while(true)
+        while (currentColor.a >= endAlpha)
         {
-            Color currentColor = currentImage.color;
-            if (currentColor.a <= endAlpha)
-                yield return 0;
-            else
-            {
                 currentColor.a = currentColor.a - 0.05f;
                 currentImage.color = currentColor;
                 yield return new WaitForSeconds(0.02f);
-            }
         }
+
+        yield return new WaitForSeconds(0);
     }
 
     private void EndOfTheTest()
