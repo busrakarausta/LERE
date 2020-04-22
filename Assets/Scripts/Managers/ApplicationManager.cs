@@ -14,6 +14,11 @@ public class ApplicationManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    public void LoadHomeScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void LoadGamesScene()
     {
         SceneManager.LoadScene(1);

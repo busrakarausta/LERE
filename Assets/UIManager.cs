@@ -34,8 +34,12 @@ public class UIManager : MonoBehaviour
     //Click Events
     private void Awake()
     {
-        GameManager._instance.OnStepDone += NextButton;
-        GameManager._instance.OnWholeLevelDone += BackToElementsMenu;
+        if(gameManager)
+        {
+            GameManager._instance.OnStepDone += NextButton;
+            GameManager._instance.OnWholeLevelDone += BackToElementsMenu;
+        }
+
     }
 
     private void NextButton()
@@ -53,6 +57,11 @@ public class UIManager : MonoBehaviour
         backToElements.SetActive(false);
         backToCategories.SetActive(true);
 
+    }
+
+    public void BackToHome()
+    {
+        ApplicationManager.instance.LoadHomeScene();
     }
 
     public void BackToCategories()
