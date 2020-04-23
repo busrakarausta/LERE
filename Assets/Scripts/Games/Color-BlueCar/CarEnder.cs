@@ -9,10 +9,10 @@ public class CarEnder : MonoBehaviour
 
     public void IncreaseClickCount()
     {
+        Debug.Log(clickCount);
         clickCount++;
         if (clickCount == totalClick)
         {
-            Debug.Log("END");
             LevelController.instance.OnLevelEnd();
         }
     }

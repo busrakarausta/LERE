@@ -2,27 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class CarController : MonoBehaviour
+public class CarController : MonoBehaviour, IPointerDownHandler
 {
-    private AudioSource source;
+    public GameObject blueCar;
     public CarEnder carEnder;
-
-    void Awake()
-    {
-        source = GetComponent<AudioSource>();
-    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        carEnder.IncreaseClickCount();
-        StartCoroutine(MakeBlue());
+        MakeBlue();
     }
 
-    IEnumerator MakeBlue()
+    public void MakeBlue()
     {
-        source.Play();
-        yield return new WaitForSeconds(0.45f);
         gameObject.SetActive(false);
+        blueCar.SetActive(true);
+        carEnder.IncreaseClickCount();
     }
+
+
+
 }
