@@ -14,6 +14,7 @@ public class TestController : MonoBehaviour
 
     [SerializeField]
     private GameObject testLetterObject;
+    private TestSoundProvider testSoundProvider;
 
     public char testObject;
 
@@ -27,6 +28,7 @@ public class TestController : MonoBehaviour
     public event Action OnTestEnd;
     private void Awake()
     {
+        testSoundProvider = testLetterObject.GetComponent<TestSoundProvider>();
         shownTestLetters = new char[3];
     }
 
@@ -40,6 +42,10 @@ public class TestController : MonoBehaviour
     public void StartLetterTest(char letter)
     {
         //educationda yaptiginizi yapabilirsiniz
+
+        int index = letter - 'A';
+
+        testSoundProvider.TestSoundPlayer(index);
 
         testLetterObject.SetActive(true);
 
