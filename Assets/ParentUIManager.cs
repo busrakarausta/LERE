@@ -12,7 +12,6 @@ public class ParentUIManager : MonoBehaviour
 
     private int gameCountValue;
 
-
     private void Awake()
     {
         gameCountValue = (int)gameCountSlider.value;

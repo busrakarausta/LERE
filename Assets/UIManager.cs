@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -30,16 +31,29 @@ public class UIManager : MonoBehaviour
     private GameObject backToCategories;
 
     private GameObject _currentActivePanel;
-    
+    private int _activeButtonIndex;
+
+    public event Action<int> OnChangeLetterList;
     //Click Events
+
     private void Awake()
     {
         if(gameManager)
         {
             GameManager._instance.OnStepDone += NextButton;
             GameManager._instance.OnWholeLevelDone += BackToElementsMenu;
+            GameManager._instance.OnLetterComplete += OnLetterCompleted;
         }
+    }
 
+    /// <summary>
+    /// //////////////////////////////////////
+    /// </summary>
+    /// 
+
+    private void OnLetterCompleted()
+    {
+        OnChangeLetterList?.Invoke(_activeButtonIndex);
     }
 
     private void NextButton()
@@ -81,7 +95,7 @@ public class UIManager : MonoBehaviour
     //////////
     public void OnClickStartGameElement(int index)
     {
-
+        _activeButtonIndex = index;
         _currentActivePanel.SetActive(false);
 
         backToCategories.SetActive(false);

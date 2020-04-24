@@ -883,6 +883,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeGameKey: ActiveGameCount
+  inCompleteLetterIndexKey: IndexOfLastIncompleteLetter
+  letters: 42004300440045004600470048004a004b004c004d004e004f005000520053004f00560059005a00510057004100580049005400
+  numbers: 010000000200000003000000040000000500000006000000070000000800000009000000
+  colors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0.2153039, g: 0, b: 1, a: 0}
+  - {r: 0, g: 1, b: 0.23238349, a: 0}
+  - {r: 1, g: 0.95084643, b: 0, a: 0}
+  - {r: 0.9304824, g: 0, b: 1, a: 0}
 --- !u!4 &1299703403
 Transform:
   m_ObjectHideFlags: 0

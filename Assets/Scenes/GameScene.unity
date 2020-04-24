@@ -274,11 +274,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4408433616461188262, guid: 645d75d087eafdb419bef446a616d78e,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 645d75d087eafdb419bef446a616d78e, type: 3}
 --- !u!224 &21595234 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4408433616461188257, guid: 645d75d087eafdb419bef446a616d78e,
+    type: 3}
+  m_PrefabInstance: {fileID: 21595233}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &21595235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4408433616461188256, guid: 645d75d087eafdb419bef446a616d78e,
     type: 3}
   m_PrefabInstance: {fileID: 21595233}
   m_PrefabAsset: {fileID: 0}
@@ -1235,6 +1246,7 @@ MonoBehaviour:
   _educationController: {fileID: 1816365591}
   _testController: {fileID: 314587372800129800}
   _gameController: {fileID: 168586603}
+  _activeGameCount: 0
 --- !u!4 &504933029
 Transform:
   m_ObjectHideFlags: 0
@@ -3158,7 +3170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1366422413
 Transform:
   m_ObjectHideFlags: 0
@@ -3552,6 +3564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1792850579}
+  - component: {fileID: 1792850580}
   m_Layer: 5
   m_Name: LettersMenu
   m_TagString: Untagged
@@ -3579,6 +3592,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1792850580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792850578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c982f0e07ec36194ab809a79f9d3b625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiManager: {fileID: 912638775}
+  buttons:
+  - {fileID: 21595235}
+  - {fileID: 2141336918}
+  - {fileID: 2007924948}
 --- !u!1 &1816365589
 GameObject:
   m_ObjectHideFlags: 0
@@ -3796,6 +3826,12 @@ PrefabInstance:
 --- !u!224 &2007924947 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4408433616461188257, guid: 645d75d087eafdb419bef446a616d78e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2007924946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2007924948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4408433616461188256, guid: 645d75d087eafdb419bef446a616d78e,
     type: 3}
   m_PrefabInstance: {fileID: 2007924946}
   m_PrefabAsset: {fileID: 0}
@@ -4284,6 +4320,12 @@ PrefabInstance:
 --- !u!224 &2141336917 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4408433616461188257, guid: 645d75d087eafdb419bef446a616d78e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2141336916}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2141336918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4408433616461188256, guid: 645d75d087eafdb419bef446a616d78e,
     type: 3}
   m_PrefabInstance: {fileID: 2141336916}
   m_PrefabAsset: {fileID: 0}
