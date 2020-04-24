@@ -14,6 +14,7 @@ public class EducationController : MonoBehaviour
     
 
     public event Action OnLetterEducationEnd;
+    private EducationSoundsProvider educationSoundsProvider;
 
     public void InActiveEducation()
     {
@@ -23,14 +24,17 @@ public class EducationController : MonoBehaviour
 
     private void Awake()
     {
+        educationSoundsProvider = letterEducation.GetComponent<EducationSoundsProvider>();
         _writingHandler.OnLetterEnd += OnLetterEnd;
 
         //
     }
     public void StartLetterEducation(char letter)
     {
-        int index = letter - 'A';
-        // letter educationa bir script atip oraya sesleri ekleyin. O scripte public index alan bir fonksiyon ekleyin. Onu burada cagirirken siradaki letterin indexini yoillayin
+        int index = (letter - 'A');
+
+        educationSoundsProvider.EducationSoundPlayer(index);
+
         letterEducation.SetActive(true);
         _writingHandler.SetCurrentLetterIndex(index);
         _writingHandler.LoadLetter();
