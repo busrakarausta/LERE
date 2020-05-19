@@ -288,8 +288,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1c483fc3d887e7449a9a3cf77805c784,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4408433616461188263, guid: 645d75d087eafdb419bef446a616d78e,
         type: 3}
       propertyPath: m_Type
@@ -4104,6 +4103,33 @@ MonoBehaviour:
   - {fileID: 21595235}
   - {fileID: 2141336918}
   - {fileID: 2007924948}
+  letterImages:
+  - {fileID: 21300000, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300002, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300004, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300006, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300008, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300010, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300012, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300014, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300016, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300018, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300020, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300022, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300024, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300026, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300028, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300030, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300032, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300034, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300036, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300038, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300040, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300042, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300044, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300046, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300048, guid: 250f9ab97294724409d7578157418550, type: 3}
+  - {fileID: 21300050, guid: 250f9ab97294724409d7578157418550, type: 3}
 --- !u!1 &1816365589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,8 +4351,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: abe18d7da82220d4984cd795ae327403,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4408433616461188263, guid: 645d75d087eafdb419bef446a616d78e,
         type: 3}
       propertyPath: m_Type
@@ -4835,8 +4860,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a7c5dc75c3a2ee24290ee9ea2e674898,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4408433616461188263, guid: 645d75d087eafdb419bef446a616d78e,
         type: 3}
       propertyPath: m_Type

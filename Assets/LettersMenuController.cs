@@ -12,8 +12,11 @@ public class LettersMenuController : MonoBehaviour
     [Header("UI Element References")]
     [SerializeField]
     private GameObject[] buttons;
+    [SerializeField]
+    private Sprite[] letterImages;
 
     private Text[] textOfButtons;
+
 
     private char[] letterListForText;
     private int _activeGameCount;
@@ -57,6 +60,8 @@ public class LettersMenuController : MonoBehaviour
         for (int i = 0; i < length; i++)
         {
             textOfButtons[i].text = letterListForText[i].ToString();
+            Image letterImage = buttons[i].GetComponent<Image>();
+            letterImage.sprite = letterImages[letterListForText[i] - 'A'];
         }
     }
 
