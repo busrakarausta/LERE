@@ -21,20 +21,28 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("GameController/Awake");
+
         levelController.OnGameEnd += GameEnd;
     }
     public void InActiveGame()
     {
+        Debug.Log("GameController/InActiveGame");
+
         Destroy(currentGame);
         lettersGame.SetActive(false);
     }
 
     private void GameEnd()
     {
+        Debug.Log("GameController/GameEnd");
+
         OnGameEnd?.Invoke();
     }
     public void StartLetterGame(char letter)
     {
+        Debug.Log("GameController/StartLetterGame");
+
         lettersGame.SetActive(true);
         currentLetter = letter;
 

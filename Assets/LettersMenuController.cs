@@ -20,7 +20,9 @@ public class LettersMenuController : MonoBehaviour
     private int _currentActiveLetterButtonIndex;
     void Awake()
     {
-        _activeGameCount = DataManager.instance.GetActiveGameCount();
+        Debug.Log("LetersMenuController/Awake");
+
+        _activeGameCount = DataManager.instance.GetRemainingActiveLetterGameCount();
 
         letterListForText = new char[_activeGameCount];
 
@@ -47,6 +49,8 @@ public class LettersMenuController : MonoBehaviour
 
     private void InstantiateLetterMenu()
     {
+        Debug.Log("LetersMenuController/InstantiateLetterMenu");
+
         letterListForText = DataManager.instance.GetActiveLetterList();
         int length = letterListForText.Length;
 
@@ -58,6 +62,8 @@ public class LettersMenuController : MonoBehaviour
 
     private void OnLetterCompleted(int activeIndex)
     {
+        Debug.Log("LetersMenuController/OnLetterCompleted");
+
         _currentActiveLetterButtonIndex = activeIndex;
 
         buttons[activeIndex].SetActive(false);

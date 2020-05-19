@@ -14,9 +14,7 @@ public class ParentUIManager : MonoBehaviour
 
     private void Awake()
     {
-        gameCountValue = (int)gameCountSlider.value;
-        sliderShownValue.text = gameCountValue.ToString();
-        DataManager.instance.SetActiveGameCount(gameCountValue);
+        ChangeGameCount();
     }
 
     public void ChangeGameCount()
@@ -24,7 +22,7 @@ public class ParentUIManager : MonoBehaviour
         gameCountValue = (int)gameCountSlider.value;
         sliderShownValue.text = gameCountValue.ToString();
 
-        DataManager.instance.SetActiveGameCount(gameCountValue);
+        DataManager.instance?.SetActiveGameCount(gameCountValue);
     }
 
     public void BackToHome()

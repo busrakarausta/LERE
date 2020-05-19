@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("UIManager/Awake");
         if(gameManager)
         {
             GameManager._instance.OnStepDone += NextButton;
@@ -46,23 +47,22 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// //////////////////////////////////////
-    /// </summary>
-    /// 
-
     private void OnLetterCompleted()
     {
+        Debug.Log("UIManager/OnLetterCompleted");
         OnChangeLetterList?.Invoke(_activeButtonIndex);
     }
 
     private void NextButton()
     {
+        Debug.Log("UIManager/NextButton");
         nextButton.SetActive(true);
     }
 
     public void BackToElementsMenu()
     {
+        Debug.Log("UIManager/BackToElementsMenu");
+
         nextButton.SetActive(false);
         _currentActivePanel.SetActive(true);
 
@@ -75,11 +75,14 @@ public class UIManager : MonoBehaviour
 
     public void BackToHome()
     {
+        Debug.Log("UIManager/BackToHome");
+
         ApplicationManager.instance.LoadHomeScene();
     }
 
     public void BackToCategories()
     {
+        Debug.Log("UIManager/BackToCategories");
         _currentActivePanel.SetActive(false);
         categoriesMenu.SetActive(true);
 
@@ -88,13 +91,15 @@ public class UIManager : MonoBehaviour
 
     public void OnClickNextButton()
     {
+        Debug.Log("UIManager/OnClickNextButton");
         nextButton.SetActive(false);
-        GameManager._instance.StartNextStep();
+        GameManager._instance.StartGame(_activeButtonIndex);
     }
 
     //////////
-    public void OnClickStartGameElement(int index)
+    public void OnClickStartGameElement(int index) // index = butonun indexi
     {
+        Debug.Log("UIManager/OnClickStartGameElement");
         _activeButtonIndex = index;
         _currentActivePanel.SetActive(false);
 
@@ -108,12 +113,14 @@ public class UIManager : MonoBehaviour
     ///////////
     private void ControlCategoriesMenu(bool isSetActive)
     {
+        Debug.Log("UIManager/ControlCategoriesMenu");
         categoriesMenu.SetActive(isSetActive);
     }
 
     ////////////
     public void OnClickAlphabetButton()
     {
+        Debug.Log("UIManager/OnClickAlphabetButton");
         backToCategories.SetActive(true);
         backToElements.SetActive(false);
 
@@ -126,6 +133,7 @@ public class UIManager : MonoBehaviour
 
     public void OnClickNumbersButton()
     {
+        Debug.Log("UIManager/OnClickNumbersButton");
         backToCategories.SetActive(true);
         backToElements.SetActive(false);
 
@@ -137,6 +145,7 @@ public class UIManager : MonoBehaviour
 
     public void OnClickColorsButton()
     {
+        Debug.Log("UIManager/OnClickColorsButton");
         backToCategories.SetActive(true);
         backToElements.SetActive(false);
 
@@ -149,11 +158,13 @@ public class UIManager : MonoBehaviour
     /////////////
     public void OnClickParentControl()
     {
+        Debug.Log("UIManager/OnClickParentControl");
         ApplicationManager.instance.LoadParentControlScene();
     }
 
     public void OnClickChildGames()
     {
+        Debug.Log("UIManager/OnClickChildGames");
         ApplicationManager.instance.LoadGamesScene();
     }
 

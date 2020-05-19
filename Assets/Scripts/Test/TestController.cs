@@ -28,12 +28,15 @@ public class TestController : MonoBehaviour
     public event Action OnTestEnd;
     private void Awake()
     {
+        Debug.Log("TestController/Awake");
         testSoundProvider = testLetterObject.GetComponent<TestSoundProvider>();
         shownTestLetters = new char[3];
     }
 
     private void SetText(char letter)
     {
+        Debug.Log("TestController/SetText");
+
         string text = letter.ToString();
 
         currentElement.SetLetter(text);
@@ -41,7 +44,7 @@ public class TestController : MonoBehaviour
 
     public void StartLetterTest(char letter)
     {
-        //educationda yaptiginizi yapabilirsiniz
+        Debug.Log("TestController/StartLetterTest");
 
         int index = letter - 'A';
 
@@ -60,6 +63,8 @@ public class TestController : MonoBehaviour
 
     public void TestClickedObject(Image currentObj)
     {
+        Debug.Log("TestController/TestClickedObject");
+
         currentChar = currentObj.gameObject.GetComponent<Letter>().get();
 
         if (currentChar != testObject)
@@ -80,6 +85,8 @@ public class TestController : MonoBehaviour
 
     public void InActiveTest()
     {
+        Debug.Log("TestController/InActiveTest");
+
         StopCoroutine(AnimateCorrectLetter());
 
         RefreshTest();
@@ -89,6 +96,8 @@ public class TestController : MonoBehaviour
 
     private void RefreshTest()
     {
+        Debug.Log("TestController/RefreshTest");
+
         for (int i = 0; i < shownTestLetters.Length; i++)
         {
             Color originalColor = selectionImages[i].color;
@@ -103,12 +112,12 @@ public class TestController : MonoBehaviour
         currentTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalHeight);
 
         currentTransform.localPosition = new Vector2(originalPosX, 0);
-
-        Debug.Log("Test Refresh");
     }
 
     void GenerateLetter()
     {
+        Debug.Log("TestController/GenerateLetter");
+
         int originalLetterIndex = (int)(testObject - 'A');
         int firstRandomIndex = (originalLetterIndex+UnityEngine.Random.Range(0, 25))%25;
         int secondRandomIndex = (originalLetterIndex + firstRandomIndex+1)%25;
@@ -120,6 +129,8 @@ public class TestController : MonoBehaviour
 
     void AssingImagesToLetterComponents()
     {
+        Debug.Log("TestController/AssingImagesToLetterComponents");
+
         int randomFirstIndex = UnityEngine.Random.Range(0, 2);
         int randomSecondIndex = (3 - randomFirstIndex) % 2;
         int randomThirdIndex = 3 - (randomFirstIndex + randomSecondIndex);
@@ -136,6 +147,8 @@ public class TestController : MonoBehaviour
 
     IEnumerator FadeLetter()
     {
+        Debug.Log("TestController/FadeLetter");
+
         float endAlpha = 0.3f;
         Color currentColor = currentImage.color;
 
@@ -151,6 +164,8 @@ public class TestController : MonoBehaviour
 
     private void EndOfTheTest()
     {
+        Debug.Log("TestController/EndOfTheTest");
+
         for (int i = 0; i < shownTestLetters.Length; i++)
         {
             selectionImages[i].gameObject.SetActive(false);
@@ -163,6 +178,8 @@ public class TestController : MonoBehaviour
 
     IEnumerator AnimateCorrectLetter()
     {
+        Debug.Log("TestController/AnimateCorrectLetter");
+
         RectTransform currentTransform = _correctObject.GetComponent<RectTransform>();
 
         originalWidth = currentTransform.sizeDelta.x;

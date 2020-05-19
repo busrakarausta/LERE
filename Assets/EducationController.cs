@@ -18,19 +18,24 @@ public class EducationController : MonoBehaviour
 
     public void InActiveEducation()
     {
+        Debug.Log("EducationController/InActiveEducation");
+
         _writingHandler.InactiveCurrentLetter();
         letterEducation.SetActive(false);
     }
 
     private void Awake()
     {
+        Debug.Log("EducationController/Awake");
+
         educationSoundsProvider = letterEducation.GetComponent<EducationSoundsProvider>();
         _writingHandler.OnLetterEnd += OnLetterEnd;
 
-        //
     }
     public void StartLetterEducation(char letter)
     {
+        Debug.Log("EducationController/StartLetterEducation");
+
         int index = (letter - 'A');
 
         educationSoundsProvider.EducationSoundPlayer(index);
@@ -42,6 +47,8 @@ public class EducationController : MonoBehaviour
 
     private void OnLetterEnd()
     {
+        Debug.Log("EducationController/OnLetterEnd");
+
         OnLetterEducationEnd?.Invoke();
     }
 

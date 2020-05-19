@@ -12,6 +12,10 @@ public class DataManager : MonoBehaviour
     private string activeGameKey = "ActiveGameCount";
     [SerializeField]
     private string inCompleteLetterIndexKey = "IndexOfLastIncompleteLetter";
+    [SerializeField]
+    private string remainLetterKey = "IndexOfRemainLetterCount";
+    [SerializeField]
+    private string letterStatus = "StatusOfTheLetter";
 
     [Header("Application Elements")]
     [SerializeField]
@@ -29,75 +33,141 @@ public class DataManager : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("DataManager/Awake");
+
         DontDestroyOnLoad(this);
         instance = this;
 
-        //GameManager._instance.OnLetterComplete += SetIndexOfLastIncompleteLetter;
+        //PlayerPrefs.DeleteAll();
     }
 
     public void OnLetterCompleted()
     {
+        Debug.Log("DataManager/OnLetterCompleted");
+
         _remainingActiveLetterGameCount--;
         _indexOfLastIncompleteLetter++;
     }
 
     public void SetActiveLetterList()
     {
+        Debug.Log("DataManager/SetActiveLetterList");
+
         if (_activeDailyLetterList == null)
-            _activeDailyLetterList = new char[_activeGameCount];
+            _activeDailyLetterList = new char[_remainingActiveLetterGameCount];
 
         int nextLetter = _indexOfLastIncompleteLetter;
 
-        for (int i = 0; i < _activeGameCount; i++)
+        for (int i = 0; i < _remainingActiveLetterGameCount; i++)
         {
-            if(i< _indexOfLastIncompleteLetter)
-            {
-                _activeDailyLetterList[i] = '/';
-            }
-            else
-            {
-                _activeDailyLetterList[i] = letters[nextLetter];
-            }
+            _activeDailyLetterList[i] = letters[nextLetter];
             nextLetter++;
         }
     }
 
     public char[] GetActiveLetterList()
     {
-        SetActiveLetterList();
+        Debug.Log("DataManager/GetActiveLetterList");
+
+        if(_activeDailyLetterList == null)
+            SetActiveLetterList();
 
         return _activeDailyLetterList;
     }
-
-    public void SetRemainingActiveLetterGameCount(int count)
+    public int GetStatusOfTheLetter(char letter)
     {
-        _remainingActiveLetterGameCount = count;
+        bool check = PlayerPrefs.HasKey(letterStatus);
+        if (!check)
+        {
+            string status = "00000000000000000000000000";
+
+            PlayerPrefs.SetString(letterStatus, status);
+            return 0;
+        }
+        
+        string allStatus = PlayerPrefs.GetString(letterStatus);
+        return allStatus[letter - 'A']-'0';
+    }
+
+    public void SetStatusOfTheLetter(char letter='A', char status='0')
+    {
+        string s = PlayerPrefs.GetString(letterStatus);
+        char[] allStatus = s.ToCharArray();
+
+        allStatus[letter - 'A'] = status;
+
+        string string_object = new string(allStatus);
+        PlayerPrefs.SetString(letterStatus, string_object);
+
+        if (status == '3')
+        {
+            _remainingActiveLetterGameCount--;
+            _indexOfLastIncompleteLetter++;
+
+            PlayerPrefs.SetInt(inCompleteLetterIndexKey, _indexOfLastIncompleteLetter);
+            PlayerPrefs.SetInt(remainLetterKey, _remainingActiveLetterGameCount);
+        }
+    }
+
+    public void SetRemainingActiveLetterGameCount() //gunluk degiseceksin
+    {
+        Debug.Log("DataManager/SetRemainingActiveLetterGameCount");
+
+        int count = PlayerPrefs.HasKey(remainLetterKey) ? PlayerPrefs.GetInt(remainLetterKey) : 0;
+
+        _remainingActiveLetterGameCount = count == 0 ? _activeGameCount : count;
+
+        if(_remainingActiveLetterGameCount >= 0)
+        PlayerPrefs.SetInt(remainLetterKey, _remainingActiveLetterGameCount);
+
+        Debug.Log("Remaining Letters" + _remainingActiveLetterGameCount);
+    }
+
+    public int GetRemainingActiveLetterGameCount()
+    {
+        Debug.Log("DataManager/GetRemainingActiveLetterGameCount");
+
+        _remainingActiveLetterGameCount = PlayerPrefs.GetInt(remainLetterKey);
+
+        return _remainingActiveLetterGameCount;
     }
 
     public void SetIndexOfLastIncompleteLetter()
     {
-        if (_indexOfLastIncompleteLetter >= _activeGameCount)
-            return;
+        Debug.Log("DataManager/SetIndexOfLastIncompleteLetter");
 
-        _indexOfLastIncompleteLetter++;
+        _indexOfLastIncompleteLetter = PlayerPrefs.HasKey(inCompleteLetterIndexKey) ? PlayerPrefs.GetInt(inCompleteLetterIndexKey) : 0;
+
         PlayerPrefs.SetInt(inCompleteLetterIndexKey, _indexOfLastIncompleteLetter);
+        Debug.Log("index Of Last Incomplete Letter" + _indexOfLastIncompleteLetter);
     }
 
     public int GetIndexOfLastIncompleteLetter()
     {
-        int indexOfLastIncompleteLetter= PlayerPrefs.GetInt(inCompleteLetterIndexKey);
+        Debug.Log("DataManager/GetIndexOfLastIncompleteLetter");
+
+        int indexOfLastIncompleteLetter = PlayerPrefs.GetInt(inCompleteLetterIndexKey);
 
         return indexOfLastIncompleteLetter;
     }
 
-    public void SetActiveGameCount(int value=1)
+    public void SetActiveGameCount(int value=1) //gunluk degisecek
     {
-        _activeGameCount = value;
+        Debug.Log("DataManager/SetActiveGameCount");
+
+        int count = PlayerPrefs.HasKey(activeGameKey) ? PlayerPrefs.GetInt(activeGameKey) : value;
+
+        _activeGameCount = count;
+
         PlayerPrefs.SetInt(activeGameKey, _activeGameCount);
+        SetRemainingActiveLetterGameCount();
+        SetIndexOfLastIncompleteLetter();
     }
 
     public int GetActiveGameCount()
     {
+        Debug.Log("DataManager/GetActiveGameCount");
+
         int activeGameCount = PlayerPrefs.GetInt(activeGameKey);
 
         return activeGameCount;

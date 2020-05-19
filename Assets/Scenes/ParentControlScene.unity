@@ -681,7 +681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.9, y: -65.9}
+  m_AnchoredPosition: {x: 121.89844, y: -65.899994}
   m_SizeDelta: {x: 150, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1109300954
@@ -884,6 +884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeGameKey: ActiveGameCount
   inCompleteLetterIndexKey: IndexOfLastIncompleteLetter
+  remainLetterKey: IndexOfRemainLetterCount
   letters: 42004300440045004600470048004a004b004c004d004e004f005000520053004f00560059005a00510057004100580049005400
   numbers: 010000000200000003000000040000000500000006000000070000000800000009000000
   colors:
@@ -1165,7 +1166,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1744701485}
   m_FillRect: {fileID: 454379522}
   m_HandleRect: {fileID: 1744701484}
@@ -1187,7 +1188,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1744701483

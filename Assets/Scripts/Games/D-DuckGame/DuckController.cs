@@ -43,7 +43,11 @@ public class DuckController : MonoBehaviour,IDragHandler
             count++;
             if (count == 3)
             {
-                Debug.Log("PASS GAME");
+            EndOfTheLevel();
             }
         }
+    private void EndOfTheLevel()
+    {
+        LevelController.instance.OnLevelEnd();
+    }
 }

@@ -10,11 +10,15 @@ public class LevelController : MonoBehaviour
 
     void Awake()
     {
+        Debug.Log("LevelController/Awake");
+
         instance = this;
     }
 
     public void OnLevelEnd()
     {
+        Debug.Log("LevelController/OnLevelEnd");
+
         OnGameEnd?.Invoke();
     }
 }
