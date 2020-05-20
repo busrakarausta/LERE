@@ -41,18 +41,10 @@ public class DataManager : MonoBehaviour
         //PlayerPrefs.DeleteAll();
     }
 
-    public void OnLetterCompleted()
-    {
-        Debug.Log("DataManager/OnLetterCompleted");
-
-        _remainingActiveLetterGameCount--;
-        _indexOfLastIncompleteLetter++;
-    }
-
     public void SetActiveLetterList()
     {
         Debug.Log("DataManager/SetActiveLetterList");
-
+        Debug.Log(_indexOfLastIncompleteLetter);
         if (_activeDailyLetterList == null)
             _activeDailyLetterList = new char[_remainingActiveLetterGameCount];
 
@@ -60,8 +52,18 @@ public class DataManager : MonoBehaviour
 
         for (int i = 0; i < _remainingActiveLetterGameCount; i++)
         {
-            _activeDailyLetterList[i] = letters[nextLetter];
-            nextLetter++;
+            for (int t = nextLetter; t < _activeGameCount+ _indexOfLastIncompleteLetter; t++)
+            {
+                int status = GetStatusOfTheLetter(letters[nextLetter]);
+                if(status != 3)
+                {
+                    _activeDailyLetterList[i] = letters[nextLetter];
+                    nextLetter++;
+                    break;
+                }
+                nextLetter++;
+            }
+
         }
     }
 
@@ -102,7 +104,16 @@ public class DataManager : MonoBehaviour
         if (status == '3')
         {
             _remainingActiveLetterGameCount--;
-            _indexOfLastIncompleteLetter++;
+            if(letter - 'A' > 0)
+            {
+                int previousLetterStatus = GetStatusOfTheLetter(letters[letter - 'A'-1]);
+                if (previousLetterStatus == 3)
+                {
+                    _indexOfLastIncompleteLetter++;
+                }
+            }
+            else
+                _indexOfLastIncompleteLetter++;
 
             PlayerPrefs.SetInt(inCompleteLetterIndexKey, _indexOfLastIncompleteLetter);
             PlayerPrefs.SetInt(remainLetterKey, _remainingActiveLetterGameCount);

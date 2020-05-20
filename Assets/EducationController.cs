@@ -9,9 +9,7 @@ public class EducationController : MonoBehaviour
     private WritingHandler _writingHandler;
 
     [SerializeField]
-    private GameObject letterEducation;
-
-    
+    private GameObject letterEducation;    
 
     public event Action OnLetterEducationEnd;
     private EducationSoundsProvider educationSoundsProvider;
