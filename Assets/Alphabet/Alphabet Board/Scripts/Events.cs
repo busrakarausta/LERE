@@ -39,7 +39,7 @@ public class Events : MonoBehaviour
 				if (ob == null) {
 						return;
 				}
-				WritingHandler.currentLetterIndex = int.Parse (ob.name.Split ('-') [1]);
+				WritingHandler.currentIndex = int.Parse (ob.name.Split ('-') [1]);
 				Application.LoadLevel ("AlphabetWriting");
 		}
 	

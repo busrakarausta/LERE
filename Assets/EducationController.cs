@@ -9,7 +9,15 @@ public class EducationController : MonoBehaviour
     private WritingHandler _writingHandler;
 
     [SerializeField]
-    private GameObject letterEducation;    
+    private GameObject education;
+    [SerializeField]
+    private GameObject letterEducation;
+    [SerializeField]
+    private GameObject numberEducation;
+    [SerializeField]
+    private GameObject colorEducation;
+
+    private GameObject _education;
 
     public event Action OnLetterEducationEnd;
     private EducationSoundsProvider educationSoundsProvider;
@@ -19,28 +27,53 @@ public class EducationController : MonoBehaviour
         Debug.Log("EducationController/InActiveEducation");
 
         _writingHandler.InactiveCurrentLetter();
-        letterEducation.SetActive(false);
+        education.SetActive(false);
     }
 
     private void Awake()
     {
         Debug.Log("EducationController/Awake");
 
-        educationSoundsProvider = letterEducation.GetComponent<EducationSoundsProvider>();
+        educationSoundsProvider = education.GetComponent<EducationSoundsProvider>();
         _writingHandler.OnLetterEnd += OnLetterEnd;
 
     }
-    public void StartLetterEducation(char letter)
+    private void Education(int status,int index) // kacinci element oldugunu soyluyorum
     {
+        educationSoundsProvider = education.GetComponent<EducationSoundsProvider>();
         Debug.Log("EducationController/StartLetterEducation");
 
-        int index = (letter - 'A');
+        educationSoundsProvider.EducationSoundPlayer(status,index);
 
-        educationSoundsProvider.EducationSoundPlayer(index);
+        _education.SetActive(true);
+        _writingHandler.SetCurrentIndex(status,index);
+    }
 
-        letterEducation.SetActive(true);
-        _writingHandler.SetCurrentLetterIndex(index);
-        _writingHandler.LoadLetter();
+    public void StartEducation(int index, char obj)
+    {
+        education.SetActive(true);
+
+        int itemIndex=0;
+
+        if(_education != null)
+            _education.SetActive(false);
+
+        if (index == 0)
+        {
+            _education = letterEducation;
+            itemIndex = (obj - 'A');
+        }
+        else if(index==1)
+        {
+            _education = numberEducation;
+            itemIndex = (obj - '0');
+        }
+        else if (index == 2)
+        {
+            _education = colorEducation;
+        }
+
+        Education(index, itemIndex);
     }
 
     private void OnLetterEnd()

@@ -43,6 +43,7 @@ public class TestController : MonoBehaviour
     }
 
     public void StartLetterTest(char letter)
+
     {
         Debug.Log("TestController/StartLetterTest");
 

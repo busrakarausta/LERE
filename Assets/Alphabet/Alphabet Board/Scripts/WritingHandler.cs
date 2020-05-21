@@ -6,7 +6,9 @@ using System.Collections.Generic;
 public class WritingHandler : MonoBehaviour
 {
 	public GameObject[] letters;//the letters list from A-Z
-	public static int currentLetterIndex;//the index of the current letter
+	public GameObject[] numbers;//the letters list from 1-9
+	public GameObject[] colors;//the letters list from red-purple
+	public static int currentIndex;//the index of the current letter
 	private bool clickBeganOrMovedOutOfLetterArea;//does the click began or moved out of letter area
 	private int previousTracingPointIndex;//the index of the previous letter
 	private ArrayList currentTracingPoints;//holds the indexes of the tracing points
@@ -25,7 +27,10 @@ public class WritingHandler : MonoBehaviour
 	public AudioClip wrongSound;
 
 	public event Action OnLetterEnd;
+	private int status = 0;
+	private GameObject[] currentObjs;
 
+	
 	IEnumerator Start ()
 	{   
 		Cursor.visible = showCursor;//show cursor or hide
@@ -34,17 +39,12 @@ public class WritingHandler : MonoBehaviour
 		yield return 0;
 	}
 
-
 	void Update ()
 	{
-		if (letterDone) {//if the letter is done then skip the next
-				return;
-		}
-
-
 		RaycastHit2D hit2d = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);//raycast hid c
 
 		if (hit2d.collider != null) {
+			Debug.Log("raycast hit");
 				if (Input.GetMouseButtonDown (0)) {
 						TouchLetterHandle (hit2d.collider.gameObject, true, Camera.main.ScreenToWorldPoint (Input.mousePosition));//touch for letter move(drawing);
 						clickStarted = true;
@@ -53,8 +53,8 @@ public class WritingHandler : MonoBehaviour
 				}  
 		}
 		if (Input.GetMouseButtonUp (0)) {
-
-				if (clickStarted) {
+			Debug.Log("up");
+			if (clickStarted) {
 						EndTouchLetterHandle ();
 						clickStarted = false;
 						clickBeganOrMovedOutOfLetterArea = false;
@@ -71,13 +71,33 @@ public class WritingHandler : MonoBehaviour
 
 	public void InactiveCurrentLetter()
 	{
-		GameObject currentLetter = letters[currentLetterIndex];
+		GameObject currentLetter = currentObjs[currentIndex];
 		currentLetter.SetActive(false);
 		RefreshProcess();
 	}
-	public void SetCurrentLetterIndex(int index)
+	public void SetCurrentIndex(int status, int index) // status hangi kategori - index kacinci eleman
 	{
-		currentLetterIndex = index;
+		Debug.Log("SetCurrentIndex");
+		this.status = status;
+		currentIndex = index;
+
+		if (status == 0)
+		{
+			currentObjs = new GameObject[letters.Length];
+			currentObjs = letters;
+		}
+		else if (status == 1)
+		{
+			currentObjs = new GameObject[numbers.Length];
+			currentObjs = numbers;
+		}
+		else if (status == 2)
+		{
+			currentObjs = new GameObject[colors.Length];
+			currentObjs = colors;
+		}
+
+		LoadLetter();
 	}
 
 	//Letter touch hanlder
@@ -97,7 +117,7 @@ public class WritingHandler : MonoBehaviour
 
 						if (currentindex != previousTracingPointIndex) {
 								currentTracingPoints.Add (currentindex);
-								;//add the current tracing point to the list
+								//add the current tracing point to the list
 								previousTracingPointIndex = currentindex;//set the previous tracing point
 						}
 				} else if (obTag == "Background") {
@@ -131,7 +151,7 @@ public class WritingHandler : MonoBehaviour
 				TracingPoint tracingPoint = ob.GetComponent<TracingPoint> ();//get the tracing point
 				int currentindex = tracingPoint.index;//get the tracing point index
 				if (currentindex != previousTracingPointIndex) {
-						currentTracingPoints.Add (currentindex);//add the current tracing point to the list
+						currentTracingPoints.Add(currentindex);//add the current tracing point to the list
 						previousTracingPointIndex = currentindex;//set the previous tracing point
 					
 						if (currentLineRender == null) {
@@ -177,8 +197,8 @@ public class WritingHandler : MonoBehaviour
 				return;//skip the next
 		}
 
-	      
-		TracingPart [] tracingParts = letters [currentLetterIndex].GetComponents<TracingPart> ();//get the tracing parts of the current letter
+		Debug.Log(currentObjs.Length);
+		TracingPart [] tracingParts = currentObjs[currentIndex].GetComponents<TracingPart> ();//get the tracing parts of the current letter
 		bool equivfound = false;//whether a matching or equivalent tracing part found
 		if (!clickBeganOrMovedOutOfLetterArea) {
 
@@ -231,7 +251,7 @@ public class WritingHandler : MonoBehaviour
 	private void CheckLetterDone ()
 	{
 		bool success = true; //letter success or done flag
-		TracingPart [] tracingParts = letters[currentLetterIndex].GetComponents<TracingPart> ();//get the tracing parts of the current letter
+		TracingPart [] tracingParts = currentObjs[currentIndex].GetComponents<TracingPart> ();//get the tracing parts of the current letter
 		foreach (TracingPart part in tracingParts) {
 				if (!part.succeded) {
 						success = false;
@@ -241,7 +261,7 @@ public class WritingHandler : MonoBehaviour
 	
 		if (success) {
 				letterDone = true;//letter done flag
-				Debug.Log ("You done the " + letters [currentLetterIndex].name);
+				Debug.Log ("You done the " + currentObjs [currentIndex].name);
 				OnLetterEnd?.Invoke();
 		}
 	}
@@ -250,7 +270,7 @@ public class WritingHandler : MonoBehaviour
 	public void RefreshProcess ()
 	{
 		RefreshLines ();
-		TracingPart [] tracingParts = letters [currentLetterIndex].GetComponents<TracingPart> ();
+		TracingPart [] tracingParts = currentObjs [currentIndex].GetComponents<TracingPart> ();
 		foreach (TracingPart part in tracingParts) {
 				part.succeded = false;
 		}
@@ -337,14 +357,14 @@ public class WritingHandler : MonoBehaviour
 	public void LoadNextLetter ()
 	{
 
-		if (currentLetterIndex == letters.Length - 1) 
+		if (currentIndex == currentObjs.Length - 1) 
 		{
-			currentLetterIndex = 0;
+			currentIndex = 0;
 			Application.LoadLevel ("AlphabetMenu");
 		} 
-		else if (currentLetterIndex >= 0 && currentLetterIndex < letters.Length - 1) 
+		else if (currentIndex >= 0 && currentIndex < currentObjs.Length - 1) 
 		{
-			currentLetterIndex++;
+			currentIndex++;
 			LoadLetter ();
 		}
 	}
@@ -353,9 +373,9 @@ public class WritingHandler : MonoBehaviour
 	public void LoadPreviousLetter ()
 	{
 
-		if (currentLetterIndex > 0 && currentLetterIndex < letters.Length) 
+		if (currentIndex > 0 && currentIndex < letters.Length) 
 		{
-			currentLetterIndex--;
+			currentIndex--;
 			LoadLetter ();
 		}
 
@@ -369,20 +389,11 @@ public class WritingHandler : MonoBehaviour
 			return;
 		}
 
-		if (!(currentLetterIndex >= 0 && currentLetterIndex < letters.Length)) 
-		{
-			return;
-		}
-
-		if (letters [currentLetterIndex] == null) 
-		{
-			return;
-		}
 		letterDone = false;
 		RefreshProcess ();
 		HideLetters ();
-		
-		letters [currentLetterIndex].SetActive (true);
+
+		currentObjs[currentIndex].SetActive(true);
 
 		setRandomColor = true;
 	}
@@ -390,12 +401,12 @@ public class WritingHandler : MonoBehaviour
 	//Hide the letters
 	private void HideLetters ()
 	{
-		if (letters == null)
+		if (currentObjs == null)
 		{
 			return;
 		}
 
-		foreach (GameObject letter in letters) 
+		foreach (GameObject letter in currentObjs) 
 		{
 			if (letter != null)
 				letter.SetActive (false);

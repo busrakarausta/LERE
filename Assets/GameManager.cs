@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     struct NumberState
     {
         public int number;
-        public int numberStateData;
+        public int numberStateData;     
     }
 
     private void Awake()
@@ -147,23 +147,10 @@ public class GameManager : MonoBehaviour
         _testController.StartLetterTest(_currentLetter);
     }
 
-    public void InstantiateLetterEducation()
+    public void InstantiateEducation()
     {
         Debug.Log("GameManager/InstantiateLetterEducation");
-        _educationController.StartLetterEducation(_currentLetter);
-    }
-
-    public void InstantiateColorEducation(int index)
-    {
-        Debug.Log("GameManager/InstantiateColorEducation");
-
-        _currentColor = _listedColors[index];
-    }
-    public void InstantiateNumberEducation(int index)
-    {
-        Debug.Log("GameManager/InstantiateNumberEducation");
-
-        _currentNumber = _listedNumbers[index];
+        _educationController.StartEducation(0,_currentLetter); // ilki color number letter mi , ikinci deger
     }
 
     public void StartGame(int index)
@@ -180,10 +167,20 @@ public class GameManager : MonoBehaviour
         }
 
         else if (_isNumber)
-            InstantiateNumberEducation(currentElementIndex);
+        {
+            _currentNumber = _listedLetters[currentElementIndex];
+            int status = _activeNumbers[currentElementIndex].status;
+
+            StartNextStep(status);
+        }
 
         else if (_isColor)
-            InstantiateColorEducation(currentElementIndex);
+        {
+            _currentColor = _listedColors[currentElementIndex];
+            int status = _activeColors[currentElementIndex].status;
+
+            StartNextStep(status);
+        }
     }
 
     public void StartNextStep(int status)
@@ -192,7 +189,7 @@ public class GameManager : MonoBehaviour
 
         if (status == 0)
         {
-            InstantiateLetterEducation();
+            InstantiateEducation();
         }
         else if (status == 1)
             InstantiateLetterGame();
