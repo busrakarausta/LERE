@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class TestSoundProvider : MonoBehaviour
 {
-    public AudioClip[] testSoundArray;
+    public AudioClip[] letterTestSoundArray;
+    public AudioClip[] numberTestSoundArray;
     private AudioSource aSource;
 
-    public void TestSoundPlayer(int index)
+    public void TestSoundPlayer(int status,int index)
     {
         if (aSource == null)
         {
             aSource = GetComponent<AudioSource>();
         }
-        aSource.clip = testSoundArray[index];
+
+        if (status == 0)
+        {
+            aSource.clip = letterTestSoundArray[index];
+        }
+        else if (status == 1)
+        {
+            aSource.clip = letterTestSoundArray[index];
+        }
         aSource.Play();
     }
 }

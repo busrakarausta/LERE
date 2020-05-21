@@ -62,7 +62,7 @@ public class DataManager : MonoBehaviour
     public void SetActiveLetterList()
     {
         Debug.Log("DataManager/SetActiveLetterList");
-        Debug.Log(_indexOfLastIncompleteLetter);
+       
         if (_activeDailyLetterList == null)
             _activeDailyLetterList = new char[_remainingActiveLetterGameCount];
 
@@ -170,6 +170,9 @@ public class DataManager : MonoBehaviour
             else
                 _indexOfLastIncompleteLetter++;
 
+            if (_indexOfLastIncompleteLetter >= letters.Length)
+                ReInitializeLetter();
+
             PlayerPrefs.SetInt(inCompleteLetterIndexKey, _indexOfLastIncompleteLetter);
             PlayerPrefs.SetInt(remainLetterKey, _remainingActiveLetterGameCount);
         }
@@ -216,9 +219,31 @@ public class DataManager : MonoBehaviour
             else
                 _indexOfLastIncompleteNumber++;
 
+            if (_indexOfLastIncompleteNumber >= numbers.Length)
+                ReInitializeNumber();
+
             PlayerPrefs.SetInt(inCompleteNumberIndexKey, _indexOfLastIncompleteNumber);
             PlayerPrefs.SetInt(remainNumberKey, _remainingActiveNumberGameCount);
         }
+    }
+
+    private void ReInitializeNumber() //hangi elemanın kaç kere tamamlandığını tutabiliriz.
+    {
+        _indexOfLastIncompleteNumber = 0;
+        _remainingActiveNumberGameCount = _activeGameCount;
+
+        string s = "000000000";
+        PlayerPrefs.SetString(numberStatus,s);
+
+    }
+    private void ReInitializeLetter() //hangi elemanın kaç kere tamamlandığını tutabiliriz.
+    {
+        _indexOfLastIncompleteLetter = 0;
+        _remainingActiveLetterGameCount = _activeGameCount;
+
+        string s = "00000000000000000000000000";
+        PlayerPrefs.SetString(letterStatus, s);
+
     }
 
     public void SetRemainingActiveLetterGameCount() //gunluk degiseceksin

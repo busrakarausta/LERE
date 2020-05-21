@@ -55,7 +55,7 @@ public class TestController : MonoBehaviour
 
         int index = letter - 'A';
 
-        testSoundProvider.TestSoundPlayer(index);
+        testSoundProvider.TestSoundPlayer(0,index);
 
         testLetterObject.SetActive(true);
 
@@ -74,7 +74,7 @@ public class TestController : MonoBehaviour
         Debug.Log("TestController/StartNumberTest");
 
         int index = number;
-        //testSoundProvider.TestSoundPlayer(index);
+        testSoundProvider.TestSoundPlayer(1,index);
 
         testLetterObject.SetActive(true);
         testObject = (char)('0'+number);
@@ -159,16 +159,14 @@ public class TestController : MonoBehaviour
         Debug.Log("TestController/GenerateNumber");
         Debug.Log(testObject);
         int originalNumberIndex = (int)(testObject - '0');
-        int firstRandomIndex = (originalNumberIndex + UnityEngine.Random.Range(1, 9)) % 10;
-        int secondRandomIndex = (originalNumberIndex + firstRandomIndex + 1) % 8;
+        int firstRandomIndex = (originalNumberIndex + UnityEngine.Random.Range(1, 8)) % 9;
+        int secondRandomIndex = (originalNumberIndex + firstRandomIndex + 1) % 9;
 
         shownTestNumbers[0] = (char)('0'+ originalNumberIndex);
         shownTestNumbers[1] = (char)('0' + firstRandomIndex);
         shownTestNumbers[2] = (char)('0' + secondRandomIndex);
     }
     //
-
-
     void AssingImagesToLetterComponents()
     {
         Debug.Log("TestController/AssingImagesToLetterComponents");
@@ -203,10 +201,10 @@ public class TestController : MonoBehaviour
         selectionImages[randomFirstIndex].sprite = allNumberSprites[(int)(shownTestNumbers[0] - '1')];
         selectionImages[randomFirstIndex].gameObject.GetComponent<Letter>().set(shownTestNumbers[0]);
 
-        selectionImages[randomSecondIndex].sprite = allNumberSprites[(int)(shownTestNumbers[1] - '1')];
+        selectionImages[randomSecondIndex].sprite = allNumberSprites[(int)(shownTestNumbers[1] - '0')];
         selectionImages[randomSecondIndex].gameObject.GetComponent<Letter>().set(shownTestNumbers[1]);
 
-        selectionImages[randomThirdIndex].sprite = allNumberSprites[(int)(shownTestNumbers[2] - '1')];
+        selectionImages[randomThirdIndex].sprite = allNumberSprites[(int)(shownTestNumbers[2] - '0')];
         selectionImages[randomThirdIndex].gameObject.GetComponent<Letter>().set(shownTestNumbers[2]);
     }
     //

@@ -25,7 +25,7 @@ public class EducationController : MonoBehaviour
     {
         Debug.Log("EducationController/InActiveEducation");
 
-        _writingHandler.InactiveCurrentLetter();
+        _writingHandler?.InactiveCurrentLetter();
         education.SetActive(false);
     }
 
@@ -34,7 +34,6 @@ public class EducationController : MonoBehaviour
         Debug.Log("EducationController/Awake");
 
         educationSoundsProvider = education.GetComponent<EducationSoundsProvider>();
-        _writingHandler.OnLetterEnd += OnLetterEnd;
 
     }
     private void Education(int status,int index) // kacinci element oldugunu soyluyorum
@@ -42,7 +41,7 @@ public class EducationController : MonoBehaviour
         educationSoundsProvider = education.GetComponent<EducationSoundsProvider>();
         Debug.Log("EducationController/StartLetterEducation");
 
-       // educationSoundsProvider.EducationSoundPlayer(status,index);
+        educationSoundsProvider.EducationSoundPlayer(status,index);
 
         _education.SetActive(true);
         education.SetActive(true);

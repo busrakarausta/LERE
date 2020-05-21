@@ -10,8 +10,10 @@ public class NumberLampEnder : MonoBehaviour
     public void IncreaseClickCount()
     {
         clickCount++;
+        Debug.Log("asdfghjkldfghj");
         if (clickCount == totalClick)
         {
+            
             LevelController.instance.OnLevelEnd();
         }
     }

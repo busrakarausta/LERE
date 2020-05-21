@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     private int _activeButtonIndex;
 
     public event Action<int> OnChangeLetterList;
+    public event Action<int> OnChangeNumberList;
     //Click Events
 
     private void Awake()
@@ -44,6 +45,8 @@ public class UIManager : MonoBehaviour
             GameManager._instance.OnStepDone += NextButton;
             GameManager._instance.OnWholeLevelDone += BackToElementsMenu;
             GameManager._instance.OnLetterComplete += OnLetterCompleted;
+            GameManager._instance.OnNumberComplete += OnNumberCompleted;
+            //GameManager._instance.OnColorrComplete += OnLetterCompleted;
         }
     }
 
@@ -51,6 +54,11 @@ public class UIManager : MonoBehaviour
     {
         Debug.Log("UIManager/OnLetterCompleted");
         OnChangeLetterList?.Invoke(_activeButtonIndex);
+    }
+    private void OnNumberCompleted()
+    {
+        Debug.Log("UIManager/OnNumberCompleted");
+        OnChangeNumberList?.Invoke(_activeButtonIndex);
     }
 
     private void NextButton()

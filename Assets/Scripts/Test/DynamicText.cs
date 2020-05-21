@@ -17,11 +17,11 @@ public class DynamicText : MonoBehaviour
         letterText.text = letterString;
     }
 
-   
     public void SetNumber(int number)
     {
         numberText = this.GetComponent<Text>();
         numberText.text = number.ToString();
+        Debug.Log(number);
     }
     
 }

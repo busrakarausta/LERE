@@ -19,16 +19,16 @@ public class NumberLampController : MonoBehaviour, IPointerDownHandler
         Vector3 lastScale = transform.localScale;
         Vector3 finalScale = lastScale * 1.3f;
 
-
         gameObject.SetActive(false);
         lampOpen.SetActive(true);
 
         while (lampOpen.transform.localScale.magnitude <= finalScale.magnitude)
         {
             lampOpen.transform.localScale = transform.localScale * 1.1f;
+            numberLampEnder.IncreaseClickCount();
             yield return new WaitForSeconds(0.2f);
         }
-        numberLampEnder.IncreaseClickCount();
+        
     }
 
 

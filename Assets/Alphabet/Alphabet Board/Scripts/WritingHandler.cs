@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class WritingHandler : MonoBehaviour
 {
+	public WritingHandler _instance;
 	public GameObject[] letters;//the letters list from A-Z
 	public GameObject[] numbers;//the letters list from 1-9
 	public GameObject[] colors;//the letters list from red-purple
@@ -37,7 +38,10 @@ public class WritingHandler : MonoBehaviour
 		currentTracingPoints = new ArrayList ();//initiate the current tracing points
 		yield return 0;
 	}
-
+	private void Awake()
+	{
+		_instance = this;
+	}
 	void Update ()
 	{
 		RaycastHit2D hit2d = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);//raycast hid c
