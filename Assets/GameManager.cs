@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private bool _isColor=false;
 
     private char _currentLetter = 'A';
-    private int _currentNumber = 1;
+    private int _currentNumber = 2;
     private Color _currentColor = Color.red;
 
     private int shownGameCount = 3;
@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
     private Color[] _listedColors = { Color.red, Color.blue, Color.green };
 
     private LetterState[] _activeLetters;
-    private LetterState[] _activeNumbers;
-    private LetterState[] _activeColors;
+    private NumberState[] _activeNumbers;
+    private ColorState[] _activeColors;
 
     private int currentElementIndex = 0;
 
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     public event Action OnStepDone;
     public event Action OnWholeLevelDone;
     public event Action OnLetterComplete;
+    public event Action OnNumberComplete;
 
     struct LetterState
     {
@@ -53,12 +54,12 @@ public class GameManager : MonoBehaviour
     struct ColorState
     {
         public Color color;
-        public int colorStateData;
+        public int status;
     }
     struct NumberState
     {
         public int number;
-        public int numberStateData;
+        public int status;
     }
 
     private void Awake()
@@ -73,10 +74,11 @@ public class GameManager : MonoBehaviour
 
         _listedLetters = DataManager.instance.GetActiveLetterList();
 
-        InitializeStateData();
+        InitializeLetterStateData();
+        InitializeNumberStateData();
     }
 
-    private void InitializeStateData()
+    private void InitializeLetterStateData()
     {
         Debug.Log("GameManager/InitializeStateData");
 
@@ -87,11 +89,26 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < _activeGameCount; i++)
         {
             char letter = _listedLetters[i];
+
             _activeLetters[i].letter = letter;
-            _activeLetters[i].status = DataManager.instance.GetStatusOfTheLetter(letter);
-            Debug.Log("bbbbbbbbbbbbbbbbb");
-            Debug.Log(_activeLetters[i].status);
-            
+            _activeLetters[i].status = DataManager.instance.GetStatusOfTheLetter(letter);      
+        }
+    }
+
+    private void InitializeNumberStateData()
+    {
+        Debug.Log("GameManager/InitializeNumberStateData");
+
+        _activeGameCount = DataManager.instance.GetRemainingActiveNumberGameCount();
+
+        _activeNumbers = new NumberState[_activeGameCount];
+
+        for (int i = 0; i < _activeGameCount; i++)
+        {
+            int number = _listedNumbers[i];
+
+            _activeNumbers[i].number = number;
+            _activeNumbers[i].status = DataManager.instance.GetStatusOfTheNumber(number);
         }
     }
 
@@ -99,6 +116,8 @@ public class GameManager : MonoBehaviour
     {
         //silinecek
     }
+
+
     private void OnLetterGameDone()
     {
         Debug.Log("GameManager/OnLetterGameDone");
@@ -131,6 +150,20 @@ public class GameManager : MonoBehaviour
         OnStepDone?.Invoke();
     }
 
+    /* */
+    private void OnNumberTestDone()
+    {
+        Debug.Log("GameManager/OnNumberTestDone");
+
+        int number = _activeNumbers[currentElementIndex].number;
+        _activeNumbers[currentElementIndex].status = -1;
+        DataManager.instance.SetStatusOfTheNumber(_currentNumber);
+
+        OnStepDone?.Invoke();
+    }
+    //
+
+
     public void InstantiateLetterGame()
     {
         Debug.Log("GameManager/InstantiateLetterGame");
@@ -139,12 +172,16 @@ public class GameManager : MonoBehaviour
         _gameController.StartLetterGame(_currentLetter);
     }
 
-    public void InstantiateLetterTest()
+    private void InstantiateTest()
     {
-        Debug.Log("GameManager/InstantiateLetterTest");
-
         _gameController.InActiveGame();
-        _testController.StartLetterTest(_currentLetter);
+        if (_isLetter)
+            _testController.StartLetterTest(_currentLetter);
+        else if (_isNumber)
+            _testController.StartNumberTest(_currentNumber);
+        else if (_isColor)
+            ;
+
     }
 
     public void InstantiateLetterEducation()
@@ -165,7 +202,7 @@ public class GameManager : MonoBehaviour
 
         _currentNumber = _listedNumbers[index];
     }
-
+   
     public void StartGame(int index)
     {
         currentElementIndex = index;
@@ -180,7 +217,11 @@ public class GameManager : MonoBehaviour
         }
 
         else if (_isNumber)
-            InstantiateNumberEducation(currentElementIndex);
+        {
+            _currentNumber = _listedNumbers[currentElementIndex];
+            int status = _activeNumbers[currentElementIndex].status;
+            StartNextStep(status);
+        }
 
         else if (_isColor)
             InstantiateColorEducation(currentElementIndex);
@@ -195,9 +236,13 @@ public class GameManager : MonoBehaviour
             InstantiateLetterEducation();
         }
         else if (status == 1)
+        {
             InstantiateLetterGame();
+        }
         else if(status == 2)
-            InstantiateLetterTest();
+        {
+            InstantiateTest();
+        }
         else
         {
             _testController.InActiveTest();
@@ -205,6 +250,8 @@ public class GameManager : MonoBehaviour
             OnWholeLevelDone?.Invoke();
         }
     }
+
+
 
     public void ChangeGameStatus(int stateIndex) // alfabe number ya da renk mi yapiyorum belirle
     {
