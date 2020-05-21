@@ -8,6 +8,8 @@ public class TestController : MonoBehaviour
     [SerializeField]
     private Sprite[] allSprites;
     [SerializeField]
+    private Sprite[] allNumberSprites;
+    [SerializeField]
     private Image[] selectionImages;
     [SerializeField]
     private DynamicText currentElement;
@@ -21,6 +23,9 @@ public class TestController : MonoBehaviour
     private char currentChar;
     private Image currentImage;
     private char[] shownTestLetters;
+
+    private char[] shownTestNumbers;
+
     private GameObject _correctObject;
     private float originalWidth, originalHeight;
     private float originalPosX;
@@ -31,6 +36,7 @@ public class TestController : MonoBehaviour
         Debug.Log("TestController/Awake");
         testSoundProvider = testLetterObject.GetComponent<TestSoundProvider>();
         shownTestLetters = new char[3];
+        shownTestNumbers = new char[3];
     }
 
     private void SetText(char letter)
@@ -62,6 +68,25 @@ public class TestController : MonoBehaviour
         SetText(letter);
     }
 
+    //number test
+    public void StartNumberTest(int number)
+    {
+        Debug.Log("TestController/StartNumberTest");
+
+        int index = number;
+        //testSoundProvider.TestSoundPlayer(index);
+
+        testLetterObject.SetActive(true);
+        testObject = (char)('0'+number);
+
+        GenerateNumber();
+
+        AssingImagesToNumberComponents();
+        SetText(testObject);
+    }
+    //
+
+     
     public void TestClickedObject(Image currentObj)
     {
         Debug.Log("TestController/TestClickedObject");
@@ -80,15 +105,14 @@ public class TestController : MonoBehaviour
             EndOfTheTest();
             // Burasi testin bitisi -- buraya yazabilirsiniz
             OnTestEnd?.Invoke();
-        }
-           
+        }      
     }
 
     public void InActiveTest()
     {
         Debug.Log("TestController/InActiveTest");
 
-        StopCoroutine(AnimateCorrectLetter());
+        StopCoroutine(AnimateCorrectObject());
 
         RefreshTest();
 
@@ -99,7 +123,7 @@ public class TestController : MonoBehaviour
     {
         Debug.Log("TestController/RefreshTest");
 
-        for (int i = 0; i < shownTestLetters.Length; i++)
+        for (int i = 0; i < 3; i++)
         {
             Color originalColor = selectionImages[i].color;
             originalColor.a = 1;
@@ -128,6 +152,23 @@ public class TestController : MonoBehaviour
         shownTestLetters[2] = (char)('A' + secondRandomIndex );
     }
 
+
+    /* */
+    void GenerateNumber()
+    {
+        Debug.Log("TestController/GenerateNumber");
+        Debug.Log(testObject);
+        int originalNumberIndex = (int)(testObject - '0');
+        int firstRandomIndex = (originalNumberIndex + UnityEngine.Random.Range(1, 9)) % 10;
+        int secondRandomIndex = (originalNumberIndex + firstRandomIndex + 1) % 8;
+
+        shownTestNumbers[0] = (char)('0'+ originalNumberIndex);
+        shownTestNumbers[1] = (char)('0' + firstRandomIndex);
+        shownTestNumbers[2] = (char)('0' + secondRandomIndex);
+    }
+    //
+
+
     void AssingImagesToLetterComponents()
     {
         Debug.Log("TestController/AssingImagesToLetterComponents");
@@ -145,6 +186,31 @@ public class TestController : MonoBehaviour
         selectionImages[randomThirdIndex].sprite = allSprites[(int)(shownTestLetters[2]-'A')];
         selectionImages[randomThirdIndex].gameObject.GetComponent<Letter>().set(shownTestLetters[2]);
     }
+
+     /* */ 
+    void AssingImagesToNumberComponents()
+    {
+        Debug.Log("TestController/AssingImagesToNumberComponents");
+
+        int randomFirstIndex = UnityEngine.Random.Range(0, 2);
+        int randomSecondIndex = (3 - randomFirstIndex) % 2;
+        int randomThirdIndex = 3 - (randomFirstIndex + randomSecondIndex);
+
+        Debug.Log(shownTestNumbers[2] - '0');
+        Debug.Log(shownTestNumbers[1] - '0');
+        Debug.Log(shownTestNumbers[0] - '0');
+
+        selectionImages[randomFirstIndex].sprite = allNumberSprites[(int)(shownTestNumbers[0] - '1')];
+        selectionImages[randomFirstIndex].gameObject.GetComponent<Letter>().set(shownTestNumbers[0]);
+
+        selectionImages[randomSecondIndex].sprite = allNumberSprites[(int)(shownTestNumbers[1] - '1')];
+        selectionImages[randomSecondIndex].gameObject.GetComponent<Letter>().set(shownTestNumbers[1]);
+
+        selectionImages[randomThirdIndex].sprite = allNumberSprites[(int)(shownTestNumbers[2] - '1')];
+        selectionImages[randomThirdIndex].gameObject.GetComponent<Letter>().set(shownTestNumbers[2]);
+    }
+    //
+
 
     IEnumerator FadeLetter()
     {
@@ -167,17 +233,17 @@ public class TestController : MonoBehaviour
     {
         Debug.Log("TestController/EndOfTheTest");
 
-        for (int i = 0; i < shownTestLetters.Length; i++)
+        for (int i = 0; i < 3;  i++)
         {
             selectionImages[i].gameObject.SetActive(false);
         }
 
         _correctObject.SetActive(true);
 
-        StartCoroutine(AnimateCorrectLetter());
+        StartCoroutine(AnimateCorrectObject());
     }
 
-    IEnumerator AnimateCorrectLetter()
+    IEnumerator AnimateCorrectObject()
     {
         Debug.Log("TestController/AnimateCorrectLetter");
 
@@ -212,4 +278,6 @@ public class TestController : MonoBehaviour
         yield return new WaitForSeconds(0);
 
     }
+
+
 }
