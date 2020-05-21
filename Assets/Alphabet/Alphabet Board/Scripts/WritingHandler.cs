@@ -35,7 +35,6 @@ public class WritingHandler : MonoBehaviour
 	{   
 		Cursor.visible = showCursor;//show cursor or hide
 		currentTracingPoints = new ArrayList ();//initiate the current tracing points
-		//LoadLetter ();
 		yield return 0;
 	}
 
@@ -44,7 +43,6 @@ public class WritingHandler : MonoBehaviour
 		RaycastHit2D hit2d = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);//raycast hid c
 
 		if (hit2d.collider != null) {
-			Debug.Log("raycast hit");
 				if (Input.GetMouseButtonDown (0)) {
 						TouchLetterHandle (hit2d.collider.gameObject, true, Camera.main.ScreenToWorldPoint (Input.mousePosition));//touch for letter move(drawing);
 						clickStarted = true;
@@ -53,7 +51,6 @@ public class WritingHandler : MonoBehaviour
 				}  
 		}
 		if (Input.GetMouseButtonUp (0)) {
-			Debug.Log("up");
 			if (clickStarted) {
 						EndTouchLetterHandle ();
 						clickStarted = false;
@@ -90,11 +87,7 @@ public class WritingHandler : MonoBehaviour
 		{
 			currentObjs = new GameObject[numbers.Length];
 			currentObjs = numbers;
-		}
-		else if (status == 2)
-		{
-			currentObjs = new GameObject[colors.Length];
-			currentObjs = colors;
+			Debug.Log(currentObjs.Length);
 		}
 
 		LoadLetter();
@@ -197,7 +190,6 @@ public class WritingHandler : MonoBehaviour
 				return;//skip the next
 		}
 
-		Debug.Log(currentObjs.Length);
 		TracingPart [] tracingParts = currentObjs[currentIndex].GetComponents<TracingPart> ();//get the tracing parts of the current letter
 		bool equivfound = false;//whether a matching or equivalent tracing part found
 		if (!clickBeganOrMovedOutOfLetterArea) {

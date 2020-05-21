@@ -66,11 +66,8 @@ public class UIManager : MonoBehaviour
         nextButton.SetActive(false);
         _currentActivePanel.SetActive(true);
 
-        GameManager._instance.EndCurrentState();
-
         backToElements.SetActive(false);
         backToCategories.SetActive(true);
-
     }
 
     public void BackToHome()

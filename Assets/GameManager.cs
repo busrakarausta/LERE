@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
         _testController.OnTestEnd += OnLetterTestDone;
 
         _listedLetters = DataManager.instance.GetActiveLetterList();
+        _listedNumbers = DataManager.instance.GetActiveNumberList();
 
         InitializeLetterStateData();
         InitializeNumberStateData();
@@ -100,7 +101,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManager/InitializeNumberStateData");
 
         _activeGameCount = DataManager.instance.GetRemainingActiveNumberGameCount();
-
         _activeNumbers = new NumberState[_activeGameCount];
 
         for (int i = 0; i < _activeGameCount; i++)
@@ -111,12 +111,6 @@ public class GameManager : MonoBehaviour
             _activeNumbers[i].status = DataManager.instance.GetStatusOfTheNumber(number);
         }
     }
-
-    public void EndCurrentState()
-    {
-        //silinecek
-    }
-
 
     private void OnLetterGameDone()
     {
@@ -187,7 +181,14 @@ public class GameManager : MonoBehaviour
     public void InstantiateEducation()
     {
         Debug.Log("GameManager/InstantiateLetterEducation");
-        _educationController.StartEducation(0,_currentLetter); // ilki color number letter mi , ikinci deger
+        Debug.Log(_isLetter);
+        Debug.Log(_isNumber);
+        if(_isLetter)
+         _educationController.StartEducation(0,_currentLetter); //ilki color number letter mi , ikinci deger
+        else if (_isNumber)
+            _educationController.StartEducation(1, (char)(_currentNumber+'0'));
+        else if (_isColor)
+            _educationController.StartEducation(2, _currentLetter);
     }
    
     public void StartGame(int index)

@@ -35,6 +35,7 @@ public class DataManager : MonoBehaviour
     private Color[] colors;
 
     private int _activeGameCount=3;
+
     private int _remainingActiveLetterGameCount=3;
     private int _remainingActiveNumberGameCount = 3;
 
@@ -52,9 +53,12 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(this);
         instance = this;
 
-        //PlayerPrefs.DeleteAll();
     }
+    public void DeleteAll()
+    {
+        PlayerPrefs.DeleteAll();
 
+    }
     public void SetActiveLetterList()
     {
         Debug.Log("DataManager/SetActiveLetterList");
@@ -117,6 +121,16 @@ public class DataManager : MonoBehaviour
         return _activeDailyLetterList;
     }
 
+    public int[] GetActiveNumberList()
+    {
+        Debug.Log("DataManager/GetActiveLetterList");
+
+        if (_activeDailyNumberList == null)
+            SetActiveNumberList();
+
+        return _activeDailyNumberList;
+    }
+
     public int GetStatusOfTheLetter(char letter)
     {
         bool check = PlayerPrefs.HasKey(letterStatus);
@@ -168,7 +182,7 @@ public class DataManager : MonoBehaviour
         bool check = PlayerPrefs.HasKey(numberStatus);
         if (!check)
         {
-            string status = "222222222";
+            string status = "000000000";
 
             PlayerPrefs.SetString(numberStatus, status);
             return 0;
@@ -231,6 +245,21 @@ public class DataManager : MonoBehaviour
     }
 
     /* */
+
+    public void SetRemainingActiveNumberGameCount() //gunluk degiseceksin
+    {
+        Debug.Log("DataManager/SetRemainingActiveLetterGameCount");
+
+        int count = PlayerPrefs.HasKey(remainNumberKey) ? PlayerPrefs.GetInt(remainNumberKey) : 0;
+
+        _remainingActiveNumberGameCount = count == 0 ? _activeGameCount : count;
+
+        if (_remainingActiveNumberGameCount >= 0)
+            PlayerPrefs.SetInt(remainNumberKey, _remainingActiveNumberGameCount);
+
+        Debug.Log("Remaining Letters" + _remainingActiveNumberGameCount);
+    }
+
     public int GetRemainingActiveNumberGameCount()
     {
         Debug.Log("DataManager/GetRemainingActiveNumberGameCount");
@@ -238,6 +267,25 @@ public class DataManager : MonoBehaviour
         _remainingActiveNumberGameCount = PlayerPrefs.GetInt(remainNumberKey);
 
         return _remainingActiveNumberGameCount;
+    }
+
+    public void SetIndexOfLastIncompleteNumber()
+    {
+        Debug.Log("DataManager/SetIndexOfLastIncompleteNumber");
+
+        _indexOfLastIncompleteNumber = PlayerPrefs.HasKey(inCompleteNumberIndexKey) ? PlayerPrefs.GetInt(inCompleteNumberIndexKey) : 0;
+
+        PlayerPrefs.SetInt(inCompleteNumberIndexKey, _indexOfLastIncompleteNumber);
+        Debug.Log("index Of Last Incomplete Number" + _indexOfLastIncompleteNumber);
+    }
+
+    public int GetIndexOfLastIncompleteNumber()
+    {
+        Debug.Log("DataManager/GetIndexOfLastIncompleteNumber");
+
+        int _indexOfLastIncompleteNumber = PlayerPrefs.GetInt(inCompleteNumberIndexKey);
+
+        return _indexOfLastIncompleteNumber;
     }
     //
 
@@ -269,8 +317,12 @@ public class DataManager : MonoBehaviour
         _activeGameCount = count;
 
         PlayerPrefs.SetInt(activeGameKey, _activeGameCount);
+
         SetRemainingActiveLetterGameCount();
         SetIndexOfLastIncompleteLetter();
+
+        SetRemainingActiveNumberGameCount();
+        SetIndexOfLastIncompleteNumber();
     }
 
     public int GetActiveGameCount()

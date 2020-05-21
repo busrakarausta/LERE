@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class EducationController : MonoBehaviour
 {
-    [SerializeField]
-    private WritingHandler _writingHandler;
 
     [SerializeField]
     private GameObject education;
@@ -17,6 +15,7 @@ public class EducationController : MonoBehaviour
     [SerializeField]
     private GameObject colorEducation;
 
+    private WritingHandler _writingHandler;
     private GameObject _education;
 
     public event Action OnLetterEducationEnd;
@@ -43,16 +42,18 @@ public class EducationController : MonoBehaviour
         educationSoundsProvider = education.GetComponent<EducationSoundsProvider>();
         Debug.Log("EducationController/StartLetterEducation");
 
-        educationSoundsProvider.EducationSoundPlayer(status,index);
+       // educationSoundsProvider.EducationSoundPlayer(status,index);
 
         _education.SetActive(true);
+        education.SetActive(true);
+
+        _writingHandler = _education.GetComponent<WritingHandler>();
+        _writingHandler.OnLetterEnd += OnLetterEnd;
         _writingHandler.SetCurrentIndex(status,index);
     }
 
     public void StartEducation(int index, char obj)
     {
-        education.SetActive(true);
-
         int itemIndex=0;
 
         if(_education != null)
@@ -66,7 +67,7 @@ public class EducationController : MonoBehaviour
         else if(index==1)
         {
             _education = numberEducation;
-            itemIndex = (obj - '0');
+            itemIndex = (obj - '0')-1;
         }
         else if (index == 2)
         {
