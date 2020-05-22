@@ -67,12 +67,12 @@ public class GameController : MonoBehaviour
     }
     public void StartColorGame(int color = 1)
     {
-        Debug.Log("GameController/StartNumberGame");
+        Debug.Log("GameController/StartColorGame");
 
         games.SetActive(true);
         currentColor = color;
 
-        currentGame = GameObject.Instantiate(colors[color], games.transform);
+        currentGame = GameObject.Instantiate(colors[color-1], games.transform);
 
     }
 }

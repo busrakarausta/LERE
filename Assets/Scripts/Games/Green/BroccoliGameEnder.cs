@@ -11,7 +11,7 @@ public class BroccoliGameEnder : MonoBehaviour
         broccoliCount++;
         if (broccoliCount == totalCount)
         {
-            ColorEducation.instance.OnColorEducationEnd();
+            LevelController.instance.OnLevelEnd();
         }
     }
 }

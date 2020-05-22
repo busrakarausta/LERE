@@ -22,14 +22,14 @@ public class GameManager : MonoBehaviour
     private bool _isColor=false;
 
     private char _currentLetter = 'A';
-    private int _currentNumber = 2;
-    private Color _currentColor = Color.red;
+    private int _currentNumber = 1;
+    private int _currentColor = 1;
 
     private int shownGameCount = 3;
 
     private char[] _listedLetters = { 'A', 'B', 'C' };
     private int[] _listedNumbers = { 1, 2, 3 };
-    private Color[] _listedColors = { Color.red, Color.blue, Color.green };
+    private int[] _listedColors = { 1,2,3 };
 
     private LetterState[] _activeLetters;
     private NumberState[] _activeNumbers;
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public event Action OnWholeLevelDone;
     public event Action OnLetterComplete;
     public event Action OnNumberComplete;
+    public event Action OnColorComplete;
 
     struct LetterState
     {
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     }
     struct ColorState
     {
-        public Color color;
+        public int color;
         public int status;
     }
     struct NumberState
@@ -74,9 +75,11 @@ public class GameManager : MonoBehaviour
 
         _listedLetters = DataManager.instance.GetActiveLetterList();
         _listedNumbers = DataManager.instance.GetActiveNumberList();
+        _listedColors = DataManager.instance.GetActiveColorList();
 
         InitializeLetterStateData();
         InitializeNumberStateData();
+        InitializeColorStateData();
     }
 
     private void InitializeLetterStateData()
@@ -112,6 +115,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void InitializeColorStateData()
+    {
+        Debug.Log("GameManager/InitializeColorStateData");
+
+        _activeGameCount = DataManager.instance.GetRemainingActiveColorGameCount();
+        _activeColors = new ColorState[_activeGameCount];
+
+        for (int i = 0; i < _activeGameCount; i++)
+        {
+            int color = _listedColors[i];
+
+            _activeColors[i].color = color;
+            _activeColors[i].status = DataManager.instance.GetStatusOfTheColor(color);
+        }
+    }
+
     private void OnGameDone()
     {
         Debug.Log("GameManager/OnLetterGameDone");
@@ -126,14 +145,14 @@ public class GameManager : MonoBehaviour
         {
             int number = _activeNumbers[currentElementIndex].number;
             _activeNumbers[currentElementIndex].status = 2;
-            DataManager.instance.SetStatusOfTheNumber(number, '2');
+            DataManager.instance.SetStatusOfTheNumber(_currentNumber, '2');
         }
         else if (_isColor)
         {
-
+            int color = _activeColors[currentElementIndex].color;
+            _activeColors[currentElementIndex].status = 2;
+            DataManager.instance.SetStatusOfTheColor(_currentColor, '2');
         }
-
-       
 
         OnStepDone?.Invoke();
     }
@@ -151,11 +170,13 @@ public class GameManager : MonoBehaviour
         {
             int number = _activeNumbers[currentElementIndex].number;
             _activeNumbers[currentElementIndex].status = 1;
-            DataManager.instance.SetStatusOfTheNumber(number, '1');
+            DataManager.instance.SetStatusOfTheNumber(_currentNumber, '1');
         }
         else if (_isColor)
         {
-
+            int color = _activeColors[currentElementIndex].color;
+            _activeColors[currentElementIndex].status = 1;
+            DataManager.instance.SetStatusOfTheColor(_currentColor, '1');
         }
        
         OnStepDone?.Invoke();
@@ -168,18 +189,20 @@ public class GameManager : MonoBehaviour
         if (_isLetter)
         {
             char letter = _activeLetters[currentElementIndex].letter;
-            _activeLetters[currentElementIndex].status = -1;
+            _activeLetters[currentElementIndex].status = 3;
             DataManager.instance.SetStatusOfTheLetter(_currentLetter, '3');
         }
         else if (_isNumber)
         {
             int number = _activeNumbers[currentElementIndex].number;
             _activeNumbers[currentElementIndex].status = 3;
-            DataManager.instance.SetStatusOfTheNumber(number, '3');
+            DataManager.instance.SetStatusOfTheNumber(_currentNumber, '3');
         }
         else if (_isColor)
         {
-
+            int color = _activeColors[currentElementIndex].color;
+            _activeColors[currentElementIndex].status = 3;
+            DataManager.instance.SetStatusOfTheColor(_currentColor, '3');
         }
 
         OnStepDone?.Invoke();
@@ -195,8 +218,8 @@ public class GameManager : MonoBehaviour
             _gameController.StartLetterGame(_currentLetter);
         else if (_isNumber)
             _gameController.StartNumberGame(_currentNumber);
-       /* else if (_isColor)
-            _gameController.StartColorGame(_currentColor);*/
+        else if (_isColor)
+            _gameController.StartColorGame(_currentColor);
     }
 
     private void InstantiateTest()
@@ -207,21 +230,20 @@ public class GameManager : MonoBehaviour
         else if (_isNumber)
             _testController.StartNumberTest(_currentNumber);
         else if (_isColor)
-            ;
+            _testController.StartColorTest(_currentColor);
 
     }
 
     public void InstantiateEducation()
     {
         Debug.Log("GameManager/InstantiateLetterEducation");
-        Debug.Log(_isLetter);
-        Debug.Log(_isNumber);
+
         if(_isLetter)
          _educationController.StartEducation(0,_currentLetter); //ilki color number letter mi , ikinci deger
         else if (_isNumber)
             _educationController.StartEducation(1, (char)(_currentNumber+'0'));
         else if (_isColor)
-            _educationController.StartEducation(2, _currentLetter);
+            _educationController.StartEducation(2, (char)(_currentColor + '0'));
     }
    
     public void StartGame(int index)
@@ -248,7 +270,6 @@ public class GameManager : MonoBehaviour
         {
             _currentColor = _listedColors[currentElementIndex];
             int status = _activeColors[currentElementIndex].status;
-
             StartNextStep(status);
         }
     }
@@ -280,9 +301,11 @@ public class GameManager : MonoBehaviour
             {
                 OnNumberComplete?.Invoke();
             }
-                OnWholeLevelDone?.Invoke();
-
-
+            else if (_isColor)
+            {
+                OnColorComplete?.Invoke();
+            }
+            OnWholeLevelDone?.Invoke();
         }
     }
 

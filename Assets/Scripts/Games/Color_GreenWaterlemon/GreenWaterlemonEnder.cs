@@ -13,7 +13,7 @@ public class GreenWaterlemonEnder : MonoBehaviour
         clickCount++;
         if (clickCount == totalClick)
         {
-            LevelController.instance.OnLevelEnd();
+            ColorEducation.instance.OnColorEducationEnd();
         }
     }
 }

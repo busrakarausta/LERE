@@ -11,7 +11,7 @@ public class OrangeCandleGameEnder : MonoBehaviour
         candleCount++;
         if (candleCount == totalCount)
         {
-            ColorEducation.instance.OnColorEducationEnd();
+            LevelController.instance.OnLevelEnd();
         }
     }
 }

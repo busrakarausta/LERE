@@ -11,7 +11,7 @@ public class CupcakeGameEnder : MonoBehaviour
         cupcakeCount++;
         if (cupcakeCount == totalCount)
         {
-            ColorEducation.instance.OnColorEducationEnd();
+            LevelController.instance.OnLevelEnd();
         }
     }
 }

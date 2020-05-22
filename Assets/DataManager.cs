@@ -244,7 +244,7 @@ public class DataManager : MonoBehaviour
         bool check = PlayerPrefs.HasKey(colorStatus);
         if (!check)
         {
-            string status = "000000000";
+            string status = "000000";
 
             PlayerPrefs.SetString(colorStatus, status);
             return 0;
@@ -341,7 +341,7 @@ public class DataManager : MonoBehaviour
         _indexOfLastIncompleteColor = 0;
         _remainingActiveColorGameCount = _activeGameCount;
 
-        string s = "00000";
+        string s = "000000";
         PlayerPrefs.SetString(colorStatus, s);
 
     }

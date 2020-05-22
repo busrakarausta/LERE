@@ -6,22 +6,24 @@ using UnityEngine.UI;
 public class DynamicText : MonoBehaviour
 {
     private string letter="A";
-    private Text letterText;
+    private Text _text;
+
+    [SerializeField]
+    private string[] colorText;
 
     private int num = 1;
     private Text numberText;
 
     public void SetLetter(string letterString)
     {
-        letterText = this.GetComponent<Text>();
-        letterText.text = letterString;
+        _text = this.GetComponent<Text>();
+        _text.text = letterString;
     }
 
-    public void SetNumber(int number)
+    public void SetColor(int index)
     {
-        numberText = this.GetComponent<Text>();
-        numberText.text = number.ToString();
-        Debug.Log(number);
+        _text = this.GetComponent<Text>();
+        _text.text = colorText[index - 1];
     }
     
 }

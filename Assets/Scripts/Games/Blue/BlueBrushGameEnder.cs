@@ -11,7 +11,7 @@ public class BlueBrushGameEnder : MonoBehaviour
         wallCount++;
         if (wallCount == totalCount)
         {
-            ColorEducation.instance.OnColorEducationEnd();
+            LevelController.instance.OnLevelEnd();
         }
     }
 }

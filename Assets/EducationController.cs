@@ -13,9 +13,10 @@ public class EducationController : MonoBehaviour
     private GameObject numberEducation;
     [SerializeField]
     private GameObject colorEducationPanel;
+    [SerializeField]
+    private ColorEducation _colorEducation;
 
     private WritingHandler _writingHandler;
-    private ColorEducation _colorEducation;
     private GameObject _education;
 
     public event Action OnLetterEducationEnd;

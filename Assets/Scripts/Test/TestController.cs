@@ -10,6 +10,8 @@ public class TestController : MonoBehaviour
     [SerializeField]
     private Sprite[] allNumberSprites;
     [SerializeField]
+    private Sprite[] allColorSprites;
+    [SerializeField]
     private Image[] selectionImages;
     [SerializeField]
     private DynamicText currentElement;
@@ -25,8 +27,10 @@ public class TestController : MonoBehaviour
     private char[] shownTestLetters;
 
     private char[] shownTestNumbers;
+    private char[] shownTestColors;
 
     private GameObject _correctObject;
+    private int status;
     private float originalWidth, originalHeight;
     private float originalPosX;
 
@@ -37,23 +41,27 @@ public class TestController : MonoBehaviour
         testSoundProvider = testLetterObject.GetComponent<TestSoundProvider>();
         shownTestLetters = new char[3];
         shownTestNumbers = new char[3];
+        shownTestColors = new char[3];
     }
 
-    private void SetText(char letter)
+    private void SetText(char txt)
     {
         Debug.Log("TestController/SetText");
 
-        string text = letter.ToString();
+        string text = txt.ToString();
 
-        currentElement.SetLetter(text);
+        if (status != 2)
+            currentElement.SetLetter(text);
+        else
+            currentElement.SetColor((int)(txt - '0'));
     }
 
     public void StartLetterTest(char letter)
-
     {
         Debug.Log("TestController/StartLetterTest");
 
         int index = letter - 'A';
+        status = 0;
 
         testSoundProvider.TestSoundPlayer(0,index);
 
@@ -74,6 +82,8 @@ public class TestController : MonoBehaviour
         Debug.Log("TestController/StartNumberTest");
 
         int index = number;
+        status = 1;
+
         testSoundProvider.TestSoundPlayer(1,index);
 
         testLetterObject.SetActive(true);
@@ -86,7 +96,24 @@ public class TestController : MonoBehaviour
     }
     //
 
-     
+    public void StartColorTest(int color)
+    {
+        Debug.Log("TestController/StartColorTest");
+
+        int index = color;
+        status = 2;
+
+        testSoundProvider.TestSoundPlayer(2, index);
+
+        testLetterObject.SetActive(true);
+        testObject = (char)('0' + color);
+
+        GenerateColor();
+
+        AssingImagesToColorComponents();
+        SetText(testObject);
+    }
+
     public void TestClickedObject(Image currentObj)
     {
         Debug.Log("TestController/TestClickedObject");
@@ -166,6 +193,19 @@ public class TestController : MonoBehaviour
         shownTestNumbers[1] = (char)('0' + firstRandomIndex);
         shownTestNumbers[2] = (char)('0' + secondRandomIndex);
     }
+
+    void GenerateColor()
+    {
+        Debug.Log("TestController/GenerateColor");
+
+        int originalNumberIndex = (int)(testObject - '0');
+        int firstRandomIndex = (originalNumberIndex + UnityEngine.Random.Range(1, 5)) % 6;
+        int secondRandomIndex = (originalNumberIndex + firstRandomIndex + 1) % 6;
+
+        shownTestColors[0] = (char)('0' + originalNumberIndex);
+        shownTestColors[1] = (char)('0' + firstRandomIndex);
+        shownTestColors[2] = (char)('0' + secondRandomIndex);
+    }
     //
     void AssingImagesToLetterComponents()
     {
@@ -194,10 +234,6 @@ public class TestController : MonoBehaviour
         int randomSecondIndex = (3 - randomFirstIndex) % 2;
         int randomThirdIndex = 3 - (randomFirstIndex + randomSecondIndex);
 
-        Debug.Log(shownTestNumbers[2] - '0');
-        Debug.Log(shownTestNumbers[1] - '0');
-        Debug.Log(shownTestNumbers[0] - '0');
-
         selectionImages[randomFirstIndex].sprite = allNumberSprites[(int)(shownTestNumbers[0] - '1')];
         selectionImages[randomFirstIndex].gameObject.GetComponent<Letter>().set(shownTestNumbers[0]);
 
@@ -206,6 +242,24 @@ public class TestController : MonoBehaviour
 
         selectionImages[randomThirdIndex].sprite = allNumberSprites[(int)(shownTestNumbers[2] - '0')];
         selectionImages[randomThirdIndex].gameObject.GetComponent<Letter>().set(shownTestNumbers[2]);
+    }
+
+    void AssingImagesToColorComponents()
+    {
+        Debug.Log("TestController/AssingImagesToColorComponents");
+
+        int randomFirstIndex = UnityEngine.Random.Range(0, 2);
+        int randomSecondIndex = (3 - randomFirstIndex) % 2;
+        int randomThirdIndex = 3 - (randomFirstIndex + randomSecondIndex);
+
+        selectionImages[randomFirstIndex].sprite = allColorSprites[(int)(shownTestColors[0] - '1')];
+        selectionImages[randomFirstIndex].gameObject.GetComponent<Letter>().set(shownTestColors[0]);
+
+        selectionImages[randomSecondIndex].sprite = allColorSprites[(int)(shownTestColors[1] - '0')];
+        selectionImages[randomSecondIndex].gameObject.GetComponent<Letter>().set(shownTestColors[1]);
+
+        selectionImages[randomThirdIndex].sprite = allColorSprites[(int)(shownTestColors[2] - '0')];
+        selectionImages[randomThirdIndex].gameObject.GetComponent<Letter>().set(shownTestColors[2]);
     }
     //
 
