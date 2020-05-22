@@ -21,7 +21,7 @@ public class TestSoundProvider : MonoBehaviour
         }
         else if (status == 1)
         {
-            aSource.clip = letterTestSoundArray[index];
+            aSource.clip = numberTestSoundArray[index];
         }
         aSource.Play();
     }
