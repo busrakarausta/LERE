@@ -11,7 +11,7 @@ public class DaisyGameEnder : MonoBehaviour
         daisyCount++;
         if (daisyCount == totalCount)
         {
-            LevelController.instance.OnLevelEnd();
+            ColorEducation.instance.OnColorEducationEnd();
         }
     }
 }

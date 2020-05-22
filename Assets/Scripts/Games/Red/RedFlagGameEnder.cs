@@ -11,7 +11,7 @@ public class RedFlagGameEnder : MonoBehaviour
         flagCount++;
         if (flagCount == totalCount)
         {
-            LevelController.instance.OnLevelEnd();
+            ColorEducation.instance.OnColorEducationEnd();
         }
     }
 }
