@@ -270,6 +270,8 @@ public class GameManager : MonoBehaviour
         {
             _currentColor = _listedColors[currentElementIndex];
             int status = _activeColors[currentElementIndex].status;
+            Debug.Log(_currentColor);
+            Debug.Log(status);
             StartNextStep(status);
         }
     }

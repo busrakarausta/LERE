@@ -6,6 +6,7 @@ public class TestSoundProvider : MonoBehaviour
 {
     public AudioClip[] letterTestSoundArray;
     public AudioClip[] numberTestSoundArray;
+    public AudioClip[] colorTestSoundArray;
     private AudioSource aSource;
 
     public void TestSoundPlayer(int status,int index)
@@ -23,6 +24,10 @@ public class TestSoundProvider : MonoBehaviour
         {
             aSource.clip = numberTestSoundArray[index];
         }
+      /*  else if (status == 2)
+        {
+            aSource.clip = colorTestSoundArray[index];
+        }*/
         aSource.Play();
     }
 }

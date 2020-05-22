@@ -807,6 +807,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e04d742656d329b46a104438449b9fca, type: 3}
   - {fileID: 8300000, guid: cd36198bc1bbaf446858e4a6cbc522a9, type: 3}
   - {fileID: 8300000, guid: 5df52f32d6074d74ab4e78b059e209b2, type: 3}
+  colorTestSoundArray: []
 --- !u!1001 &90347182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1088,12 +1089,13 @@ MonoBehaviour:
   - {fileID: 5030766292008676809, guid: 6ad258b5b23dac543920884f77630243, type: 3}
   - {fileID: 7580984206774082635, guid: cc495243d0a627343b7cf575805d0593, type: 3}
   - {fileID: 3715554274926441312, guid: 084945ba02f91bc47b68401826b136fc, type: 3}
-  colors: [{fileID: 2471379053516874856, guid: e5d5a17fa4385114a9bcb2669cf808fe, type: 3},
-    {fileID: 8417766478734790131, guid: 5a7e02b750aab6949a9f9bc70545546d, type: 3},
-    {fileID: 578463510748363021, guid: 3616dff72b9895a499070b3feaf37de0, type: 3},
-    {fileID: 4266577137565337435, guid: a359b558ee1f96a4fb5dfc82c9bb3547, type: 3},
-    {fileID: 2247405407898128176, guid: b629a32a1a3e8444cbd4b556d000b28f, type: 3},
-    {fileID: 1176041887891198503, guid: 266cdeda14269bf44897332cdf9c52ed, type: 3}]
+  colors:
+  - {fileID: 2471379053516874856, guid: e5d5a17fa4385114a9bcb2669cf808fe, type: 3}
+  - {fileID: 8417766478734790131, guid: 5a7e02b750aab6949a9f9bc70545546d, type: 3}
+  - {fileID: 578463510748363021, guid: 3616dff72b9895a499070b3feaf37de0, type: 3}
+  - {fileID: 4266577137565337435, guid: a359b558ee1f96a4fb5dfc82c9bb3547, type: 3}
+  - {fileID: 2247405407898128176, guid: b629a32a1a3e8444cbd4b556d000b28f, type: 3}
+  - {fileID: 1176041887891198503, guid: 266cdeda14269bf44897332cdf9c52ed, type: 3}
   games: {fileID: 206129446564420742}
   levelController: {fileID: 671951362}
 --- !u!4 &168586604
@@ -1580,7 +1582,7 @@ MonoBehaviour:
   - {fileID: 21054046}
   - {fileID: 558485063}
   - {fileID: 90347184}
-  - {fileID: 5898284607148508875, guid: 430c1dce70ab7fd4ca76a6deb60a9b00, type: 3}
+  - {fileID: 1585345445}
 --- !u!1001 &320116579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1909,11 +1911,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 66710e0a49c57194f906af767665c059, type: 3}
   - {fileID: 8300000, guid: f86a1bfa320884f43bed17371088f169, type: 3}
   - {fileID: 8300000, guid: dba051ad9ea069147a64d620130d0b7d, type: 3}
-  colorSoundArray: [{fileID: 8300000, guid: 5078a20d82fa6df45a247d92922d953c, type: 3},
-    {fileID: 8300000, guid: 57a55c8d43a995e4eac41a3b1e168fa7, type: 3}, {fileID: 8300000,
-      guid: b98f80da48b0f4142af8759bae546747, type: 3}, {fileID: 8300000, guid: a5dd5b6e5a9598f4fb9b852e242d560a,
-      type: 3}, {fileID: 8300000, guid: df55a4112dc17a3418b8bc8e9bec2b3b, type: 3},
-    {fileID: 8300000, guid: 3bcb3b879adc1134893bfe076f0e0fc5, type: 3}]
+  colorSoundArray:
+  - {fileID: 8300000, guid: 5078a20d82fa6df45a247d92922d953c, type: 3}
+  - {fileID: 8300000, guid: 57a55c8d43a995e4eac41a3b1e168fa7, type: 3}
+  - {fileID: 8300000, guid: b98f80da48b0f4142af8759bae546747, type: 3}
+  - {fileID: 8300000, guid: a5dd5b6e5a9598f4fb9b852e242d560a, type: 3}
+  - {fileID: 8300000, guid: df55a4112dc17a3418b8bc8e9bec2b3b, type: 3}
+  - {fileID: 8300000, guid: 3bcb3b879adc1134893bfe076f0e0fc5, type: 3}
 --- !u!82 &445031141
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7887,6 +7891,12 @@ PrefabInstance:
 --- !u!224 &1585345444 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2396322963360384549, guid: 430c1dce70ab7fd4ca76a6deb60a9b00,
+    type: 3}
+  m_PrefabInstance: {fileID: 1585345443}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1585345445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5898284607148508875, guid: 430c1dce70ab7fd4ca76a6deb60a9b00,
     type: 3}
   m_PrefabInstance: {fileID: 1585345443}
   m_PrefabAsset: {fileID: 0}
