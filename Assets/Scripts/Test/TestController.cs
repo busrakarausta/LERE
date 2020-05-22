@@ -74,7 +74,7 @@ public class TestController : MonoBehaviour
         Debug.Log("TestController/StartNumberTest");
 
         int index = number;
-        testSoundProvider.TestSoundPlayer(1,index);
+        testSoundProvider.TestSoundPlayer(1,index-1);
 
         testLetterObject.SetActive(true);
         testObject = (char)('0'+number);
