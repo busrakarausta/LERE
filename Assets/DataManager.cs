@@ -10,21 +10,27 @@ public class DataManager : MonoBehaviour
 
     [SerializeField]
     private string activeGameKey = "ActiveGameCount";
-    [SerializeField]
-    private string inCompleteLetterIndexKey = "IndexOfLastIncompleteLetter";
 
     [SerializeField]
+    private string inCompleteLetterIndexKey = "IndexOfLastIncompleteLetter";
+    [SerializeField]
     private string inCompleteNumberIndexKey = "IndexOfLastIncompleteNumber";
+    [SerializeField]
+    private string inCompleteColorIndexKey = "IndexOfLastIncompleteColor";
 
     [SerializeField]
     private string remainLetterKey = "IndexOfRemainLetterCount";
     [SerializeField]
     private string remainNumberKey = "IndexOfRemainNumberCount";
     [SerializeField]
-    private string letterStatus = "StatusOfTheLetter";
+    private string remainColorKey = "IndexOfRemainColorCount";
 
     [SerializeField]
+    private string letterStatus = "StatusOfTheLetter";
+    [SerializeField]
     private string numberStatus = "StatusOfTheNumber";
+    [SerializeField]
+    private string colorStatus = "StatusOfTheColor";
 
     [Header("Application Elements")]
     [SerializeField]
@@ -32,19 +38,22 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private int[] numbers;
     [SerializeField]
-    private Color[] colors;
+    private int[] colors;
 
     private int _activeGameCount=3;
 
     private int _remainingActiveLetterGameCount=3;
     private int _remainingActiveNumberGameCount = 3;
+    private int _remainingActiveColorGameCount = 3;
 
     private int _indexOfLastIncompleteLetter=0;
     private int _indexOfLastIncompleteNumber = 0;
+    private int _indexOfLastIncompleteColor = 0;
 
 
     private char[] _activeDailyLetterList;
     private int[] _activeDailyNumberList;
+    private int[] _activeDailyColorList;
 
     private void Awake()
     {
@@ -110,6 +119,31 @@ public class DataManager : MonoBehaviour
 
         }
     }
+    public void SetActiveColorList()
+    {
+        Debug.Log("DataManager/SetActiveColorList");
+
+        if (_activeDailyColorList == null)
+            _activeDailyColorList = new int[_remainingActiveColorGameCount];
+
+        int nextNumber = _indexOfLastIncompleteColor;
+
+        for (int i = 0; i < _remainingActiveColorGameCount; i++)
+        {
+            for (int t = nextNumber; t < _activeGameCount + _indexOfLastIncompleteColor; t++)
+            {
+                int status = GetStatusOfTheNumber(colors[nextNumber]);
+                if (status != 3)
+                {
+                    _activeDailyColorList[i] = (char)colors[nextNumber];
+                    nextNumber++;
+                    break;
+                }
+                nextNumber++;
+            }
+
+        }
+    }
 
     public char[] GetActiveLetterList()
     {
@@ -123,12 +157,22 @@ public class DataManager : MonoBehaviour
 
     public int[] GetActiveNumberList()
     {
-        Debug.Log("DataManager/GetActiveLetterList");
+        Debug.Log("DataManager/GetActiveNumberList");
 
         if (_activeDailyNumberList == null)
             SetActiveNumberList();
 
         return _activeDailyNumberList;
+    }
+
+    public int[] GetActiveColorList()
+    {
+        Debug.Log("DataManager/GetActiveColorList");
+
+        if (_activeDailyColorList == null)
+            SetActiveColorList();
+
+        return _activeDailyColorList;
     }
 
     public int GetStatusOfTheLetter(char letter)
@@ -195,6 +239,21 @@ public class DataManager : MonoBehaviour
         return allStatus[number-1] - '0';
     }
 
+    public int GetStatusOfTheColor(int color)
+    {
+        bool check = PlayerPrefs.HasKey(colorStatus);
+        if (!check)
+        {
+            string status = "000000000";
+
+            PlayerPrefs.SetString(colorStatus, status);
+            return 0;
+        }
+
+        string allStatus = PlayerPrefs.GetString(colorStatus);
+        return allStatus[color - 1] - '0';
+    }
+
     public void SetStatusOfTheNumber(int number = 1, char status = '0')
     {
         string s = PlayerPrefs.GetString(numberStatus);
@@ -227,6 +286,38 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    public void SetStatusOfTheColor(int color = 1, char status = '0')
+    {
+        string s = PlayerPrefs.GetString(colorStatus);
+        char[] allStatus = s.ToCharArray();
+
+        allStatus[color - 1] = status;
+
+        string string_object = new string(allStatus);
+        PlayerPrefs.SetString(colorStatus, string_object);
+
+        if (status == '3')
+        {
+            _remainingActiveColorGameCount--;
+            if (color > 1)
+            {
+                int previousColorStatus = GetStatusOfTheColor(colors[color - 2]);
+                if (previousColorStatus == 3)
+                {
+                    _indexOfLastIncompleteColor++;
+                }
+            }
+            else
+                _indexOfLastIncompleteColor++;
+
+            if (_indexOfLastIncompleteColor >= colors.Length)
+                ReInitializeColor();
+
+            PlayerPrefs.SetInt(inCompleteColorIndexKey, _indexOfLastIncompleteColor);
+            PlayerPrefs.SetInt(remainColorKey, _remainingActiveColorGameCount);
+        }
+    }
+
     private void ReInitializeNumber() //hangi elemanın kaç kere tamamlandığını tutabiliriz.
     {
         _indexOfLastIncompleteNumber = 0;
@@ -243,6 +334,15 @@ public class DataManager : MonoBehaviour
 
         string s = "00000000000000000000000000";
         PlayerPrefs.SetString(letterStatus, s);
+
+    }
+    private void ReInitializeColor() //hangi elemanın kaç kere tamamlandığını tutabiliriz.
+    {
+        _indexOfLastIncompleteColor = 0;
+        _remainingActiveColorGameCount = _activeGameCount;
+
+        string s = "00000";
+        PlayerPrefs.SetString(colorStatus, s);
 
     }
 
@@ -294,6 +394,29 @@ public class DataManager : MonoBehaviour
         return _remainingActiveNumberGameCount;
     }
 
+    public void SetRemainingActiveColorGameCount() //gunluk degiseceksin
+    {
+        Debug.Log("DataManager/SetRemainingActiveColorGameCount");
+
+        int count = PlayerPrefs.HasKey(remainColorKey) ? PlayerPrefs.GetInt(remainColorKey) : 0;
+
+        _remainingActiveColorGameCount = count == 0 ? _activeGameCount : count;
+
+        if (_remainingActiveColorGameCount >= 0)
+            PlayerPrefs.SetInt(remainColorKey, _remainingActiveColorGameCount);
+
+        Debug.Log("Remaining Color" + _remainingActiveColorGameCount);
+    }
+
+    public int GetRemainingActiveColorGameCount()
+    {
+        Debug.Log("DataManager/SetRemainingActiveColorGameCount");
+
+        _remainingActiveColorGameCount = PlayerPrefs.GetInt(remainColorKey);
+
+        return _remainingActiveColorGameCount;
+    }
+
     public void SetIndexOfLastIncompleteNumber()
     {
         Debug.Log("DataManager/SetIndexOfLastIncompleteNumber");
@@ -333,6 +456,25 @@ public class DataManager : MonoBehaviour
         return indexOfLastIncompleteLetter;
     }
 
+    public void SetIndexOfLastIncompleteColor()
+    {
+        Debug.Log("DataManager/SetIndexOfLastIncompleteColor");
+
+        _indexOfLastIncompleteColor = PlayerPrefs.HasKey(inCompleteColorIndexKey) ? PlayerPrefs.GetInt(inCompleteColorIndexKey) : 0;
+
+        PlayerPrefs.SetInt(inCompleteColorIndexKey, _indexOfLastIncompleteColor);
+        Debug.Log("index Of Last Incomplete Color" + _indexOfLastIncompleteColor);
+    }
+
+    public int GetIndexOfLastIncompleteColor()
+    {
+        Debug.Log("DataManager/GetIndexOfLastIncompleteColor");
+
+        int indexOfLastIncompleteColor = PlayerPrefs.GetInt(inCompleteColorIndexKey);
+
+        return indexOfLastIncompleteColor;
+    }
+
     public void SetActiveGameCount(int value=1) //gunluk degisecek
     {
         Debug.Log("DataManager/SetActiveGameCount");
@@ -348,6 +490,9 @@ public class DataManager : MonoBehaviour
 
         SetRemainingActiveNumberGameCount();
         SetIndexOfLastIncompleteNumber();
+
+        SetRemainingActiveColorGameCount();
+        SetIndexOfLastIncompleteColor();
     }
 
     public int GetActiveGameCount()
