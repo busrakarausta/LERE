@@ -93,7 +93,7 @@ public class TestController : MonoBehaviour
         SetText(testObject);
     }
     //
-
+    // color test 
     public void StartColorTest(int color)
     {
         Debug.Log("TestController/StartColorTest");
@@ -101,7 +101,7 @@ public class TestController : MonoBehaviour
         int index = color;
         status = 2;
 
-        testSoundProvider.TestSoundPlayer(2, index);
+        testSoundProvider.TestSoundPlayer(2, index-1);
 
         testLetterObject.SetActive(true);
         testObject = (char)('0' + color);
