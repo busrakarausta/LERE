@@ -33,6 +33,22 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private string colorStatus = "StatusOfTheColor";
 
+    [SerializeField]
+    private string letterEduRate = "RateOfEduLetter";
+    [SerializeField]
+    private string numberEduRate = "RateOfEduNumber";
+    [SerializeField]
+    private string colorEduRate = "RateOfEduColor";
+
+    [SerializeField]
+    private string letterTestRate = "RateOfTestLetter";
+    [SerializeField]
+    private string numberTestRate = "RateOfTestNumber";
+    [SerializeField]
+    private string colorTestRate = "RateOfTestColor";
+
+
+
     private string lastTimeHolder = "LastTimeUserLaunch";
 
     [Header("Application Elements")]
@@ -529,7 +545,6 @@ public class DataManager : MonoBehaviour
 
         SetRemainingActiveColorGameCount();
         SetIndexOfLastIncompleteColor();
-
     }
 
     public int GetActiveGameCount()
@@ -539,6 +554,108 @@ public class DataManager : MonoBehaviour
         int activeGameCount = PlayerPrefs.GetInt(activeGameKey);
 
         return activeGameCount;
+    }
+
+    public void SetEducationRate(int status, int index,int rate)
+    {
+        Debug.Log("DataManager/SetEducationRate");
+
+        string relativeKey;
+        string initialValue;
+        if (status == 0)
+        {
+            relativeKey = letterEduRate;
+            initialValue = "00000000000000000000000000";
+        }
+        else if (status == 1)
+        {
+            relativeKey = numberEduRate;
+            initialValue = "000000000";
+        }
+        else
+        {
+            relativeKey = colorEduRate;
+            initialValue = "000000";
+        }
+
+        string rateString = (PlayerPrefs.HasKey(relativeKey) ? PlayerPrefs.GetString(relativeKey) : initialValue);
+        char[] allLettersRate = rateString.ToCharArray();
+
+        allLettersRate[index] = (char)('0' + rate);
+
+        string string_object = new string(allLettersRate);
+        PlayerPrefs.SetString(relativeKey, string_object);
+    }
+
+    public int GetEducationRate(int status,int index)
+    {
+        Debug.Log("DataManager/GetTestRate");
+
+        string relativeKey;
+
+        if (status == 0)
+            relativeKey = letterEduRate;
+        else if (status == 1)
+            relativeKey = numberEduRate;
+        else
+            relativeKey = colorEduRate;
+        
+        string rateString = PlayerPrefs.HasKey(relativeKey) ? PlayerPrefs.GetString(relativeKey) : "00000000000000000000000000";
+        char[] allLettersRate = rateString.ToCharArray();
+
+        int rate = (int)(allLettersRate[index] - '0');
+        return rate;
+    }
+
+    public void SetTestRate(int status, int index, int rate)
+    {
+        Debug.Log("DataManager/SetTestRate");
+
+        string relativeKey;
+        string initialValue;
+        if (status == 0)
+        {
+            relativeKey = letterTestRate;
+            initialValue = "00000000000000000000000000";
+        }
+        else if (status == 1)
+        {
+            relativeKey = numberTestRate;
+            initialValue = "000000000";
+        }
+        else
+        {
+            relativeKey = colorTestRate;
+            initialValue = "000000";
+        }
+
+        string rateString = (PlayerPrefs.HasKey(relativeKey) ? PlayerPrefs.GetString(relativeKey) : initialValue);
+        char[] allLettersRate = rateString.ToCharArray();
+
+        allLettersRate[index] = (char)('0' + rate);
+
+        string string_object = new string(allLettersRate);
+        PlayerPrefs.SetString(relativeKey, string_object);
+    }
+
+    public int GetTestRate(int status, int index)
+    {
+        Debug.Log("DataManager/GetTestRate");
+
+        string relativeKey;
+
+        if (status == 0)
+            relativeKey = letterTestRate;
+        else if (status == 1)
+            relativeKey = numberTestRate;
+        else
+            relativeKey = colorTestRate;
+
+        string rateString = PlayerPrefs.HasKey(relativeKey) ? PlayerPrefs.GetString(relativeKey) : "00000000000000000000000000";
+        char[] allLettersRate = rateString.ToCharArray();
+
+        int rate = (int)(allLettersRate[index] - '0');
+        return rate;
     }
 
 }

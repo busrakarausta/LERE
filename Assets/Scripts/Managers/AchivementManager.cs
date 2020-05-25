@@ -10,7 +10,7 @@ public class AchivementManager : MonoBehaviour
     [SerializeField]
     private int[] numberEducationMinMove;
     [SerializeField]
-    private int[] colorEducationMaxMove;
+    private int[] colorEducationMinMove;
     [SerializeField]
     private int testMinAttempt =3;
 
@@ -29,48 +29,16 @@ public class AchivementManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-
-    void Update()
-    {
-        
-    }
-
-
     public int GetEducationRate(int status, int index)
     {
-        if(status == 0)
-        {
-
-        }
-        else if(status == 1)
-        {
-
-        }
-        else if(status == 2)
-        {
-
-        }
-        return 50;
+        int rate = DataManager.instance.GetEducationRate(status, index);
+        return rate;
 
     }
     public int GetTestRate(int status, int index)
     {
-        //letter
-        if (status == 0)
-        {
-
-        }
-        //color
-        else if (status == 1)
-        {
-
-        }
-        //number
-        else if (status == 2)
-        {
-
-        }
-        return 50;
+        int rate = DataManager.instance.GetTestRate(status, index);
+        return rate;
     }
 
 
@@ -86,27 +54,36 @@ public class AchivementManager : MonoBehaviour
         else if (status == 1)
         {
             numbersEducationAttempt[index] = attemptAmount;
-            rate = (100 * numbersEducationAttempt[index]) / attemptAmount;
+            rate = (100 * numberEducationMinMove[index]) / attemptAmount;
         }
         else if (status == 2)
         {
             colorsEducationAttempt[index] = attemptAmount;
-            rate = (100 * colorsEducationAttempt[index]) / attemptAmount;
+            rate = (100 * colorEducationMinMove[index]) / attemptAmount;
         }
+
+        DataManager.instance.SetEducationRate(status, rate, index);
     }
     public void SetTestAttempt(int status, int index, int attemptAmount)
     {
+        int rate = 0;
+
         if (status == 0)
         {
             lettersTestAttempt[index] = attemptAmount;
+            rate = (100 * testMinAttempt) / attemptAmount;
         }
         else if (status == 1)
         {
             numbersTestAttempt[index] = attemptAmount;
+            rate = (100 * testMinAttempt) / attemptAmount;
         }
         else if (status == 2)
         {
             colorsTestAttempt[index] = attemptAmount;
+            rate = (100 * testMinAttempt) / attemptAmount;
         }
+
+        DataManager.instance.SetTestRate(status, rate, index);
     }
 }
