@@ -36,7 +36,7 @@ public class AchivementManager : MonoBehaviour
     }
 
 
-    public void GetEducationRate(int status, int index)
+    public int GetEducationRate(int status, int index)
     {
         if(status == 0)
         {
@@ -50,8 +50,10 @@ public class AchivementManager : MonoBehaviour
         {
 
         }
+        return 50;
+
     }
-    public void GetTestRate(int status, int index)
+    public int GetTestRate(int status, int index)
     {
         //letter
         if (status == 0)
@@ -68,6 +70,7 @@ public class AchivementManager : MonoBehaviour
         {
 
         }
+        return 50;
     }
 
 
