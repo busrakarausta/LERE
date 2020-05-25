@@ -11,7 +11,7 @@ public class ColorEducation : MonoBehaviour
     private GameObject[] colors;
 
     private int currentColorIndex=0;
-    public event Action OnColorEnd;
+    public event Action<int> OnColorEnd;
     private void Awake()
     {
         instance = this;
@@ -28,7 +28,7 @@ public class ColorEducation : MonoBehaviour
     }
     public void OnColorEducationEnd()
     {
-        OnColorEnd?.Invoke();
+        OnColorEnd?.Invoke(3);
     }
 
 

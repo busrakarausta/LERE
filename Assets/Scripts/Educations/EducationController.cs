@@ -96,12 +96,12 @@ public class EducationController : MonoBehaviour
         Education(currentElementIndex);
     }
 
-    private void OnEducationEnd()
+    private void OnEducationEnd(int lastAttemptCount)
     {
         Debug.Log("EducationController/OnLetterEnd");
 
         OnLetterEducationEnd?.Invoke();
-
+        currentElementAttemptAmount = lastAttemptCount;
         AchivementManager.instance.SetEducationAttempt(status, currentElementIndex, currentElementAttemptAmount);
     }
 
