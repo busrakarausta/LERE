@@ -23,8 +23,6 @@ public class AchivementManager : MonoBehaviour
     private int[] colorsTestAttempt;
     private int[] numbersTestAttempt;
 
-
-
     void Awake()
     {
         instance = this;
