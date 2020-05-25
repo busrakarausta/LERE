@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,6 +33,8 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private string colorStatus = "StatusOfTheColor";
 
+    private string lastTimeHolder = "LastTimeUserExit";
+
     [Header("Application Elements")]
     [SerializeField]
     private char[] letters;
@@ -41,6 +44,9 @@ public class DataManager : MonoBehaviour
     private int[] colors;
 
     private int _activeGameCount=3;
+
+    private DateTime lastTime;
+    private DateTime currentTime;
 
     private int _remainingActiveLetterGameCount=3;
     private int _remainingActiveNumberGameCount = 3;
@@ -63,6 +69,14 @@ public class DataManager : MonoBehaviour
         instance = this;
 
     }
+    
+    private void SetTime()
+    {
+        currentTime = DateTime.UtcNow;
+
+        
+    }
+
     public void DeleteAll()
     {
         PlayerPrefs.DeleteAll();
