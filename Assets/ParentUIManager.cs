@@ -27,6 +27,13 @@ public class ParentUIManager : MonoBehaviour
 
     public void BackToHome()
     {
+        Debug.Log("ParentUIManager/BackToHome");
         ApplicationManager.instance.LoadHomeScene();
+    }
+
+    public void OnClickChildGames()
+    {
+        Debug.Log("ParentUIManager/OnClickChildGames");
+        ApplicationManager.instance.LoadGamesScene();
     }
 }
