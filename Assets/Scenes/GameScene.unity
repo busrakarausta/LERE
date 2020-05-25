@@ -807,7 +807,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e04d742656d329b46a104438449b9fca, type: 3}
   - {fileID: 8300000, guid: cd36198bc1bbaf446858e4a6cbc522a9, type: 3}
   - {fileID: 8300000, guid: 5df52f32d6074d74ab4e78b059e209b2, type: 3}
-  colorTestSoundArray: []
+  colorTestSoundArray:
+  - {fileID: 8300000, guid: a5e53c141bc8d7b46b555e1097f2f848, type: 3}
+  - {fileID: 8300000, guid: 61014300cf4eb28438901148ba609083, type: 3}
+  - {fileID: 8300000, guid: fe5b6bc804cd8384885d88d596143d84, type: 3}
+  - {fileID: 8300000, guid: b30adc85328b3aa4dbc9fee67b26ab4c, type: 3}
+  - {fileID: 8300000, guid: bb045b2c5d3a3f54b8248cbd0deca720, type: 3}
+  - {fileID: 8300000, guid: 2ce4f69f7bd534a469295ee466294ebc, type: 3}
 --- !u!1001 &90347182
 PrefabInstance:
   m_ObjectHideFlags: 0
