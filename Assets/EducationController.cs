@@ -22,6 +22,8 @@ public class EducationController : MonoBehaviour
     public event Action OnLetterEducationEnd;
     private EducationSoundsProvider educationSoundsProvider;
     private int status;
+    private int currentElementIndex;
+    private int currentElementAttemptAmount;
 
     public void InActiveEducation()
     {
@@ -72,7 +74,6 @@ public class EducationController : MonoBehaviour
     public void StartEducation(int index, char obj)
     {
         status = index;
-        int itemIndex=0;
 
         if(_education != null)
             _education.SetActive(false);
@@ -80,19 +81,19 @@ public class EducationController : MonoBehaviour
         if (index == 0)
         {
             _education = letterEducation;
-            itemIndex = (obj - 'A');
+            currentElementIndex = (obj - 'A');
         }
         else if(index==1)
         {
             _education = numberEducation;
-            itemIndex = (obj - '0')-1;
+            currentElementIndex = (obj - '0')-1;
         }
         else if (index == 2)
         {
-            itemIndex = (obj - '0') - 1;
+            currentElementIndex = (obj - '0') - 1;
         }
 
-        Education(itemIndex);
+        Education(currentElementIndex);
     }
 
     private void OnEducationEnd()
@@ -100,6 +101,8 @@ public class EducationController : MonoBehaviour
         Debug.Log("EducationController/OnLetterEnd");
 
         OnLetterEducationEnd?.Invoke();
+
+        AchivementManager.instance.SetEducationAttempt(status, currentElementIndex, currentElementAttemptAmount);
     }
 
 }
