@@ -55,14 +55,17 @@ public class AchivementManager : MonoBehaviour
     }
     public void GetTestRate(int status, int index)
     {
+        //letter
         if (status == 0)
         {
 
         }
+        //color
         else if (status == 1)
         {
 
         }
+        //number
         else if (status == 2)
         {
 

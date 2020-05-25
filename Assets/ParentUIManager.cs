@@ -36,4 +36,5 @@ public class ParentUIManager : MonoBehaviour
         Debug.Log("ParentUIManager/OnClickChildGames");
         ApplicationManager.instance.LoadGamesScene();
     }
+
 }
