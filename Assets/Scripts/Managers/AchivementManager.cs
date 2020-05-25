@@ -18,7 +18,6 @@ public class AchivementManager : MonoBehaviour
     private int[] colorsEducationAttempt;
     private int[] numbersEducationAttempt;
 
-
     private int[] lettersTestAttempt;
     private int[] colorsTestAttempt;
     private int[] numbersTestAttempt;
@@ -41,15 +40,17 @@ public class AchivementManager : MonoBehaviour
         return rate;
     }
 
-
     public void SetEducationAttempt(int status, int index, int attemptAmount)
     {
+        Debug.Log("EducationController/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         int rate=0;
 
         if (status == 0)
         {
-            lettersEducationAttempt[index] = attemptAmount;
+            //lettersEducationAttempt[index] = attemptAmount;
             rate = (100 * letterEducationMinMove[index]) / attemptAmount;
+
+            Debug.Log(rate);
         }
         else if (status == 1)
         {
@@ -62,7 +63,7 @@ public class AchivementManager : MonoBehaviour
             rate = (100 * colorEducationMinMove[index]) / attemptAmount;
         }
 
-        DataManager.instance.SetEducationRate(status, rate, index);
+        DataManager.instance.SetEducationRate(status,index, rate);
     }
     public void SetTestAttempt(int status, int index, int attemptAmount)
     {
@@ -84,6 +85,6 @@ public class AchivementManager : MonoBehaviour
             rate = (100 * testMinAttempt) / attemptAmount;
         }
 
-        DataManager.instance.SetTestRate(status, rate, index);
+        DataManager.instance.SetTestRate(status, index, rate);
     }
 }

@@ -578,6 +578,10 @@ public class DataManager : MonoBehaviour
             initialValue = "000000";
         }
 
+        Debug.Log(status);
+        Debug.Log(index);
+        Debug.Log(rate);
+
         string rateString = (PlayerPrefs.HasKey(relativeKey) ? PlayerPrefs.GetString(relativeKey) : initialValue);
         char[] allLettersRate = rateString.ToCharArray();
 

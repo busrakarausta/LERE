@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2019,9 +2019,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51afd6851d8c6143bb79acfe813456d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  letterEducationMinMove: 
+  letterEducationMinMove: 0300000003000000010000000200000004000000030000000200000003000000030000000100000003000000020000000400000003000000010000000200000002000000030000000100000002000000010000000200000004000000020000000300000003000000
   numberEducationMinMove: 020000000200000003000000030000000300000002000000020000000200000002000000
-  colorEducationMaxMove: 020000000200000002000000020000000200000002000000
+  colorEducationMinMove: 020000000200000002000000020000000200000002000000
   testMinAttempt: 3
 --- !u!4 &1042096945
 Transform:
@@ -2884,6 +2884,12 @@ MonoBehaviour:
   letterStatus: StatusOfTheLetter
   numberStatus: StatusOfTheNumber
   colorStatus: StatusOfTheColor
+  letterEduRate: RateOfEduLetter
+  numberEduRate: RateOfEduNumber
+  colorEduRate: RateOfEduColor
+  letterTestRate: RateOfTestLetter
+  numberTestRate: RateOfTestNumber
+  colorTestRate: RateOfTestColor
   letters: 4100420043004400450046004700480049004a004b004c004d004e004f0050005100520053005400550056005700580059005a00
   numbers: 010000000200000003000000040000000500000006000000070000000800000009000000
   colors: 010000000200000003000000040000000500000006000000
@@ -5486,6 +5492,13 @@ MonoBehaviour:
   colorPanel: {fileID: 1082974444}
   displayBox: {fileID: 4367011161239309180, guid: 3942ca94d94911a4ea6d513513fa386c,
     type: 3}
+  colorNames:
+  - Red
+  - Blue
+  - Orange
+  - Yellow
+  - Purple
+  - Green
 --- !u!224 &8805262460243198208
 RectTransform:
   m_ObjectHideFlags: 0
