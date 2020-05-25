@@ -73,6 +73,11 @@ public class GameManager : MonoBehaviour
         _gameController.OnGameEnd += OnGameDone;
         _testController.OnTestEnd += OnTestDone;
 
+        InitializeElementsList();
+    }
+
+    private void InitializeElementsList()
+    {
         _listedLetters = DataManager.instance.GetActiveLetterList();
         _listedNumbers = DataManager.instance.GetActiveNumberList();
         _listedColors = DataManager.instance.GetActiveColorList();

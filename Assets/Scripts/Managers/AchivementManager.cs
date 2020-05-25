@@ -36,7 +36,7 @@ public class AchivementManager : MonoBehaviour
     }
 
 
-    public void GetEducationRate(int status, int index)
+    public int GetEducationRate(int status, int index)
     {
         if(status == 0)
         {
@@ -50,8 +50,10 @@ public class AchivementManager : MonoBehaviour
         {
 
         }
+        return 50;
+
     }
-    public void GetTestRate(int status, int index)
+    public int GetTestRate(int status, int index)
     {
         //letter
         if (status == 0)
@@ -68,22 +70,28 @@ public class AchivementManager : MonoBehaviour
         {
 
         }
+        return 50;
     }
 
 
     public void SetEducationAttempt(int status, int index, int attemptAmount)
     {
+        int rate=0;
+
         if (status == 0)
         {
             lettersEducationAttempt[index] = attemptAmount;
+            rate = (100 * letterEducationMinMove[index]) / attemptAmount;
         }
         else if (status == 1)
         {
             numbersEducationAttempt[index] = attemptAmount;
+            rate = (100 * numbersEducationAttempt[index]) / attemptAmount;
         }
         else if (status == 2)
         {
             colorsEducationAttempt[index] = attemptAmount;
+            rate = (100 * colorsEducationAttempt[index]) / attemptAmount;
         }
     }
     public void SetTestAttempt(int status, int index, int attemptAmount)

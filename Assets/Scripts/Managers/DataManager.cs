@@ -33,7 +33,7 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private string colorStatus = "StatusOfTheColor";
 
-    private string lastTimeHolder = "LastTimeUserExit";
+    private string lastTimeHolder = "LastTimeUserLaunch";
 
     [Header("Application Elements")]
     [SerializeField]
@@ -45,8 +45,11 @@ public class DataManager : MonoBehaviour
 
     private int _activeGameCount=3;
 
-    private DateTime lastTime;
+    private TimeSpan timeDifference;
     private DateTime currentTime;
+    private DateTime lastTime;
+
+    private bool isReset = false;
 
     private int _remainingActiveLetterGameCount=3;
     private int _remainingActiveNumberGameCount = 3;
@@ -68,13 +71,23 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(this);
         instance = this;
 
+        SetTime();
+
     }
     
     private void SetTime()
     {
         currentTime = DateTime.UtcNow;
+        string savedTimeAsString = PlayerPrefs.HasKey(lastTimeHolder) ? PlayerPrefs.GetString(lastTimeHolder) : currentTime.ToString();
+        DateTime.TryParse(savedTimeAsString, out lastTime);
+        timeDifference = currentTime - lastTime;
 
-        
+        if (timeDifference.Days >= 1 || timeDifference == TimeSpan.Zero)
+        {
+            isReset = true;
+        }
+        else
+            isReset = false;
     }
 
     public void DeleteAll()
@@ -82,7 +95,7 @@ public class DataManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
 
     }
-    public void SetActiveLetterList()
+    private void SetActiveLetterList()
     {
         Debug.Log("DataManager/SetActiveLetterList");
        
@@ -108,7 +121,7 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void SetActiveNumberList()
+    private void SetActiveNumberList()
     {
         Debug.Log("DataManager/SetActiveNumberList");
 
@@ -133,7 +146,7 @@ public class DataManager : MonoBehaviour
 
         }
     }
-    public void SetActiveColorList()
+    private void SetActiveColorList()
     {
         Debug.Log("DataManager/SetActiveColorList");
 
@@ -364,9 +377,9 @@ public class DataManager : MonoBehaviour
     {
         Debug.Log("DataManager/SetRemainingActiveLetterGameCount");
 
-        int count = PlayerPrefs.HasKey(remainLetterKey) ? PlayerPrefs.GetInt(remainLetterKey) : 0;
+        int count = PlayerPrefs.HasKey(remainLetterKey) ? PlayerPrefs.GetInt(remainLetterKey) : _activeGameCount;
 
-        _remainingActiveLetterGameCount = count == 0 ? _activeGameCount : count;
+        _remainingActiveLetterGameCount = isReset ? _activeGameCount : count;
 
         if(_remainingActiveLetterGameCount >= 0)
         PlayerPrefs.SetInt(remainLetterKey, _remainingActiveLetterGameCount);
@@ -389,9 +402,9 @@ public class DataManager : MonoBehaviour
     {
         Debug.Log("DataManager/SetRemainingActiveLetterGameCount");
 
-        int count = PlayerPrefs.HasKey(remainNumberKey) ? PlayerPrefs.GetInt(remainNumberKey) : 0;
+        int count = PlayerPrefs.HasKey(remainNumberKey) ? PlayerPrefs.GetInt(remainNumberKey) : _activeGameCount;
 
-        _remainingActiveNumberGameCount = count == 0 ? _activeGameCount : count;
+        _remainingActiveNumberGameCount = isReset ? _activeGameCount : count;
 
         if (_remainingActiveNumberGameCount >= 0)
             PlayerPrefs.SetInt(remainNumberKey, _remainingActiveNumberGameCount);
@@ -412,9 +425,9 @@ public class DataManager : MonoBehaviour
     {
         Debug.Log("DataManager/SetRemainingActiveColorGameCount");
 
-        int count = PlayerPrefs.HasKey(remainColorKey) ? PlayerPrefs.GetInt(remainColorKey) : 0;
+        int count = PlayerPrefs.HasKey(remainColorKey) ? PlayerPrefs.GetInt(remainColorKey) : _activeGameCount;
 
-        _remainingActiveColorGameCount = count == 0 ? _activeGameCount : count;
+        _remainingActiveColorGameCount = isReset ? _activeGameCount : count;
 
         if (_remainingActiveColorGameCount >= 0)
             PlayerPrefs.SetInt(remainColorKey, _remainingActiveColorGameCount);
@@ -499,6 +512,15 @@ public class DataManager : MonoBehaviour
 
         PlayerPrefs.SetInt(activeGameKey, _activeGameCount);
 
+        if (timeDifference.Days >= 1 || timeDifference == TimeSpan.Zero)
+        {
+            isReset = true;
+        }
+        else
+        {
+            isReset = false;
+        }
+
         SetRemainingActiveLetterGameCount();
         SetIndexOfLastIncompleteLetter();
 
@@ -507,6 +529,7 @@ public class DataManager : MonoBehaviour
 
         SetRemainingActiveColorGameCount();
         SetIndexOfLastIncompleteColor();
+
     }
 
     public int GetActiveGameCount()

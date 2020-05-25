@@ -9,6 +9,12 @@ public class ParentUIManager : MonoBehaviour
     private Slider gameCountSlider;
     [SerializeField]
     private Text sliderShownValue;
+    [SerializeField]
+    private GameObject todayScene;
+    [SerializeField]
+    private GameObject lastWeekScene;
+    [SerializeField]
+    private GameObject settingsScene;
 
     private int gameCountValue;
 
@@ -36,5 +42,35 @@ public class ParentUIManager : MonoBehaviour
         Debug.Log("ParentUIManager/OnClickChildGames");
         ApplicationManager.instance.LoadGamesScene();
     }
+    public void OnClickSettings()
+    {
+        Debug.Log("ParentUIManager/OnClickSettings");
+        settingsScene.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void OnClickToday()
+    {
+        Debug.Log("ParentUIManager/OnClickToday");
+        todayScene.SetActive(true);
+        gameObject.SetActive(false);
+    }
+    public void OnClickLastWeek()
+    {
+        Debug.Log("ParentUIManager/OnClickLastWeek");
+        lastWeekScene.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    public void OnClickBackParent()
+    {
+        Debug.Log("ParentUIManager/OnClickBackParent");
+        gameObject.SetActive(true);
+        todayScene.SetActive(false);
+        lastWeekScene.SetActive(false);
+        settingsScene.SetActive(false);
+    }
+
+
 
 }

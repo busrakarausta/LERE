@@ -27,9 +27,10 @@ public class WritingHandler : MonoBehaviour
 	public AudioClip positiveSound;
 	public AudioClip wrongSound;
 
-	public event Action OnLetterEnd;
+	public event Action<int> OnLetterEnd;
 	private int status = 0;
 	private GameObject[] currentObjs;
+	private int userAttempt = 0;
 
 	
 	IEnumerator Start ()
@@ -258,7 +259,8 @@ public class WritingHandler : MonoBehaviour
 		if (success) {
 				letterDone = true;//letter done flag
 				Debug.Log ("You done the " + currentObjs [currentIndex].name);
-				OnLetterEnd?.Invoke();
+				OnLetterEnd?.Invoke(userAttempt);
+			userAttempt = 0;
 		}
 	}
 
@@ -340,6 +342,8 @@ public class WritingHandler : MonoBehaviour
 	{
 		if (positiveSound != null)
 			AudioSource.PlayClipAtPoint (positiveSound, Vector3.zero, 0.8f);//play the cheering sound effect
+
+		userAttempt++;
 	}
 
 	//Play wrong or opps sound effect
@@ -347,6 +351,7 @@ public class WritingHandler : MonoBehaviour
 	{
 		if (wrongSound != null)
 			AudioSource.PlayClipAtPoint (wrongSound, Vector3.zero, 0.8f);//play the cheering sound effect
+		userAttempt++;
 	}
 
 	//Load the next letter
