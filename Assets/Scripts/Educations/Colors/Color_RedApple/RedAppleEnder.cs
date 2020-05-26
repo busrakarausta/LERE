@@ -7,13 +7,13 @@ public class RedAppleEnder : MonoBehaviour
     private int clickCount = 0;
     private int totalClick = 2;
 
-    public void IncreaseClickCount()
+    public void IncreaseClickCount(int totalTouch)
     {
         Debug.Log(clickCount);
         clickCount++;
         if (clickCount == totalClick)
         {
-            ColorEducation.instance.OnColorEducationEnd();
+            ColorEducation.instance.OnColorEducationEnd(totalTouch);
         }
     }
 }

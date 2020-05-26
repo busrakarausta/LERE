@@ -26,9 +26,9 @@ public class ColorEducation : MonoBehaviour
     {
         colors[currentColorIndex].SetActive(false);
     }
-    public void OnColorEducationEnd()
+    public void OnColorEducationEnd(int clickCount)
     {
-        OnColorEnd?.Invoke(3);
+        OnColorEnd?.Invoke(clickCount);
     }
 
 

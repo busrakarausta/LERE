@@ -8,17 +8,26 @@ public class GrayWaterlemonController : MonoBehaviour, IPointerDownHandler
 {
     public GameObject greenWaterlemon;
     public GreenWaterlemonEnder greenEnder;
+    public int totalTouch = 0;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         MakeGreen();
     }
 
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            totalTouch++;
+        }
+    }
+
     public void MakeGreen()
     {
         gameObject.SetActive(false);
         greenWaterlemon.SetActive(true);
-        greenEnder.IncreaseClickCount();
+        greenEnder.IncreaseClickCount(totalTouch);
     }
 
 
