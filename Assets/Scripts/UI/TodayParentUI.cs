@@ -37,7 +37,7 @@ public class TodayParentUI : MonoBehaviour
 
     private void InitializeLetterPanel()
     {
-        activeLetterList = DataManager.instance.GetActiveLetterList();
+        activeLetterList = DataManager.instance.GetDailyLetterList();
         letterObjectBoxes = new GameObject[activeLetterList.Length];
 
         for (int i = 0; i < activeLetterList.Length; i++)
@@ -51,7 +51,7 @@ public class TodayParentUI : MonoBehaviour
     }
     private void InitializeNumberPanel()
     {
-        activeNumberList = DataManager.instance.GetActiveNumberList();
+        activeNumberList = DataManager.instance.GetDailyNumberList();
         numberObjectBoxes = new GameObject[activeNumberList.Length];
 
         for (int i = 0; i < activeNumberList.Length; i++)
@@ -66,7 +66,7 @@ public class TodayParentUI : MonoBehaviour
 
     private void InitializeColorPanel()
     {
-        activeColorList = DataManager.instance.GetActiveColorList();
+        activeColorList = DataManager.instance.GetDailyColorList();
         colorObjectBoxes = new GameObject[activeColorList.Length];
 
         for (int i = 0; i < activeColorList.Length; i++)

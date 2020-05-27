@@ -47,8 +47,14 @@ public class DataManager : MonoBehaviour
     [SerializeField]
     private string colorTestRate = "RateOfTestColor";
 
+    [SerializeField]
+    private string dailyLetterList = "DailyListOfLetter";
+    [SerializeField]
+    private string dailyNumberList = "DailyListOfNumber";
+    [SerializeField]
+    private string dailyColorList = "DailyListOfColor";
 
-
+    [SerializeField]
     private string lastTimeHolder = "LastTimeUserLaunch";
 
     [Header("Application Elements")]
@@ -65,7 +71,8 @@ public class DataManager : MonoBehaviour
     private DateTime currentTime;
     private DateTime lastTime;
 
-    private bool isReset = false;
+    private bool isReset = true;
+    private bool isInitializing = true;
 
     private int _remainingActiveLetterGameCount=3;
     private int _remainingActiveNumberGameCount = 3;
@@ -75,6 +82,9 @@ public class DataManager : MonoBehaviour
     private int _indexOfLastIncompleteNumber = 0;
     private int _indexOfLastIncompleteColor = 0;
 
+    private char[] _activeLetterList;
+    private int[] _activeNumberList;
+    private int[] _activeColorList;
 
     private char[] _activeDailyLetterList;
     private int[] _activeDailyNumberList;
@@ -88,17 +98,20 @@ public class DataManager : MonoBehaviour
         instance = this;
 
         SetTime();
-
     }
     
     private void SetTime()
     {
-        currentTime = DateTime.UtcNow;
+        currentTime = DateTime.Now;
         string savedTimeAsString = PlayerPrefs.HasKey(lastTimeHolder) ? PlayerPrefs.GetString(lastTimeHolder) : currentTime.ToString();
         DateTime.TryParse(savedTimeAsString, out lastTime);
+        PlayerPrefs.SetString(lastTimeHolder, currentTime.ToString());
         timeDifference = currentTime - lastTime;
 
-        if (timeDifference.Days >= 1 || timeDifference == TimeSpan.Zero)
+        DateTime comp1 = new DateTime(currentTime.Year, currentTime.Month, currentTime.Day, currentTime.Hour, currentTime.Minute, currentTime.Second, 0);
+        DateTime comp2 = new DateTime(lastTime.Year, lastTime.Month, lastTime.Day, lastTime.Hour, lastTime.Minute, lastTime.Second, 0);
+
+        if (timeDifference.Days >= 1 || (DateTime.Compare(comp1, comp2) == 0) )
         {
             isReset = true;
         }
@@ -111,12 +124,25 @@ public class DataManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
 
     }
+
+    private void SetDailyList(string listKey, string listElement)
+    {
+        PlayerPrefs.SetString(listKey, listElement);
+    }
+
+    private string GetDailyList(string listKey)
+    {
+        string listElement;
+        listElement = PlayerPrefs.GetString(listKey);
+
+        return listElement;
+    }
     private void SetActiveLetterList()
     {
         Debug.Log("DataManager/SetActiveLetterList");
        
-        if (_activeDailyLetterList == null)
-            _activeDailyLetterList = new char[_remainingActiveLetterGameCount];
+        if (_activeLetterList == null)
+            _activeLetterList = new char[_remainingActiveLetterGameCount];
 
         int nextLetter = _indexOfLastIncompleteLetter;
 
@@ -127,13 +153,24 @@ public class DataManager : MonoBehaviour
                 int status = GetStatusOfTheLetter(letters[nextLetter]);
                 if(status != 3)
                 {
-                    _activeDailyLetterList[i] = letters[nextLetter];
+                    _activeLetterList[i] = letters[nextLetter];
                     nextLetter++;
                     break;
                 }
                 nextLetter++;
             }
+        }
 
+        if(isReset)
+        {
+            _activeDailyLetterList = _activeLetterList;
+            string string_object = new string(_activeLetterList);
+            SetDailyList(dailyLetterList, string_object);
+        }
+        else
+        {
+            string s = GetDailyList(dailyLetterList);
+            _activeDailyLetterList = s.ToCharArray();
         }
     }
 
@@ -141,8 +178,8 @@ public class DataManager : MonoBehaviour
     {
         Debug.Log("DataManager/SetActiveNumberList");
 
-        if (_activeDailyNumberList == null)
-            _activeDailyNumberList = new int[_remainingActiveNumberGameCount];
+        if (_activeNumberList == null)
+            _activeNumberList = new int[_remainingActiveNumberGameCount];
 
         int nextNumber = _indexOfLastIncompleteNumber;
 
@@ -153,7 +190,7 @@ public class DataManager : MonoBehaviour
                 int status = GetStatusOfTheNumber(numbers[nextNumber]);
                 if (status != 3)
                 {
-                    _activeDailyNumberList[i] = (char)numbers[nextNumber];
+                    _activeNumberList[i] = (char)numbers[nextNumber];
                     nextNumber++;
                     break;
                 }
@@ -161,13 +198,36 @@ public class DataManager : MonoBehaviour
             }
 
         }
+
+        if (isReset)
+        {
+            Debug.Log("DataManager/GetDailyNumberList");
+            _activeDailyNumberList = _activeNumberList;
+            char[] charTypeOfList = new char[_activeNumberList.Length];
+            for (int i = 0; i < _activeNumberList.Length; i++)
+            {
+                charTypeOfList[i] = (char)(_activeNumberList[i] + '0');
+            }
+            string string_object = new string(charTypeOfList);
+            SetDailyList(dailyNumberList, string_object);
+        }
+        else
+        {
+            string s = GetDailyList(dailyNumberList);
+            char[] charTypeOfList = s.ToCharArray();
+            _activeDailyNumberList = new int[charTypeOfList.Length];
+            for (int i = 0; i < charTypeOfList.Length; i++)
+            {
+                _activeDailyNumberList[i] = (int)(charTypeOfList[i] - '0');
+            }
+        }
     }
     private void SetActiveColorList()
     {
         Debug.Log("DataManager/SetActiveColorList");
 
-        if (_activeDailyColorList == null)
-            _activeDailyColorList = new int[_remainingActiveColorGameCount];
+        if (_activeColorList == null)
+            _activeColorList = new int[_remainingActiveColorGameCount];
 
         int nextNumber = _indexOfLastIncompleteColor;
 
@@ -175,10 +235,10 @@ public class DataManager : MonoBehaviour
         {
             for (int t = nextNumber; t < _activeGameCount + _indexOfLastIncompleteColor; t++)
             {
-                int status = GetStatusOfTheNumber(colors[nextNumber]);
+                int status = GetStatusOfTheColor(colors[nextNumber]);
                 if (status != 3)
                 {
-                    _activeDailyColorList[i] = (char)colors[nextNumber];
+                    _activeColorList[i] = (char)colors[nextNumber];
                     nextNumber++;
                     break;
                 }
@@ -186,31 +246,80 @@ public class DataManager : MonoBehaviour
             }
 
         }
+        if (isReset)
+        {
+            _activeDailyColorList = _activeColorList;
+            char[] charTypeOfList = new char[_activeColorList.Length];
+            for (int i = 0; i < _activeColorList.Length; i++)
+            {
+                charTypeOfList[i] = (char)(_activeColorList[i] + '0');
+            }
+            string string_object = new string(charTypeOfList);
+            SetDailyList(dailyColorList, string_object);
+        }
+        else
+        {
+            string s = GetDailyList(dailyColorList);
+            char[] charTypeOfList = s.ToCharArray();
+            _activeDailyColorList = new int[charTypeOfList.Length];
+            for (int i = 0; i < charTypeOfList.Length; i++)
+            {
+                _activeDailyColorList[i] = (int)(charTypeOfList[i] - '0');
+            }
+        }
     }
 
     public char[] GetActiveLetterList()
     {
         Debug.Log("DataManager/GetActiveLetterList");
 
-        if(_activeDailyLetterList == null)
+        if(_activeLetterList == null)
             SetActiveLetterList();
 
-        return _activeDailyLetterList;
+        return _activeLetterList;
     }
 
     public int[] GetActiveNumberList()
     {
         Debug.Log("DataManager/GetActiveNumberList");
 
-        if (_activeDailyNumberList == null)
+        if (_activeNumberList == null)
             SetActiveNumberList();
 
-        return _activeDailyNumberList;
+        return _activeNumberList;
     }
 
     public int[] GetActiveColorList()
     {
         Debug.Log("DataManager/GetActiveColorList");
+
+        if (_activeColorList == null)
+            SetActiveColorList();
+
+        return _activeColorList;
+    }
+
+    public char[] GetDailyLetterList()
+    {
+        Debug.Log("DataManager/GetDailyLetterList");
+
+        if (_activeDailyLetterList == null)
+            SetActiveLetterList();
+
+        return _activeDailyLetterList;
+    }
+    public int[] GetDailyNumberList()
+    {
+        Debug.Log("DataManager/GetDailyNumberList");
+
+        if (_activeDailyNumberList == null)
+            SetActiveNumberList();
+
+        return _activeDailyNumberList;
+    }
+    public int[] GetDailyColorList()
+    {
+        Debug.Log("DataManager/GetDailyColorList");
 
         if (_activeDailyColorList == null)
             SetActiveColorList();
@@ -528,15 +637,6 @@ public class DataManager : MonoBehaviour
 
         PlayerPrefs.SetInt(activeGameKey, _activeGameCount);
 
-        if (timeDifference.Days >= 1 || timeDifference == TimeSpan.Zero)
-        {
-            isReset = true;
-        }
-        else
-        {
-            isReset = false;
-        }
-
         SetRemainingActiveLetterGameCount();
         SetIndexOfLastIncompleteLetter();
 
@@ -634,11 +734,11 @@ public class DataManager : MonoBehaviour
         }
 
         string rateString = (PlayerPrefs.HasKey(relativeKey) ? PlayerPrefs.GetString(relativeKey) : initialValue);
-        char[] allLettersRate = rateString.ToCharArray();
+        char[] allElementRate = rateString.ToCharArray();
 
-        allLettersRate[index] = (char)('0' + rate);
+        allElementRate[index] = (char)('0' + rate);
 
-        string string_object = new string(allLettersRate);
+        string string_object = new string(allElementRate);
         PlayerPrefs.SetString(relativeKey, string_object);
     }
 

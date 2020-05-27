@@ -21,6 +21,7 @@ public class TestController : MonoBehaviour
     private TestSoundProvider testSoundProvider;
 
     public char testObject;
+    private int clickCount = 0;
 
     private char currentChar;
     private Image currentImage;
@@ -82,6 +83,8 @@ public class TestController : MonoBehaviour
         Debug.Log("TestController/StartNumberTest");
 
         int index = number;
+        status = 1;
+
         testSoundProvider.TestSoundPlayer(1,index-1);
 
         testLetterObject.SetActive(true);
@@ -117,12 +120,12 @@ public class TestController : MonoBehaviour
         Debug.Log("TestController/TestClickedObject");
 
         currentChar = currentObj.gameObject.GetComponent<Letter>().get();
+        clickCount++;
 
         if (currentChar != testObject)
         {
             currentImage = currentObj;
             StartCoroutine(FadeLetter());
-
         }
         else
         {
@@ -130,7 +133,17 @@ public class TestController : MonoBehaviour
             EndOfTheTest();
             // Burasi testin bitisi -- buraya yazabilirsiniz
             OnTestEnd?.Invoke();
-        }      
+            int correctElementIndex = 0;
+            if (status == 0)
+                correctElementIndex = (int)(testObject - 'A');
+            else if (status == 1)
+                correctElementIndex = (int)(testObject - '1');
+            else if (status == 2)
+                correctElementIndex = (int)(testObject - '1');
+
+            AchivementManager.instance.SetTestAttempt(status, correctElementIndex, clickCount);
+            clickCount = 0;
+        }
     }
 
     public void InActiveTest()
@@ -147,7 +160,7 @@ public class TestController : MonoBehaviour
     private void RefreshTest()
     {
         Debug.Log("TestController/RefreshTest");
-
+        clickCount = 0;
         for (int i = 0; i < 3; i++)
         {
             Color originalColor = selectionImages[i].color;

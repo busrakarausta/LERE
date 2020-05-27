@@ -12,15 +12,7 @@ public class AchivementManager : MonoBehaviour
     [SerializeField]
     private int[] colorEducationMinMove;
     [SerializeField]
-    private int testMinAttempt =3;
-
-    private int[] lettersEducationAttempt;
-    private int[] colorsEducationAttempt;
-    private int[] numbersEducationAttempt;
-
-    private int[] lettersTestAttempt;
-    private int[] colorsTestAttempt;
-    private int[] numbersTestAttempt;
+    private int timeMaxAttempt = 3;
 
     void Awake()
     {
@@ -42,24 +34,20 @@ public class AchivementManager : MonoBehaviour
 
     public void SetEducationAttempt(int status, int index, int attemptAmount)
     {
-        Debug.Log("EducationController/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         int rate=0;
 
         if (status == 0)
         {
-            //lettersEducationAttempt[index] = attemptAmount;
             rate = (100 * letterEducationMinMove[index]) / attemptAmount;
 
             Debug.Log(rate);
         }
         else if (status == 1)
         {
-            numbersEducationAttempt[index] = attemptAmount;
             rate = (100 * numberEducationMinMove[index]) / attemptAmount;
         }
         else if (status == 2)
         {
-            colorsEducationAttempt[index] = attemptAmount;
             rate = (100 * colorEducationMinMove[index]) / attemptAmount;
         }
 
@@ -67,23 +55,7 @@ public class AchivementManager : MonoBehaviour
     }
     public void SetTestAttempt(int status, int index, int attemptAmount)
     {
-        int rate = 0;
-
-        if (status == 0)
-        {
-            lettersTestAttempt[index] = attemptAmount;
-            rate = (100 * testMinAttempt) / attemptAmount;
-        }
-        else if (status == 1)
-        {
-            numbersTestAttempt[index] = attemptAmount;
-            rate = (100 * testMinAttempt) / attemptAmount;
-        }
-        else if (status == 2)
-        {
-            colorsTestAttempt[index] = attemptAmount;
-            rate = (100 * testMinAttempt) / attemptAmount;
-        }
+        int rate = 100 / attemptAmount;
 
         DataManager.instance.SetTestRate(status, index, rate);
     }

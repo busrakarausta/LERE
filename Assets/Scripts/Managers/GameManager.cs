@@ -132,6 +132,7 @@ public class GameManager : MonoBehaviour
             int color = _listedColors[i];
 
             _activeColors[i].color = color;
+            Debug.Log(color);
             _activeColors[i].status = DataManager.instance.GetStatusOfTheColor(color);
         }
     }
