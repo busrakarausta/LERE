@@ -168,13 +168,16 @@ public class TestController : MonoBehaviour
             selectionImages[i].color = originalColor;
             selectionImages[i].gameObject.SetActive(true);
         }
+        if(_correctObject != null)
+        {
+            RectTransform currentTransform = _correctObject.GetComponent<RectTransform>();
 
-        RectTransform currentTransform = _correctObject.GetComponent<RectTransform>();
+            currentTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalWidth);
+            currentTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalHeight);
 
-        currentTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalWidth);
-        currentTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalHeight);
+            currentTransform.localPosition = new Vector2(originalPosX, 0);
+        }
 
-        currentTransform.localPosition = new Vector2(originalPosX, 0);
     }
 
     void GenerateLetter()

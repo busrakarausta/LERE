@@ -36,7 +36,6 @@ public class UIManager : MonoBehaviour
     public event Action<int> OnChangeLetterList;
     public event Action<int> OnChangeNumberList;
     public event Action<int> OnChangeColorList;
-    //Click Events
 
     private void Awake()
     {
@@ -82,6 +81,8 @@ public class UIManager : MonoBehaviour
 
         backToElements.SetActive(false);
         backToCategories.SetActive(true);
+
+        GameManager._instance.InActiveStep();
     }
 
     public void BackToHome()

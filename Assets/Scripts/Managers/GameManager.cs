@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     private ColorState[] _activeColors;
 
     private int currentElementIndex = 0;
-
+    private int currentElementStatus = 0;
     //From Data Manager
     [HideInInspector]
     public int _activeGameCount;
@@ -74,6 +74,16 @@ public class GameManager : MonoBehaviour
         _testController.OnTestEnd += OnTestDone;
 
         InitializeElementsList();
+    }
+
+    public void InActiveStep()
+    {
+        if (currentElementStatus == 0)
+            _educationController.InActiveEducation();
+        else if (currentElementStatus == 1)
+            _gameController.InActiveGame();
+        else
+            _testController.InActiveTest();
     }
 
     private void InitializeElementsList()
@@ -288,14 +298,17 @@ public class GameManager : MonoBehaviour
 
         if (status == 0)
         {
+            currentElementStatus = status;
             InstantiateEducation();
         }
         else if (status == 1)
         {
+            currentElementStatus = status;
             InstantiateGame();
         }
         else if(status == 2)
         {
+            currentElementStatus = status;
             InstantiateTest();
         }
         else
