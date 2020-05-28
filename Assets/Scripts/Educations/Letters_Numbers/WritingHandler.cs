@@ -5,13 +5,14 @@ using System.Collections.Generic;
 
 public class WritingHandler : MonoBehaviour
 {
+
 	public WritingHandler _instance;
 	public GameObject[] letters;//the letters list from A-Z
 	public GameObject[] numbers;//the letters list from 1-9
 	public GameObject[] colors;//the letters list from red-purple
 	public static int currentIndex;//the index of the current letter
 	private bool clickBeganOrMovedOutOfLetterArea;//does the click began or moved out of letter area
-	private int previousTracingPointIndex;//the index of the previous letter
+	private int previousTracingPointIndex;//the index of the previous point
 	private ArrayList currentTracingPoints;//holds the indexes of the tracing points
 	private Vector3 previousPosition, currentPosition = Vector3.zero;//the click previous position
 	public GameObject lineRendererPrefab;//the line renderer prefab
@@ -26,6 +27,7 @@ public class WritingHandler : MonoBehaviour
 	public AudioClip cheeringSound;
 	public AudioClip positiveSound;
 	public AudioClip wrongSound;
+	public ParticleSystem starParticle;
 
 	public event Action<int> OnLetterEnd;
 	private int status = 0;
@@ -342,6 +344,9 @@ public class WritingHandler : MonoBehaviour
 	{
 		if (positiveSound != null)
 			AudioSource.PlayClipAtPoint (positiveSound, Vector3.zero, 0.8f);//play the cheering sound effect
+
+		starParticle.transform.position = currentPosition;
+		starParticle.Play();
 
 		userAttempt++;
 	}

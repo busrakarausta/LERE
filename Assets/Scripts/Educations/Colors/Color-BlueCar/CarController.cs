@@ -9,7 +9,7 @@ public class CarController : MonoBehaviour, IPointerDownHandler
     public GameObject blueCar;
     public CarEnder carEnder;
     public int totalTouch = 0;
-
+    public ParticleSystem starParticle;
     public void OnPointerDown(PointerEventData eventData)
     {
         MakeBlue();
@@ -25,6 +25,8 @@ public class CarController : MonoBehaviour, IPointerDownHandler
     public void MakeBlue()
     {
         gameObject.SetActive(false);
+        starParticle.transform.position = blueCar.transform.position;
+        starParticle.Play();
         blueCar.SetActive(true);
         carEnder.IncreaseClickCount(totalTouch);
     }

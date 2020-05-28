@@ -64,6 +64,7 @@ public class LettersMenuController : MonoBehaviour
             //textOfButtons[i].text = letterListForText[i].ToString();
             Image letterImage = buttons[i].GetComponent<Image>();
             letterImage.sprite = letterImages[letterListForText[i] - 'A'];
+            Debug.Log(letterListForText[i] - 'A');
         }
     }
 

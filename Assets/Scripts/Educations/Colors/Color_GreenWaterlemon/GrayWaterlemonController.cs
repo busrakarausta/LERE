@@ -9,7 +9,7 @@ public class GrayWaterlemonController : MonoBehaviour, IPointerDownHandler
     public GameObject greenWaterlemon;
     public GreenWaterlemonEnder greenEnder;
     public int totalTouch = 0;
-
+    public ParticleSystem starParticle;
     public void OnPointerDown(PointerEventData eventData)
     {
         MakeGreen();
@@ -26,6 +26,8 @@ public class GrayWaterlemonController : MonoBehaviour, IPointerDownHandler
     public void MakeGreen()
     {
         gameObject.SetActive(false);
+        starParticle.transform.position = greenWaterlemon.transform.position;
+        starParticle.Play();
         greenWaterlemon.SetActive(true);
         greenEnder.IncreaseClickCount(totalTouch);
     }

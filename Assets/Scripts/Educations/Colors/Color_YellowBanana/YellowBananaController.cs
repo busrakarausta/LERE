@@ -9,7 +9,7 @@ public class YellowBananaController : MonoBehaviour, IPointerDownHandler
     public GameObject yellowBanana;
     public YellowBananaEnder yellowBananaEnder;
     public int totalTouch = 0;
-
+    public ParticleSystem starParticle;
     public void OnPointerDown(PointerEventData eventData)
     {
         MakeYellow();
@@ -26,6 +26,8 @@ public class YellowBananaController : MonoBehaviour, IPointerDownHandler
     public void MakeYellow()
     {
         gameObject.SetActive(false);
+        starParticle.transform.position = yellowBanana.transform.position;
+        starParticle.Play();
         yellowBanana.SetActive(true);
         yellowBananaEnder.IncreaseClickCount(totalTouch);
     }
