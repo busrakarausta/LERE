@@ -31,6 +31,8 @@ public class LettersMenuController : MonoBehaviour
 
         textOfButtons = new Text[_activeGameCount];
 
+        Debug.Log(textOfButtons.Length);
+
         for (int i = 0; i < _activeGameCount; i++)
         {
             textOfButtons[i] = buttons[i].transform.GetChild(0).GetComponent<Text>();
@@ -59,7 +61,7 @@ public class LettersMenuController : MonoBehaviour
 
         for (int i = 0; i < length; i++)
         {
-            textOfButtons[i].text = letterListForText[i].ToString();
+            //textOfButtons[i].text = letterListForText[i].ToString();
             Image letterImage = buttons[i].GetComponent<Image>();
             letterImage.sprite = letterImages[letterListForText[i] - 'A'];
         }

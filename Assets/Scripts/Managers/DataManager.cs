@@ -121,8 +121,9 @@ public class DataManager : MonoBehaviour
 
     public void DeleteAll()
     {
-        PlayerPrefs.DeleteAll();
+        Debug.Log("DataManager/DeleteAll");
 
+        PlayerPrefs.DeleteAll();
     }
 
     private void SetDailyList(string listKey, string listElement)
@@ -516,7 +517,7 @@ public class DataManager : MonoBehaviour
     {
         Debug.Log("DataManager/GetRemainingActiveLetterGameCount");
 
-        _remainingActiveLetterGameCount = PlayerPrefs.GetInt(remainLetterKey);
+        _remainingActiveLetterGameCount = PlayerPrefs.HasKey(remainLetterKey)?PlayerPrefs.GetInt(remainLetterKey):_activeGameCount;
 
         return _remainingActiveLetterGameCount;
     }
@@ -541,8 +542,8 @@ public class DataManager : MonoBehaviour
     {
         Debug.Log("DataManager/GetRemainingActiveNumberGameCount");
 
-        _remainingActiveNumberGameCount = PlayerPrefs.GetInt(remainNumberKey);
-
+        _remainingActiveNumberGameCount = PlayerPrefs.HasKey(remainNumberKey) ? PlayerPrefs.GetInt(remainNumberKey) : _activeGameCount;
+        
         return _remainingActiveNumberGameCount;
     }
 
@@ -564,8 +565,8 @@ public class DataManager : MonoBehaviour
     {
         Debug.Log("DataManager/SetRemainingActiveColorGameCount");
 
-        _remainingActiveColorGameCount = PlayerPrefs.GetInt(remainColorKey);
-
+        _remainingActiveColorGameCount = PlayerPrefs.HasKey(remainColorKey) ? PlayerPrefs.GetInt(remainColorKey) : _activeGameCount;
+        
         return _remainingActiveColorGameCount;
     }
 

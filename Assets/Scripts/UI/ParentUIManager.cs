@@ -25,7 +25,9 @@ public class ParentUIManager : MonoBehaviour
 
     public void ChangeGameCount()
     {
+        Debug.Log("ParentUIManager/ChangeGameCount");
         gameCountValue = (int)gameCountSlider.value;
+        Debug.Log((int)gameCountSlider.value);
         sliderShownValue.text = gameCountValue.ToString();
 
         DataManager.instance?.SetActiveGameCount(gameCountValue);
