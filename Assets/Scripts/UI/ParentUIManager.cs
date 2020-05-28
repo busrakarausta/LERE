@@ -23,6 +23,10 @@ public class ParentUIManager : MonoBehaviour
         ChangeGameCount();
     }
 
+    public void DeleteAll()
+    {
+        DataManager.instance.DeleteAll();
+    }
     public void ChangeGameCount()
     {
         Debug.Log("ParentUIManager/ChangeGameCount");
