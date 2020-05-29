@@ -7,18 +7,23 @@ public class OrangeBasketController : MonoBehaviour
 {
     public GameObject basket;
     public OrangeManager orangeManager;
-    private Transform newPosForChild;
+    private RectTransform newPosForChild;
     private int childIndex=0;
-    private Vector3 startPos;
-    
+    private RectTransform thisRect;
+
+    private void Awake()
+    {
+        thisRect = GetComponent<RectTransform>();
+    }
+
     private void Update()
     {
-        Vector3 newPos= orangeManager.GetCurrentOrangePos();
-        if(newPos!=transform.position)
+        Vector2 newPos= orangeManager.GetCurrentOrangePos();
+        if(newPos!= thisRect.anchoredPosition)
         {
-            transform.position = newPos;
-            newPosForChild = transform.GetChild(childIndex);
-            newPosForChild.position = new Vector3((newPosForChild.position.x - 30 + childIndex*20), newPosForChild.position.y, newPosForChild.position.z-30-childIndex*5f);
+            thisRect.anchoredPosition = new Vector2(newPos.x, thisRect.anchoredPosition.y);
+            newPosForChild = (RectTransform)transform.GetChild(childIndex);
+            newPosForChild.anchoredPosition = new Vector2((newPosForChild.anchoredPosition.x - 30 + childIndex * 20), newPosForChild.anchoredPosition.y);
             childIndex++;
         }
     }

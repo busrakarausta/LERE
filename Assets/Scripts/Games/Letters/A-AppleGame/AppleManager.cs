@@ -8,14 +8,14 @@ public class AppleManager : MonoBehaviour
     public bool isApplePosChanged=false;
 
     private Vector3 currentApplePos;
-    public Transform basketPos;
+    public RectTransform basketPos;
     private int totalAppleCount=4;
     private int currentAppleCount=0;
 
 
     private void Start()
     {
-        currentApplePos = basketPos.position;
+        currentApplePos = basketPos.anchoredPosition;
     }
     public Vector3 GetCurrentApplePos()
     {
@@ -25,7 +25,7 @@ public class AppleManager : MonoBehaviour
             return currentApplePos;
         }
         else
-            return basketPos.position;
+            return basketPos.anchoredPosition;
     }
     public void SetCurrentApplePos(Vector3 pos)
     {

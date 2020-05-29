@@ -6,17 +6,24 @@ using UnityEngine.Experimental.PlayerLoop;
 
 public class IceCreamManager : MonoBehaviour,IDragHandler
 {
-    public Transform cone;
-    private bool flag = false;
+    public RectTransform cone;
+    private bool flag = true;
     public IceCreamEnder IceCreamEnder; 
     private float x_pos=-5f;
-    
+    private RectTransform thisRect;
+
+    private void Awake()
+    {
+        thisRect = GetComponent<RectTransform>();
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
-        gameObject.transform.position = Input.mousePosition;
-        if (transform.position.x >= cone.position.x && transform.position.y >= cone.position.y && flag)
+        if (flag)
         {
-            TransformIcecream();
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = 0;
+            transform.position = pos;
         }
     }
     
@@ -24,7 +31,8 @@ public class IceCreamManager : MonoBehaviour,IDragHandler
     {
         if (other.gameObject.name == "Cone")
         {
-            flag = true;
+            if (flag)
+                TransformIcecream();
         }
     }
 
@@ -33,17 +41,20 @@ public class IceCreamManager : MonoBehaviour,IDragHandler
         if (gameObject.name == "Icecream1")
         {
             IceCreamEnder.IncreaseClickCount();
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+235f, cone.transform.position.z);
+            thisRect.anchoredPosition= new Vector3(-25, 55f, 0);
         }
         else if (gameObject.name == "Icecream2")
         {
+            
             IceCreamEnder.IncreaseClickCount();
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+330f, cone.transform.position.z);
+            thisRect.anchoredPosition = new Vector3(-25, 110f, 0);
         }
         else if (gameObject.name == "Icecream3")
         {
             IceCreamEnder.IncreaseClickCount();
-            transform.position= new Vector3(cone.transform.position.x+x_pos, cone.transform.position.y+420f, cone.transform.position.z);
+            thisRect.anchoredPosition = new Vector3(-25, 400f, 0);
         }
+        flag = false;
+
     }
 }

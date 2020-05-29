@@ -13,7 +13,6 @@ public class CarEnder : MonoBehaviour
         clickCount++;
         if (clickCount == totalClick)
         {
-            Debug.Log("touchCount Control on BlueCar     :            "+ touchCount); 
             ColorEducation.instance.OnColorEducationEnd(touchCount);
         }
     }

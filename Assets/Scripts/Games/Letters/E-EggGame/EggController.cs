@@ -32,7 +32,7 @@ public class EggController : MonoBehaviour, IPointerDownHandler
     public IEnumerator CruchEgg()
     {
         crushedEgg.SetActive(true);
-        crushedEggRB.velocity = new Vector2(0f, -200f);
+        crushedEggRB.velocity = new Vector2(0f, -2f);
 
         yield return new WaitForSeconds(2f);
         Debug.Log(clickCount);

@@ -9,43 +9,57 @@ public class DuckController : MonoBehaviour,IDragHandler
 {
     private int count = 0;
     public DuckEnder duckEnder;
+    private RectTransform thisRect;
+
+    private void Awake()
+    {
+        thisRect = GetComponent<RectTransform>();
+    }
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        other.gameObject.transform.parent = gameObject.transform;
+        RectTransform otherRect = other.gameObject.GetComponent<RectTransform>();
 
+        
+
+        //otherRect.parent = transform;
         if (other.gameObject.name == "Child1")
         {
+            other.gameObject.transform.parent = gameObject.transform;
             duckEnder.IncreaseChildCount();
-            other.gameObject.transform.position= new Vector3(gameObject.transform.position.x+210f,gameObject.transform.position.y-30f , gameObject.transform.position.z);
+            otherRect.localPosition= new Vector3(thisRect.anchoredPosition.x+320f, 0 , 0);
         }
         else if (other.gameObject.name == "Child2")
         {
+            other.gameObject.transform.parent = gameObject.transform;
             duckEnder.IncreaseChildCount();
-            other.gameObject.transform.position= new Vector3(gameObject.transform.position.x+340f,gameObject.transform.position.y-20f  , gameObject.transform.position.z);
+            otherRect.localPosition = new Vector3(thisRect.anchoredPosition.x + 590,  -200  ,0);
         }
         else if (other.gameObject.name == "Child3")
         {
+            other.gameObject.transform.parent = gameObject.transform;
             duckEnder.IncreaseChildCount();
-            other.gameObject.transform.position= new Vector3(gameObject.transform.position.x+470f,gameObject.transform.position.y-10f  , gameObject.transform.position.z);
+            otherRect.localPosition = new Vector3(thisRect.anchoredPosition.x + 730,  - 370, 0);
         }
         CountControl();
     }
         
         
-        public void OnDrag(PointerEventData eventData)
-        {
-            gameObject.transform.position = Input.mousePosition;
-        }
+    public void OnDrag(PointerEventData eventData)
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        transform.position = pos;
+    }
 
-        void CountControl()
+    void CountControl()
+    {
+        count++;
+        if (count == 3)
         {
-            count++;
-            if (count == 3)
-            {
-            EndOfTheLevel();
-            }
+        EndOfTheLevel();
         }
+    }
     private void EndOfTheLevel()
     {
         LevelController.instance.OnLevelEnd();

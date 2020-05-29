@@ -13,7 +13,9 @@ public class WatermelonManager : MonoBehaviour
 
     void Update()
     {
-        gameObject.transform.position = Input.mousePosition;
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        gameObject.transform.position = pos;
     }
     
 

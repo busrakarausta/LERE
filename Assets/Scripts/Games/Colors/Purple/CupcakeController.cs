@@ -12,7 +12,9 @@ public class CupcakeController : MonoBehaviour, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        gameObject.transform.position = Input.mousePosition;
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        gameObject.transform.position = pos;
         if (flag)
         {
             transform.position = gameObject.transform.position;

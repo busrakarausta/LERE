@@ -9,13 +9,13 @@ public class OrangeManager : MonoBehaviour
     public bool isOrangePosChanged=false;
 
     private Vector3 currentOrangePos;
-    public Transform basketPos;
+    public RectTransform basketPos;
     private int totalOrangeCount = 4;
     private int currentOrangeCount = 0;
 
     private void Start()
     {
-        currentOrangePos = basketPos.position;
+        currentOrangePos = basketPos.anchoredPosition;
     }
 
 
@@ -27,7 +27,7 @@ public class OrangeManager : MonoBehaviour
             return currentOrangePos;
         }
         else
-            return basketPos.position;
+            return basketPos.anchoredPosition;
     }
 
 

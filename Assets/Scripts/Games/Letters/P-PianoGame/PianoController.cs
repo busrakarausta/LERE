@@ -35,7 +35,7 @@ public class PianoController : MonoBehaviour, IPointerDownHandler
         insObj.SetActive(true);
         insObj.transform.SetParent(nota,true);
         insObj.transform.parent = piano.transform;
-        insObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 200f);
+        insObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, 2f);
         
         yield return new WaitForSeconds(1f);
         Destroy(insObj);

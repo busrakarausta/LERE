@@ -35,8 +35,8 @@ public class BalloonInputController : MonoBehaviour, IPointerDownHandler
     {
         if (transform.position.y <= balloon.position.y)
         {
-            balloonRigidbody2D.velocity = new Vector2(0f, 100f);
-            rockRigidbody2D.velocity = new Vector2(0f, -100f);
+            balloonRigidbody2D.velocity = new Vector2(0f, 2);
+            rockRigidbody2D.velocity = new Vector2(0f, -2);
         }
         clickCount++;
 

@@ -29,11 +29,9 @@ public class RabbitController : MonoBehaviour,IPointerDownHandler
         else if (clickCount == 2)
         {
             JumpLeftRabbit();
-        }
-        else
-        {
             LevelController.instance.OnLevelEnd();
         }
+
     }
 
     public void JumpRightRabbit()

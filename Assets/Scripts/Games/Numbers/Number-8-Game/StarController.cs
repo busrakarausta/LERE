@@ -18,10 +18,7 @@ public class StarController : MonoBehaviour, IPointerDownHandler
         Vector3 lastScale = transform.localScale;
         Vector3 finalScale = lastScale * 1.3f;
 
-
         gameObject.SetActive(false);
-        
-
 
         starGameEnder.IncreaseClickCount();
     }

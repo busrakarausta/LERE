@@ -23,13 +23,13 @@ public class PoteManager : MonoBehaviour,IPointerDownHandler{
     {
         if (gameObject.name == "Petal1" || gameObject.name == "Petal3" || gameObject.name == "Petal5")
         {
-            petal.velocity = new Vector2(-120f, -200f);
+            petal.velocity = new Vector2(-2f, -3f);
             yield return new WaitForSeconds(5);
             gameObject.SetActive(false);
         }
         else
         {
-            petal.velocity = new Vector2(120f, -200f);
+            petal.velocity = new Vector2(2f, -3f);
             yield return new WaitForSeconds(5);
             gameObject.SetActive(false);
         }

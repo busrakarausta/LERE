@@ -6,11 +6,16 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour , IPointerDownHandler
 {
-    public Transform basket;
+    public RectTransform basket;
     public bool flag= false;
     public Vector3 applePos;
     public AppleManager appleManager;
+    private RectTransform thisRect;
 
+    private void Awake()
+    {
+        thisRect = GetComponent<RectTransform>();
+    }
 
     void Update()
     {
@@ -23,22 +28,22 @@ public class InputController : MonoBehaviour , IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         appleManager.SetCurrentAppleCount();
-        if(transform.position.y > basket.position.y)
+        if(thisRect.anchoredPosition.y> basket.anchoredPosition.y)
               flag = true;
     }
 
     private void FallObject()
     {
-        if (transform.position.y <= basket.position.y)
+        if (thisRect.anchoredPosition.y <= basket.anchoredPosition.y)
         {
             flag = false;
-            applePos = basket.transform.position;
-            appleManager.SetCurrentApplePos(transform.position);
+            applePos = basket.anchoredPosition;
+            appleManager.SetCurrentApplePos(thisRect.anchoredPosition);
             transform.SetParent(basket);
-            transform.localPosition = Vector3.zero;
+            thisRect.anchoredPosition = Vector3.zero;
             return;
         }
-        transform.Translate(Vector3.down* 2);          
+        transform.Translate(Vector3.down*0.07f);          
     }
  
 

@@ -18,19 +18,20 @@ public class YogurtManager : MonoBehaviour, IDragHandler
     
     public void OnDrag(PointerEventData eventData)
     {
-        gameObject.transform.position = Input.mousePosition;
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        gameObject.transform.position = pos;
     }
     
-    IEnumerator OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "Child")
         {
-            yield return new WaitForSeconds(0.1f);
+            yogurt.SetActive(false);
             yogurtChild.SetActive(true);
             source.Play();
             LevelController.instance.OnLevelEnd();
         }
-        yogurt.SetActive(false);
     }
 
 }

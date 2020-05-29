@@ -5,31 +5,35 @@ using UnityEngine.EventSystems;
 
 public class HamburgerCreator : MonoBehaviour, IPointerDownHandler
 {
-    public Transform bottom;
+    public RectTransform bottom;
     public float move=50f;
     public HamburgerEnder hamburgerEnder;
+    private RectTransform thisRect;
 
+    private void Awake()
+    {
+        thisRect = GetComponent<RectTransform>();
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
-        StartCoroutine(AddToBurger());
+        AddToBurger();
     }
 
-    private IEnumerator AddToBurger()
+    private void AddToBurger()
     {
-        yield return new WaitForSeconds(0.3f);
         if (gameObject.name == "Meat")
         {
-            gameObject.transform.position = new Vector3(bottom.position.x, bottom.position.y + move, bottom.position.z);
+            thisRect.anchoredPosition = new Vector3(bottom.anchoredPosition.x, bottom.anchoredPosition.y + move, 0);
             hamburgerEnder.IncreaseMealCount();
         }
         else if (gameObject.name == "Lettuce")
         {
-            gameObject.transform.position=  new Vector3(bottom.position.x, bottom.position.y + move+70f, bottom.position.z);
+            thisRect.anchoredPosition =  new Vector3(bottom.anchoredPosition.x, bottom.anchoredPosition.y + move+70f, 0);
             hamburgerEnder.IncreaseMealCount();
         }
         else if (gameObject.name == "Top")
         {
-            gameObject.transform.position=  new Vector3(bottom.position.x, bottom.position.y + move+150f, bottom.position.z);
+            thisRect.anchoredPosition =  new Vector3(bottom.anchoredPosition.x, bottom.anchoredPosition.y + move+150f, 0);
             hamburgerEnder.IncreaseMealCount();
         }
     }

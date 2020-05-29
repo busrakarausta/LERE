@@ -7,17 +7,22 @@ public class BasketController : MonoBehaviour
 {
     public GameObject basket;
     public AppleManager appleManager;
-    private Transform newPosForChild;
+    private RectTransform newPosForChild;
     private int childIndex=0;
-    
+    private RectTransform thisRect;
+    private void Awake()
+    {
+        thisRect = GetComponent<RectTransform>();
+    }
+
     private void Update()
     {
-        Vector3 newPos= appleManager.GetCurrentApplePos();
-        if(newPos!=transform.position)
+        Vector2 newPos= appleManager.GetCurrentApplePos();
+        if(newPos!= thisRect.anchoredPosition)
         {
-            transform.position = newPos;
-            newPosForChild = transform.GetChild(childIndex);
-            newPosForChild.position = new Vector3((newPosForChild.position.x - 30 + childIndex*20), newPosForChild.position.y, newPosForChild.position.z-50f);
+            thisRect.anchoredPosition =  new Vector2(newPos.x,thisRect.anchoredPosition.y);
+            newPosForChild = (RectTransform)transform.GetChild(childIndex);
+            newPosForChild.anchoredPosition = new Vector2((newPosForChild.anchoredPosition.x - 30 + childIndex*20), newPosForChild.anchoredPosition.y);
             childIndex++;
         }
     }
