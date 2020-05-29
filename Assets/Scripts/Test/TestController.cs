@@ -134,7 +134,7 @@ public class TestController : MonoBehaviour
         {
             _correctObject = currentObj.gameObject;
 
-            starParticle.transform.position = _correctObject.transform.localPosition;
+            starParticle.transform.position = _correctObject.transform.position;
             starParticle.Play();
 
             EndOfTheTest();
