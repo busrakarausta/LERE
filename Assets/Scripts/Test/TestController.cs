@@ -35,6 +35,9 @@ public class TestController : MonoBehaviour
     private float originalWidth, originalHeight;
     private float originalPosX;
 
+    public ParticleSystem starParticle;
+
+
     public event Action OnTestEnd;
     private void Awake()
     {
@@ -129,7 +132,11 @@ public class TestController : MonoBehaviour
         }
         else
         {
-            _correctObject = currentObj.gameObject;  
+            _correctObject = currentObj.gameObject;
+
+            starParticle.transform.position = _correctObject.transform.localPosition;
+            starParticle.Play();
+
             EndOfTheTest();
             // Burasi testin bitisi -- buraya yazabilirsiniz
             OnTestEnd?.Invoke();
@@ -200,7 +207,7 @@ public class TestController : MonoBehaviour
         Debug.Log("TestController/GenerateNumber");
         Debug.Log(testObject);
         int originalNumberIndex = (int)(testObject - '0');
-        int firstRandomIndex = (originalNumberIndex + UnityEngine.Random.Range(1, 8)) % 9;
+        int firstRandomIndex = (originalNumberIndex+ UnityEngine.Random.Range(1, 8)) % 9;
         int secondRandomIndex = (originalNumberIndex + firstRandomIndex + 1) % 9;
 
         shownTestNumbers[0] = (char)('0'+ originalNumberIndex);
