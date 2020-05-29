@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\elifsolmaz\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\elifsolmaz\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_LERE.1044096170.00" t="ExcludeRecursive" />
+    <e p="C:\Users\elifsolmaz\Documents\GitHub\LERE" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Alphabet" t="Include">
+          <e p="Alphabet Board" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Button.cs" t="Include" />
+              <e p="Events.cs" t="Include" />
+              <e p="General.cs" t="Include" />
+              <e p="HierrachyManager.cs" t="Include" />
+              <e p="InputsHandler.cs" t="Include" />
+              <e p="LineRendererAttributes.cs" t="Include" />
+              <e p="PlatformChecker.cs" t="Include" />
+              <e p="Responsive.cs" t="Include" />
+              <e p="SmoothCurve.cs" t="Include" />
+              <e p="TracingPart.cs" t="Include" />
+              <e p="TracingPoint.cs" t="Include" />
+              <e p="WritingHandler.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Audio_Listener.cs" t="Include" />
+        <e p="Controller.cs" t="Include" />
+        <e p="deneme.cs" t="Include" />
+        <e p="GameManager.cs" t="Include" />
+        <e p="Indicator.cs" t="Include" />
+        <e p="Letter.cs" t="Include" />
+        <e p="Plugins" t="Include">
+          <e p="GitHub" t="Include">
+            <e p="Editor" t="Include">
+              <e p="credits.txt" t="Include" />
+              <e p="eula.txt" t="Include" />
+              <e p="ExtensionLoader.cs" t="Include" />
+              <e p="UnityAPIWrapper.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Games" t="Include">
+            <e p="A-AppleGame" t="Include">
+              <e p="AppleManager.cs" t="Include" />
+              <e p="BasketController.cs" t="Include" />
+              <e p="InputController.cs" t="Include" />
+            </e>
+            <e p="B-BalloonGame" t="Include">
+              <e p="BalloonInputController.cs" t="Include" />
+            </e>
+            <e p="C-CatGame" t="Include">
+              <e p="CatController.cs" t="Include" />
+            </e>
+            <e p="D-DuckGame" t="Include">
+              <e p="DuckController.cs" t="Include" />
+            </e>
+            <e p="E-EggGame" t="Include">
+              <e p="EggController.cs" t="Include" />
+            </e>
+            <e p="F-FlowerGame" t="Include">
+              <e p="PoteManager.cs" t="Include" />
+            </e>
+            <e p="G-GuitarGame" t="Include">
+              <e p="GuitarManager.cs" t="Include" />
+            </e>
+            <e p="H-HamburgerGame" t="Include">
+              <e p="HamburgerCreator.cs" t="Include" />
+            </e>
+            <e p="I-IceCreamGame" t="Include">
+              <e p="IceCreamManager.cs" t="Include" />
+            </e>
+            <e p="J-JellyfishGame" t="Include">
+              <e p="JellyfishController.cs" t="Include" />
+            </e>
+            <e p="K-KangarooGame" t="Include">
+              <e p="KangarooController.cs" t="Include" />
+            </e>
+            <e p="L-LampGame" t="Include">
+              <e p="LampController.cs" t="Include" />
+            </e>
+            <e p="M-MonkeyGame" t="Include">
+              <e p="MonkeyControl.cs" t="Include" />
+            </e>
+            <e p="N-NutGame" t="Include">
+              <e p="NutController.cs" t="Include" />
+            </e>
+            <e p="O-OrangeGame" t="Include">
+              <e p="OrangeBasketController.cs" t="Include" />
+              <e p="OrangeInputController.cs" t="Include" />
+              <e p="OrangeManager.cs" t="Include" />
+            </e>
+            <e p="P-PianoGame" t="Include">
+              <e p="PianoController.cs" t="Include" />
+            </e>
+            <e p="Q-QueenGame" t="Include">
+              <e p="CrownController.cs" t="Include" />
+            </e>
+            <e p="R-RabbitGame" t="Include">
+              <e p="RabbitController.cs" t="Include" />
+            </e>
+            <e p="S-SnowmanGame" t="Include">
+              <e p="SnowmanCreator.cs" t="Include" />
+            </e>
+            <e p="T-TomatoGame" t="Include">
+              <e p="TomatoManager.cs" t="Include" />
+            </e>
+            <e p="U-UmbrellaGame" t="Include">
+              <e p="UmbrellaController.cs" t="Include" />
+            </e>
+            <e p="V-VacuumCleaner" t="Include">
+              <e p="VacuumCleanerController.cs" t="Include" />
+            </e>
+            <e p="W-WatermelonGame" t="Include">
+              <e p="WatermelonManager.cs" t="Include" />
+            </e>
+            <e p="X-XylophoneGame" t="Include">
+              <e p="XylophoneManager.cs" t="Include" />
+            </e>
+            <e p="Y-YogurtGame" t="Include">
+              <e p="YogurtManager.cs" t="Include" />
+            </e>
+            <e p="Z-ZebraGame" t="Include">
+              <e p="StrawController.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Managers" t="Include">
+            <e p="LevelManager.cs" t="Include" />
+            <e p="ScenesManager.cs" t="Include" />
+          </e>
+          <e p="Test" t="Include">
+            <e p="DynamicLetter.cs" t="Include" />
+            <e p="TestController.cs" t="Include" />
+          </e>
+        </e>
+        <e p="UIManager.cs" t="Include" />
+      </e>
+      <e p="LERE.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
