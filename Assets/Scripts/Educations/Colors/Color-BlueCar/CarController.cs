@@ -12,6 +12,7 @@ public class CarController : MonoBehaviour, IPointerDownHandler
     public ParticleSystem starParticle;
     public void OnPointerDown(PointerEventData eventData)
     {
+        totalTouch++;
         MakeBlue();
     }
     void Update()

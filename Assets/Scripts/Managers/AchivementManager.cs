@@ -48,6 +48,7 @@ public class AchivementManager : MonoBehaviour
         }
         else if (status == 2)
         {
+            Debug.Log(attemptAmount);
             rate = (100 * colorEducationMinMove[index]) / attemptAmount;
         }
 

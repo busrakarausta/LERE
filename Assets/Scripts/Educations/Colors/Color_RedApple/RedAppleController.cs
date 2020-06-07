@@ -14,6 +14,7 @@ public class RedAppleController : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        totalTouch++;
         MakeRed();
     }
 
