@@ -12,6 +12,7 @@ public class GrayWaterlemonController : MonoBehaviour, IPointerDownHandler
     public ParticleSystem starParticle;
     public void OnPointerDown(PointerEventData eventData)
     {
+        totalTouch++;
         MakeGreen();
     }
 

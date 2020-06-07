@@ -13,6 +13,7 @@ public class PurpleGrapesController : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        totalTouch++;
         MakePurple();
     }
 

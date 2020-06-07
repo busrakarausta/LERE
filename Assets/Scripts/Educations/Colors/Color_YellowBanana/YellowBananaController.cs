@@ -12,6 +12,7 @@ public class YellowBananaController : MonoBehaviour, IPointerDownHandler
     public ParticleSystem starParticle;
     public void OnPointerDown(PointerEventData eventData)
     {
+        totalTouch++;
         MakeYellow();
     }
 
